@@ -22,6 +22,7 @@ require_once SAFE_COLOGNE_PATH . '/inc/custom-post-types.php';
 require_once SAFE_COLOGNE_PATH . '/inc/ajax-handlers.php';
 require_once SAFE_COLOGNE_PATH . '/inc/gutenberg-blocks.php';
 require_once SAFE_COLOGNE_PATH . '/inc/performance.php';
+require_once SAFE_COLOGNE_PATH . '/inc/accessibility.php';
 
 // Theme setup
 add_action('after_setup_theme', 'safe_cologne_setup');
