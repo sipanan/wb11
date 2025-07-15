@@ -71,6 +71,23 @@ function safe_cologne_theme_support() {
     
     // Add support for custom units
     add_theme_support('custom-units', array('px', 'em', 'rem', '%', 'vh', 'vw'));
+    
+    // Add support for block templates
+    add_theme_support('block-templates');
+    
+    // Add support for post formats
+    add_theme_support('post-formats', array(
+        'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio'
+    ));
+    
+    // Add support for custom spacing
+    add_theme_support('custom-spacing');
+    
+    // Add support for border color
+    add_theme_support('border');
+    
+    // Add support for appearance tools
+    add_theme_support('appearance-tools');
 }
 
 // Register custom image sizes

@@ -20,6 +20,9 @@ require_once SAFE_COLOGNE_PATH . '/inc/theme-setup.php';
 require_once SAFE_COLOGNE_PATH . '/inc/customizer.php';
 require_once SAFE_COLOGNE_PATH . '/inc/custom-post-types.php';
 require_once SAFE_COLOGNE_PATH . '/inc/ajax-handlers.php';
+require_once SAFE_COLOGNE_PATH . '/inc/gutenberg-blocks.php';
+require_once SAFE_COLOGNE_PATH . '/inc/performance.php';
+require_once SAFE_COLOGNE_PATH . '/inc/accessibility.php';
 
 // Theme setup
 add_action('after_setup_theme', 'safe_cologne_setup');
@@ -91,7 +94,18 @@ function safe_cologne_scripts() {
             'success' => __('Erfolgreich gesendet!', 'safe-cologne'),
             'error' => __('Ein Fehler ist aufgetreten.', 'safe-cologne'),
         ),
+        'customizer' => array(
+            'enableAnimations' => get_theme_mod('safe_cologne_enable_animations', true),
+            'smoothScrolling' => get_theme_mod('safe_cologne_smooth_scrolling', true),
+            'mobileContactButton' => get_theme_mod('safe_cologne_mobile_contact_button', true),
+            'emergencyPhone' => get_theme_mod('safe_cologne_emergency_phone', '0221 65058801'),
+        ),
     ));
+    
+    // Conditional scripts
+    if (is_singular() && comments_open() && get_option('thread_comments')) {
+        wp_enqueue_script('comment-reply');
+    }
 }
 
 // Register widget areas
