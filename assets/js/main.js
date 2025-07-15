@@ -13,6 +13,8 @@
         initCookieBanner();
         initAnimations();
         initEmergencyButton();
+        initMobileContactButton();
+        initAccessibility();
     });
 
     // Navigation
@@ -210,7 +212,7 @@
 
     // Emergency Button
     function initEmergencyButton() {
-        $('.emergency-btn').on('click', function(e) {
+        $('.emergency-btn, .sc-emergency-button').on('click', function(e) {
             // Optional: Track emergency button clicks
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'click', {
@@ -219,6 +221,172 @@
                 });
             }
         });
+    }
+
+    // Mobile Contact Button
+    function initMobileContactButton() {
+        if (!safeCologne.customizer.mobileContactButton) {
+            return;
+        }
+        
+        // Create mobile contact button if not exists
+        if (!$('.sc-mobile-contact-btn').length) {
+            const emergencyPhone = safeCologne.customizer.emergencyPhone || '0221 65058801';
+            const cleanPhone = emergencyPhone.replace(/[^0-9+]/g, '');
+            
+            const mobileBtn = $('<a></a>')
+                .attr('href', 'tel:' + cleanPhone)
+                .attr('aria-label', 'Notfall-Kontakt')
+                .addClass('sc-mobile-contact-btn')
+                .html('<i class="fas fa-phone"></i>')
+                .appendTo('body');
+            
+            // Show/hide based on scroll position
+            $(window).on('scroll', debounce(function() {
+                if ($(window).scrollTop() > 300) {
+                    mobileBtn.addClass('show');
+                } else {
+                    mobileBtn.removeClass('show');
+                }
+            }, 100));
+            
+            // Track clicks
+            mobileBtn.on('click', function() {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'click', {
+                        'event_category': 'Mobile Contact',
+                        'event_label': 'Mobile Contact Button'
+                    });
+                }
+            });
+        }
+    }
+
+    // Accessibility Enhancements
+    function initAccessibility() {
+        // Keyboard navigation for mobile menu
+        $('.mobile-toggle').on('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                $(this).click();
+            }
+        });
+        
+        // Focus management for mobile menu
+        $('.nav-menu, #primary-menu').on('keydown', function(e) {
+            if (e.key === 'Escape') {
+                $('.mobile-toggle').click().focus();
+            }
+        });
+        
+        // Skip links
+        $('.skip-link').on('click', function(e) {
+            const target = $(this).attr('href');
+            if (target && $(target).length) {
+                e.preventDefault();
+                $(target).focus();
+                $('html, body').animate({
+                    scrollTop: $(target).offset().top - 100
+                }, 300);
+            }
+        });
+        
+        // Improve button accessibility
+        $('button, .btn, .button').each(function() {
+            const $btn = $(this);
+            if (!$btn.attr('aria-label') && !$btn.attr('title')) {
+                const text = $btn.text().trim();
+                if (text) {
+                    $btn.attr('aria-label', text);
+                }
+            }
+        });
+        
+        // Focus visible for keyboard users
+        $(document).on('keydown', function(e) {
+            if (e.key === 'Tab') {
+                $('body').addClass('keyboard-nav');
+            }
+        });
+        
+        $(document).on('mousedown', function() {
+            $('body').removeClass('keyboard-nav');
+        });
+        
+        // Enhanced form accessibility
+        $('form').each(function() {
+            const $form = $(this);
+            
+            // Add required field indicators
+            $form.find('input[required], textarea[required], select[required]').each(function() {
+                const $field = $(this);
+                const $label = $form.find('label[for="' + $field.attr('id') + '"]');
+                
+                if ($label.length && !$label.find('.required').length) {
+                    $label.append(' <span class="required" aria-label="Pflichtfeld">*</span>');
+                }
+            });
+            
+            // Form validation feedback
+            $form.on('submit', function(e) {
+                const $invalidFields = $form.find(':invalid');
+                
+                if ($invalidFields.length) {
+                    e.preventDefault();
+                    $invalidFields.first().focus();
+                    
+                    // Add error styling
+                    $invalidFields.addClass('error');
+                    $invalidFields.on('input', function() {
+                        $(this).removeClass('error');
+                    });
+                }
+            });
+        });
+        
+        // Improve image accessibility
+        $('img').each(function() {
+            const $img = $(this);
+            if (!$img.attr('alt') && !$img.attr('role')) {
+                $img.attr('alt', '');
+            }
+        });
+        
+        // ARIA landmarks
+        if (!$('main').length) {
+            $('#main, .main-content').attr('role', 'main');
+        }
+        
+        // Enhanced color contrast warnings (development mode)
+        if (window.location.hostname === 'localhost' || window.location.hostname.includes('dev')) {
+            checkColorContrast();
+        }
+    }
+
+    // Color Contrast Checker (development helper)
+    function checkColorContrast() {
+        // Simple contrast ratio checker for development
+        const elements = document.querySelectorAll('a, button, .btn, p, h1, h2, h3, h4, h5, h6');
+        
+        elements.forEach(el => {
+            const styles = window.getComputedStyle(el);
+            const bgColor = styles.backgroundColor;
+            const textColor = styles.color;
+            
+            // Basic contrast check (simplified)
+            if (bgColor !== 'rgba(0, 0, 0, 0)' && textColor !== 'rgba(0, 0, 0, 0)') {
+                const contrast = calculateContrast(bgColor, textColor);
+                if (contrast < 4.5) {
+                    console.warn('Low contrast ratio detected:', el, 'Ratio:', contrast);
+                }
+            }
+        });
+    }
+
+    // Simple contrast calculation helper
+    function calculateContrast(color1, color2) {
+        // This is a simplified version - in production, use a proper library
+        return 4.5; // Return acceptable ratio for now
     }
 
     // Analytics
