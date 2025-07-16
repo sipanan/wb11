@@ -2,32 +2,153 @@
 /**
  * The front page template
  *
- * @package Safe_Cologne
+ * @package SpecSec
  */
 
 get_header(); ?>
 
 <!-- Hero Section -->
-<?php get_template_part('template-parts/hero', 'section'); ?>
-
-<!-- Features Section -->
-<section class="section features" aria-labelledby="features-title">
-    <div class="container">
-        <h2 id="features-title" class="section-title"><?php esc_html_e('Was uns besonders macht', 'safe-cologne'); ?></h2>
-        <p class="section-subtitle">
-            <?php esc_html_e('Professionelle Sicherheit mit menschlichem Ansatz', 'safe-cologne'); ?>
-        </p>
-        
-        <div class="features-grid">
-            <article class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-handshake"></i>
+<section class="hero-section" id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="container">
+            <div class="hero-text">
+                <h1 class="hero-title"><?php echo esc_html(specsec_get_customizer_option('specsec_hero_title', 'Werde Teil unseres Teams!')); ?></h1>
+                <p class="hero-subtitle"><?php echo esc_html(specsec_get_customizer_option('specsec_hero_subtitle', 'Gemeinsam zum Erfolg')); ?></p>
+                <p class="hero-description"><?php echo esc_html(specsec_get_customizer_option('specsec_hero_description', 'Professionelle Veranstaltungssicherheit und Ordnungsdienste mit über 41 Jahren Erfahrung. Wir bieten Ihnen umfassende Lösungen für Ihre Veranstaltung.')); ?></p>
+                <div class="hero-buttons">
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('karriere'))); ?>" class="btn btn-primary">
+                        <?php esc_html_e('Alle Jobs', 'specsec'); ?>
+                    </a>
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('team'))); ?>" class="btn btn-secondary">
+                        <?php esc_html_e('Mehr erfahren', 'specsec'); ?>
+                    </a>
                 </div>
-                <h3><?php esc_html_e('Diskretion & Menschenkenntnis', 'safe-cologne'); ?></h3>
-                <p><?php esc_html_e('Wir handeln respektvoll und deeskalierend. Unsere Profis arbeiten mit Fingerspitzengefühl.', 'safe-cologne'); ?></p>
-            </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="services-section" id="services">
+    <div class="container">
+        <h2 class="section-title"><?php esc_html_e('Unsere Leistungen', 'specsec'); ?></h2>
+        <p class="section-subtitle"><?php esc_html_e('Professionelle Sicherheit für Ihre Veranstaltung', 'specsec'); ?></p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3><?php echo esc_html(specsec_get_customizer_option('specsec_vsd_title', 'Veranstaltungssicherheitsdienste (VSD)')); ?></h3>
+                <p><?php echo esc_html(specsec_get_customizer_option('specsec_vsd_description', 'Risikoanalyse, Personal-Konzepte und reibungslose Abläufe für Ihre Veranstaltung.')); ?></p>
+            </div>
             
-            <article class="feature-card">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3><?php echo esc_html(specsec_get_customizer_option('specsec_vod_title', 'Veranstaltungsordnungsdienste (VOD)')); ?></h3>
+                <p><?php echo esc_html(specsec_get_customizer_option('specsec_vod_description', 'Besucherservice, Engagement und professionelles Crowd Management.')); ?></p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <h3><?php echo esc_html(specsec_get_customizer_option('specsec_projektierung_title', 'Projektierung')); ?></h3>
+                <p><?php echo esc_html(specsec_get_customizer_option('specsec_projektierung_description', 'Anforderungsanalyse, Flächenplanung und maßgeschneiderte Personalkonzepte.')); ?></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics Section -->
+<section class="statistics-section" id="statistics">
+    <div class="container">
+        <div class="statistics-grid">
+            <div class="stat-item">
+                <div class="stat-number"><?php echo esc_html(specsec_get_customizer_option('specsec_employees', '780')); ?></div>
+                <div class="stat-label"><?php esc_html_e('Mitarbeiter', 'specsec'); ?></div>
+            </div>
+            
+            <div class="stat-item">
+                <div class="stat-number"><?php echo esc_html(specsec_get_customizer_option('specsec_events', '2000+')); ?></div>
+                <div class="stat-label"><?php esc_html_e('Veranstaltungen/Jahr', 'specsec'); ?></div>
+            </div>
+            
+            <div class="stat-item">
+                <div class="stat-number"><?php echo esc_html(specsec_get_customizer_option('specsec_experience', '41')); ?></div>
+                <div class="stat-label"><?php esc_html_e('Jahre Erfahrung', 'specsec'); ?></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section" id="testimonials">
+    <div class="container">
+        <h2 class="section-title"><?php esc_html_e('Was unsere Kunden sagen', 'specsec'); ?></h2>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="testimonial-quote">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="testimonial-text"><?php echo esc_html(specsec_get_customizer_option('specsec_testimonial1_text', 'Das hohe Maß an Vertrauen, das ich in die Arbeit von SpecSec habe, führt dazu, dass ich ausschließlich mit ihnen arbeite - und das seit 1990.')); ?></p>
+                    <div class="testimonial-author">
+                        <strong><?php echo esc_html(specsec_get_customizer_option('specsec_testimonial1_name', 'Marek Lieberberg')); ?></strong>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="testimonial-quote">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="testimonial-text"><?php echo esc_html(specsec_get_customizer_option('specsec_testimonial2_text', 'Ich hatte sofort das Gefühl, dass meine Sicherheit in guten Händen ist. Professionell und menschlich zugleich.')); ?></p>
+                    <div class="testimonial-author">
+                        <strong><?php echo esc_html(specsec_get_customizer_option('specsec_testimonial2_name', 'Herbert Grönemeyer')); ?></strong>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="testimonial-quote">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="testimonial-text"><?php echo esc_html(specsec_get_customizer_option('specsec_testimonial3_text', 'Exzellente Arbeit und höchste Professionalität. Ich fühle mich sicher und gut betreut.')); ?></p>
+                    <div class="testimonial-author">
+                        <strong><?php echo esc_html(specsec_get_customizer_option('specsec_testimonial3_name', 'Luciano Pavarotti')); ?></strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section" id="cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2><?php esc_html_e('Du willst Karriere machen?', 'specsec'); ?></h2>
+            <p><?php esc_html_e('Werde Teil unseres professionellen Teams und gestalte die Zukunft der Veranstaltungssicherheit mit.', 'specsec'); ?></p>
+            <div class="cta-buttons">
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('karriere'))); ?>" class="btn btn-primary">
+                    <?php esc_html_e('Jetzt bewerben', 'specsec'); ?>
+                </a>
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('kontakt'))); ?>" class="btn btn-secondary">
+                    <?php esc_html_e('Kontakt aufnehmen', 'specsec'); ?>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<?php get_footer(); ?>
                 <div class="feature-icon">
                     <i class="fas fa-graduation-cap"></i>
                 </div>

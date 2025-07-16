@@ -1,53 +1,320 @@
 <?php
 /**
- * Template Name: Jobportal
- * 
- * Enterprise-grade jobportal template for SafeCologne
- * Optimized for conversion, UX, and performance
- * 
- * @package SafeCologne
- * @version 3.0.0
+ * Template Name: Karriere (Jobportal)
  *
+ * @package SpecSec
  */
 
-get_header(); 
+get_header(); ?>
 
-// Get header height for proper spacing
-$header_height = 80; // Adjust based on your actual header
-?>
+<div class="jobportal-page">
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title"><?php esc_html_e('Du willst Karriere machen?', 'specsec'); ?></h1>
+            <p class="page-subtitle"><?php esc_html_e('Werde Teil unseres professionellen Teams und gestalte die Zukunft der Veranstaltungssicherheit mit.', 'specsec'); ?></p>
+        </div>
+    </section>
 
-<main id="karriere-main" class="karriere-page" data-header-height="<?php echo esc_attr($header_height); ?>">
-    
-    <!-- Hero Section with Parallax -->
-    <section class="hero-section" data-aos="fade">
-        <div class="hero-overlay"></div>
-        <div class="hero-content container">
-            <div class="hero-text">
-                <h1 class="hero-title">
-                    <span class="text-gradient">Ihre Karriere</span><br>
-                    bei SafeCologne
-                </h1>
-                <p class="hero-subtitle">
-                    Werden Sie Teil des führenden Sicherheitsunternehmens in Köln
-                </p>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number" data-count="500">0</span>
-                        <span class="stat-label">Mitarbeiter</span>
+    <!-- Job Positions -->
+    <section class="job-positions">
+        <div class="container">
+            <h2 class="section-title"><?php esc_html_e('Unsere aktuellen Stellenausschreibungen', 'specsec'); ?></h2>
+            
+            <div class="jobs-grid">
+                <div class="job-card">
+                    <div class="job-header">
+                        <h3><?php esc_html_e('Sicherheitsdienstmitarbeiter/in (§34a GewO)', 'specsec'); ?></h3>
+                        <span class="job-type"><?php esc_html_e('Vollzeit / Teilzeit', 'specsec'); ?></span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-count="15">0</span>
-                        <span class="stat-label">Jahre Erfahrung</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-count="98">0</span>
-                        <span class="stat-label">% Zufriedenheit</span>
+                    <div class="job-content">
+                        <div class="job-description">
+                            <h4><?php esc_html_e('Aufgaben:', 'specsec'); ?></h4>
+                            <ul>
+                                <li><?php esc_html_e('Durchführung von Sicherheitskontrollen bei Veranstaltungen', 'specsec'); ?></li>
+                                <li><?php esc_html_e('Einlass- und Ausgangskontrollen', 'specsec'); ?></li>
+                                <li><?php esc_html_e('Deeskalation und Konfliktmanagement', 'specsec'); ?></li>
+                                <li><?php esc_html_e('Zusammenarbeit mit Veranstaltern und Behörden', 'specsec'); ?></li>
+                            </ul>
+                        </div>
+                        <div class="job-requirements">
+                            <h4><?php esc_html_e('Voraussetzungen:', 'specsec'); ?></h4>
+                            <ul>
+                                <li><?php esc_html_e('Gültige Unterrichtung nach §34a GewO', 'specsec'); ?></li>
+                                <li><?php esc_html_e('Zuverlässigkeit und Teamfähigkeit', 'specsec'); ?></li>
+                                <li><?php esc_html_e('Deutsch in Wort und Schrift', 'specsec'); ?></li>
+                                <li><?php esc_html_e('Flexible Arbeitszeiten', 'specsec'); ?></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <a href="#bewerbung" class="hero-cta smooth-scroll">
-                    Jetzt bewerben
-                    <svg class="cta-arrow" width="20" height="20" viewBox="0 0 20 20">
-                        <path d="M10 3L17 10L10 17" stroke="currentColor" stroke-width="2" fill="none"/>
+                
+                <div class="job-card">
+                    <div class="job-header">
+                        <h3><?php esc_html_e('Ausbildung: Fachkraft für Schutz und Sicherheit', 'specsec'); ?></h3>
+                        <span class="job-type"><?php esc_html_e('Ausbildung', 'specsec'); ?></span>
+                    </div>
+                    <div class="job-content">
+                        <div class="job-description">
+                            <h4><?php esc_html_e('Das erwartet Sie:', 'specsec'); ?></h4>
+                            <ul>
+                                <li><?php esc_html_e('3-jährige Ausbildung in einem zukunftssicheren Beruf', 'specsec'); ?></li>
+                                <li><?php esc_html_e('Praxisnahe Ausbildung in verschiedenen Sicherheitsbereichen', 'specsec'); ?></li>
+                                <li><?php esc_html_e('Übernahmegarantie bei erfolgreichem Abschluss', 'specsec'); ?></li>
+                                <li><?php esc_html_e('Attraktive Ausbildungsvergütung', 'specsec'); ?></li>
+                            </ul>
+                        </div>
+                        <div class="job-requirements">
+                            <h4><?php esc_html_e('Voraussetzungen:', 'specsec'); ?></h4>
+                            <ul>
+                                <li><?php esc_html_e('Mittlere Reife oder vergleichbarer Abschluss', 'specsec'); ?></li>
+                                <li><?php esc_html_e('Interesse an Sicherheitstechnik', 'specsec'); ?></li>
+                                <li><?php esc_html_e('Zuverlässigkeit und Verantwortungsbewusstsein', 'specsec'); ?></li>
+                                <li><?php esc_html_e('Gute Deutschkenntnisse', 'specsec'); ?></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title"><?php esc_html_e('Warum SpecSec?', 'specsec'); ?></h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3><?php esc_html_e('Karrierechancen', 'specsec'); ?></h3>
+                    <p><?php esc_html_e('Individuelle Weiterbildungs- und Aufstiegsmöglichkeiten in einem wachsenden Unternehmen.', 'specsec'); ?></p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3><?php esc_html_e('Teamgeist', 'specsec'); ?></h3>
+                    <p><?php esc_html_e('Arbeiten Sie in einem professionellen Team mit über 41 Jahren Branchenerfahrung.', 'specsec'); ?></p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-euro-sign"></i>
+                    </div>
+                    <h3><?php esc_html_e('Attraktive Vergütung', 'specsec'); ?></h3>
+                    <p><?php esc_html_e('Faire Bezahlung, pünktliche Lohnzahlung und attraktive Zuschläge für Wochenend- und Feiertagsarbeit.', 'specsec'); ?></p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3><?php esc_html_e('Sicherheit', 'specsec'); ?></h3>
+                    <p><?php esc_html_e('Arbeitsplatz in einem stabilen, etablierten Unternehmen mit langfristiger Perspektive.', 'specsec'); ?></p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3><?php esc_html_e('Weiterbildung', 'specsec'); ?></h3>
+                    <p><?php esc_html_e('Regelmäßige Schulungen und Fortbildungen zur persönlichen und beruflichen Entwicklung.', 'specsec'); ?></p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3><?php esc_html_e('Flexibilität', 'specsec'); ?></h3>
+                    <p><?php esc_html_e('Flexible Arbeitszeiten und Einsatzplanung, die sich an Ihre Bedürfnisse anpassen.', 'specsec'); ?></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="application-form" id="bewerbung">
+        <div class="container">
+            <h2 class="section-title"><?php esc_html_e('Jetzt bewerben', 'specsec'); ?></h2>
+            <p class="section-subtitle"><?php esc_html_e('Senden Sie uns Ihre Bewerbung oder kontaktieren Sie uns direkt unter ', 'specsec'); ?><a href="mailto:<?php echo esc_attr(specsec_get_customizer_option('specsec_jobs_email', 'jobs@specsec.de')); ?>"><?php echo esc_html(specsec_get_customizer_option('specsec_jobs_email', 'jobs@specsec.de')); ?></a></p>
+            
+            <form class="job-application-form" method="post" enctype="multipart/form-data">
+                <?php wp_nonce_field('specsec_job_application', 'job_application_nonce'); ?>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="first_name"><?php esc_html_e('Vorname *', 'specsec'); ?></label>
+                        <input type="text" id="first_name" name="first_name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="last_name"><?php esc_html_e('Nachname *', 'specsec'); ?></label>
+                        <input type="text" id="last_name" name="last_name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email"><?php esc_html_e('E-Mail *', 'specsec'); ?></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone"><?php esc_html_e('Telefon *', 'specsec'); ?></label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address"><?php esc_html_e('Adresse', 'specsec'); ?></label>
+                        <input type="text" id="address" name="address">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="position"><?php esc_html_e('Gewünschte Position *', 'specsec'); ?></label>
+                        <select id="position" name="position" required>
+                            <option value=""><?php esc_html_e('Bitte wählen', 'specsec'); ?></option>
+                            <option value="security"><?php esc_html_e('Sicherheitsdienstmitarbeiter/in', 'specsec'); ?></option>
+                            <option value="trainee"><?php esc_html_e('Ausbildung Fachkraft für Schutz und Sicherheit', 'specsec'); ?></option>
+                            <option value="initiative"><?php esc_html_e('Initiativbewerbung', 'specsec'); ?></option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="start_date"><?php esc_html_e('Verfügbar ab', 'specsec'); ?></label>
+                        <input type="date" id="start_date" name="start_date">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="qualifications"><?php esc_html_e('Qualifikationen', 'specsec'); ?></label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="qualifications[]" value="34a">
+                                <?php esc_html_e('§34a GewO Unterrichtung', 'specsec'); ?>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="qualifications[]" value="first_aid">
+                                <?php esc_html_e('Erste Hilfe Kurs', 'specsec'); ?>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="qualifications[]" value="driving_license">
+                                <?php esc_html_e('Führerschein', 'specsec'); ?>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="message"><?php esc_html_e('Nachricht / Motivation', 'specsec'); ?></label>
+                    <textarea id="message" name="message" rows="5" placeholder="<?php esc_attr_e('Erzählen Sie uns etwas über sich und warum Sie bei SpecSec arbeiten möchten...', 'specsec'); ?>"></textarea>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="resume"><?php esc_html_e('Lebenslauf hochladen', 'specsec'); ?></label>
+                    <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+                    <small><?php esc_html_e('Erlaubte Dateiformate: PDF, DOC, DOCX (max. 5MB)', 'specsec'); ?></small>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="certificates"><?php esc_html_e('Zeugnisse / Zertifikate hochladen', 'specsec'); ?></label>
+                    <input type="file" id="certificates" name="certificates" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                    <small><?php esc_html_e('Erlaubte Dateiformate: PDF, DOC, DOCX, JPG, PNG (max. 5MB)', 'specsec'); ?></small>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="privacy_consent" required>
+                        <?php esc_html_e('Ich stimme der Verarbeitung meiner Daten gemäß Datenschutzerklärung zu. *', 'specsec'); ?>
+                    </label>
+                </div>
+                
+                <div class="form-submit">
+                    <button type="submit" class="btn btn-primary" name="submit_application">
+                        <?php esc_html_e('Bewerbung absenden', 'specsec'); ?>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Alternative -->
+    <section class="contact-alternative">
+        <div class="container">
+            <h2 class="section-title"><?php esc_html_e('Oder kontaktieren Sie uns direkt', 'specsec'); ?></h2>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-content">
+                        <h3><?php esc_html_e('E-Mail', 'specsec'); ?></h3>
+                        <p><a href="mailto:<?php echo esc_attr(specsec_get_customizer_option('specsec_jobs_email', 'jobs@specsec.de')); ?>"><?php echo esc_html(specsec_get_customizer_option('specsec_jobs_email', 'jobs@specsec.de')); ?></a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-content">
+                        <h3><?php esc_html_e('Telefon', 'specsec'); ?></h3>
+                        <p><a href="tel:<?php echo esc_attr(specsec_get_phone()); ?>"><?php echo esc_html(specsec_get_phone()); ?></a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-content">
+                        <h3><?php esc_html_e('Adresse', 'specsec'); ?></h3>
+                        <p><?php echo esc_html(specsec_get_address()); ?></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<?php 
+// Handle form submission
+if (isset($_POST['submit_application']) && wp_verify_nonce($_POST['job_application_nonce'], 'specsec_job_application')) {
+    // Process form data here
+    // This is a simplified example - in a real implementation, you'd want to:
+    // 1. Sanitize and validate all inputs
+    // 2. Handle file uploads securely
+    // 3. Send email notifications
+    // 4. Store in database if needed
+    
+    $first_name = sanitize_text_field($_POST['first_name']);
+    $last_name = sanitize_text_field($_POST['last_name']);
+    $email = sanitize_email($_POST['email']);
+    $phone = sanitize_text_field($_POST['phone']);
+    $position = sanitize_text_field($_POST['position']);
+    $message = sanitize_textarea_field($_POST['message']);
+    
+    // Send email to jobs@specsec.de
+    $to = specsec_get_customizer_option('specsec_jobs_email', 'jobs@specsec.de');
+    $subject = 'Neue Bewerbung von ' . $first_name . ' ' . $last_name;
+    $body = "Neue Bewerbung eingegangen:\n\n";
+    $body .= "Name: " . $first_name . " " . $last_name . "\n";
+    $body .= "E-Mail: " . $email . "\n";
+    $body .= "Telefon: " . $phone . "\n";
+    $body .= "Position: " . $position . "\n";
+    $body .= "Nachricht:\n" . $message . "\n";
+    
+    $headers = array('Content-Type: text/plain; charset=UTF-8');
+    
+    if (wp_mail($to, $subject, $body, $headers)) {
+        echo '<div class="success-message">Vielen Dank für Ihre Bewerbung! Wir werden uns in Kürze bei Ihnen melden.</div>';
+    } else {
+        echo '<div class="error-message">Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt.</div>';
+    }
+}
+
+get_footer(); ?>
                     </svg>
                 </a>
             </div>

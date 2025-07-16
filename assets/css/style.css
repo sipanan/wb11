@@ -1,17 +1,18 @@
 /**
- * Safe Cologne Theme Styles
+ * SpecSec Professional Security Theme Styles
  * Version: 1.0.0
  */
 
 /* CSS Variables */
 :root {
-    --primary-red: #E30613;
-    --dark-red: #B20510;
-    --light-red: #FF2633;
-    --dark-gray: #1a1a1a;
+    --primary-gold: #B8860B;
+    --secondary-brown: #8B4513;
+    --accent-dark: #1a1a1a;
+    --light-gold: #DAA520;
+    --dark-brown: #654321;
     --medium-gray: #333333;
     --light-gray: #666666;
-    --bg-light: #f8f8f8;
+    --bg-light: #f8f9fa;
     --bg-section: #ffffff;
     --white: #ffffff;
     --black: #000000;

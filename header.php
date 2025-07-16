@@ -1,20 +1,20 @@
 <?php
 /**
- * Elite SafeCologne Header - Production Grade
+ * SpecSec Professional Security Header
  * Current Date: 2025-07-14 09:43:54 UTC
  * Current User: sipanan
  * 
  * Built for conversion, performance, and scalability
- * @package Safe_Cologne
+ * @package SpecSec
  * @version 3.0.0
  */
 
 // Performance: Cache theme options
-$phone_number = get_theme_mod('safe_cologne_phone', '0221 6505 8801');
-$emergency_text = get_theme_mod('safe_cologne_emergency', '24/7 Notdienst');
-$cta_text = get_theme_mod('safe_cologne_cta_text', 'Kontakt aufnehmen');
-$cta_url = get_theme_mod('safe_cologne_cta_url', '/kontakt/');
-$show_topbar = get_theme_mod('safe_cologne_show_topbar', true);
+$phone_number = specsec_get_phone();
+$emergency_text = __('Professionelle Sicherheit', 'specsec');
+$cta_text = __('Kontakt aufnehmen', 'specsec');
+$cta_url = get_permalink(get_page_by_path('kontakt'));
+$show_topbar = true;
 $current_datetime = date('Y-m-d H:i:s');
 ?>
 <!DOCTYPE html>
@@ -37,7 +37,7 @@ $current_datetime = date('Y-m-d H:i:s');
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo esc_url(get_template_directory_uri() . '/assets/favicon/favicon-32x32.png'); ?>">
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo esc_url(get_template_directory_uri() . '/assets/favicon/favicon-16x16.png'); ?>">
     <link rel="manifest" href="<?php echo esc_url(get_template_directory_uri() . '/assets/favicon/site.webmanifest'); ?>">
-    <meta name="msapplication-TileColor" content="#e30613">
+    <meta name="msapplication-TileColor" content="#B8860B">
     <meta name="theme-color" content="#ffffff">
     
     <?php wp_head(); ?>
@@ -47,7 +47,7 @@ $current_datetime = date('Y-m-d H:i:s');
 <?php wp_body_open(); ?>
 
 <!-- Accessibility Skip Link -->
-<a href="#main-content" class="skip-link screen-reader-text"><?php esc_html_e('Zum Hauptinhalt springen', 'safe-cologne'); ?></a>
+<a href="#main-content" class="skip-link screen-reader-text"><?php esc_html_e('Zum Hauptinhalt springen', 'specsec'); ?></a>
 
 <?php if ($show_topbar) : ?>
 <!-- Elite Top Bar -->

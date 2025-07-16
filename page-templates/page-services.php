@@ -1,12 +1,8 @@
 <?php
 /**
- * Template Name: Dienstleistungen (Services)
- * 
- * Elite-tier services page for SafeCologne
- * Designed for maximum conversion and trust
- * 
- * @package SafeCologne
- * @version 6.0.0
+ * Template Name: Leistungen
+ *
+ * @package SpecSec
  */
 
 get_header(); ?>
