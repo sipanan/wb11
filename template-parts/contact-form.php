@@ -12,13 +12,13 @@ $email = get_option('safe_cologne_settings')['email'] ?? 'info@safecologne.de';
 <section id="kontakt" class="section contact" aria-labelledby="contact-title">
     <div class="container">
         <h2 id="contact-title" class="section-title"><?php esc_html_e('Beratung gewünscht?', 'safe-cologne'); ?></h2>
-        <p class="section-subtitle"><?php esc_html_e('Wir sind für Sie da - 24/7', 'safe-cologne'); ?></p>
+        <p class="section-subtitle"><?php esc_html_e('Wir sind für Sie da - 
         
         <div class="contact-wrapper">
             <div class="contact-info">
                 <div class="contact-card primary-card">
                     <i class="fas fa-phone-alt"></i>
-                    <h3><?php esc_html_e('24/7 Notdienst', 'safe-cologne'); ?></h3>
+                    <h3><?php esc_html_e('
                     <a href="tel:<?php echo esc_attr(str_replace(' ', '', $phone)); ?>" class="contact-link"><?php echo esc_html($phone); ?></a>
                     <p><?php esc_html_e('Rund um die Uhr erreichbar', 'safe-cologne'); ?></p>
                 </div>
@@ -27,7 +27,7 @@ $email = get_option('safe_cologne_settings')['email'] ?? 'info@safecologne.de';
                     <i class="fas fa-envelope"></i>
                     <h3><?php esc_html_e('E-Mail', 'safe-cologne'); ?></h3>
                     <a href="mailto:<?php echo esc_attr($email); ?>" class="contact-link"><?php echo esc_html($email); ?></a>
-                    <p><?php esc_html_e('Antwort innerhalb 24h', 'safe-cologne'); ?></p>
+                    <p><?php esc_html_e('Antwort innerhalb 
                 </div>
                 
                 <div class="contact-card">

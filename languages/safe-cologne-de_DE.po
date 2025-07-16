@@ -1,0 +1,297 @@
+# Safe Cologne Security Services - German Translation File
+# This file contains translations for the Safe Cologne WordPress theme
+
+# Company Information
+msgid "Safe Cologne Security Services"
+msgstr "Safe Cologne Security Services"
+
+msgid "Professional Security Company Website"
+msgstr "Professionelle Sicherheitsfirma Website"
+
+msgid "Security service with heart and system"
+msgstr "Sicherheitsdienst mit Herz & System"
+
+# Navigation
+msgid "Primary Menu"
+msgstr "Hauptmenü"
+
+msgid "Footer Menu"
+msgstr "Footer-Menü"
+
+msgid "Mobile Menu"
+msgstr "Mobiles Menü"
+
+msgid "Social Media Menu"
+msgstr "Social Media Menü"
+
+# Pages
+msgid "Home"
+msgstr "Startseite"
+
+msgid "About Us"
+msgstr "Über uns"
+
+msgid "Services"
+msgstr "Leistungen"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Privacy Policy"
+msgstr "Datenschutzerklärung"
+
+msgid "Terms of Service"
+msgstr "Nutzungsbedingungen"
+
+msgid "Imprint"
+msgstr "Impressum"
+
+# Buttons
+msgid "Contact Now"
+msgstr "Jetzt Kontakt aufnehmen"
+
+msgid "Learn More"
+msgstr "Mehr erfahren"
+
+msgid "Get Quote"
+msgstr "Angebot anfordern"
+
+msgid "Call Now"
+msgstr "Sofort anrufen"
+
+msgid "Free Consultation"
+msgstr "Kostenlose Beratung"
+
+# Contact Information
+msgid "Phone Number"
+msgstr "Telefonnummer"
+
+msgid "Email Address"
+msgstr "E-Mail-Adresse"
+
+msgid "Address"
+msgstr "Adresse"
+
+msgid "Business Hours"
+msgstr "Geschäftszeiten"
+
+msgid "Emergency Contact"
+msgstr "Notfallkontakt"
+
+# Services
+msgid "Our Security Services"
+msgstr "Unsere Sicherheitsdienste"
+
+msgid "Comprehensive security solutions for every need"
+msgstr "Umfassende Sicherheitslösungen für jeden Bedarf"
+
+msgid "Object Protection"
+msgstr "Objektschutz"
+
+msgid "Personal Protection"
+msgstr "Personenschutz"
+
+msgid "Event Security"
+msgstr "Veranstaltungsschutz"
+
+msgid "Security Consulting"
+msgstr "Sicherheitsberatung"
+
+msgid "Technology Solutions"
+msgstr "Technische Lösungen"
+
+# Features
+msgid "What makes us special"
+msgstr "Was uns besonders macht"
+
+msgid "Professional security with a human approach"
+msgstr "Professionelle Sicherheit mit menschlichem Ansatz"
+
+msgid "Discretion & People Skills"
+msgstr "Diskretion & Menschenkenntnis"
+
+msgid "Trained Professionals"
+msgstr "Geschulte Profis"
+
+msgid "Modern Technology"
+msgstr "Moderne Technik"
+
+msgid "Reliable Planning"
+msgstr "Verlässliche Planung"
+
+# Form Labels
+msgid "Name"
+msgstr "Name"
+
+msgid "Email"
+msgstr "E-Mail"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Subject"
+msgstr "Betreff"
+
+msgid "Message"
+msgstr "Nachricht"
+
+msgid "Send Message"
+msgstr "Nachricht senden"
+
+# Form Messages
+msgid "Loading..."
+msgstr "Wird geladen..."
+
+msgid "Message sent successfully!"
+msgstr "Nachricht erfolgreich gesendet!"
+
+msgid "An error occurred."
+msgstr "Ein Fehler ist aufgetreten."
+
+msgid "This field is required."
+msgstr "Dieses Feld ist erforderlich."
+
+msgid "Invalid email address."
+msgstr "Ungültige E-Mail-Adresse."
+
+msgid "Invalid phone number."
+msgstr "Ungültige Telefonnummer."
+
+# Time and Dates
+msgid "Monday"
+msgstr "Montag"
+
+msgid "Tuesday"
+msgstr "Dienstag"
+
+msgid "Wednesday"
+msgstr "Mittwoch"
+
+msgid "Thursday"
+msgstr "Donnerstag"
+
+msgid "Friday"
+msgstr "Freitag"
+
+msgid "Saturday"
+msgstr "Samstag"
+
+msgid "Sunday"
+msgstr "Sonntag"
+
+msgid "Closed"
+msgstr "Geschlossen"
+
+msgid "By appointment"
+msgstr "Nach Vereinbarung"
+
+# SEO and Meta
+msgid "SEO Settings"
+msgstr "SEO-Einstellungen"
+
+msgid "Meta Description"
+msgstr "Meta-Beschreibung"
+
+msgid "Meta Keywords"
+msgstr "Meta-Schlüsselwörter"
+
+msgid "Brief description for search engines (max 160 characters)"
+msgstr "Kurze Beschreibung für Suchmaschinen (max. 160 Zeichen)"
+
+msgid "Keywords separated by commas"
+msgstr "Schlüsselwörter durch Kommas getrennt"
+
+# Admin and Customizer
+msgid "Safe Cologne Settings"
+msgstr "Safe Cologne Einstellungen"
+
+msgid "Comprehensive customization options for Safe Cologne Security Services"
+msgstr "Umfassende Anpassungsoptionen für Safe Cologne Security Services"
+
+msgid "Company Information"
+msgstr "Firmeninformationen"
+
+msgid "Contact Information"
+msgstr "Kontaktinformationen"
+
+msgid "Hero Section"
+msgstr "Hero-Bereich"
+
+msgid "Services Section"
+msgstr "Leistungen-Bereich"
+
+msgid "Team Section"
+msgstr "Team-Bereich"
+
+msgid "Colors & Typography"
+msgstr "Farben & Typografie"
+
+msgid "Social Media Links"
+msgstr "Social Media Links"
+
+msgid "Primary Color"
+msgstr "Primärfarbe"
+
+msgid "Dark Gray Color"
+msgstr "Dunkelgraue Farbe"
+
+msgid "Light Gray Color"
+msgstr "Hellgraue Farbe"
+
+# Footer
+msgid "Copyright"
+msgstr "Copyright"
+
+msgid "All rights reserved"
+msgstr "Alle Rechte vorbehalten"
+
+msgid "Powered by"
+msgstr "Unterstützt von"
+
+# Accessibility
+msgid "Skip to main content"
+msgstr "Zum Hauptinhalt springen"
+
+msgid "Open menu"
+msgstr "Menü öffnen"
+
+msgid "Close menu"
+msgstr "Menü schließen"
+
+msgid "Search"
+msgstr "Suchen"
+
+msgid "Search for:"
+msgstr "Suche nach:"
+
+# Error Messages
+msgid "Page not found"
+msgstr "Seite nicht gefunden"
+
+msgid "The page you are looking for does not exist."
+msgstr "Die gesuchte Seite existiert nicht."
+
+msgid "Back to homepage"
+msgstr "Zurück zur Startseite"
+
+# Widget Areas
+msgid "Main Sidebar"
+msgstr "Haupt-Sidebar"
+
+msgid "Footer Widget Area 1"
+msgstr "Footer Widget-Bereich 1"
+
+msgid "Footer Widget Area 2"
+msgstr "Footer Widget-Bereich 2"
+
+msgid "Footer Widget Area 3"
+msgstr "Footer Widget-Bereich 3"
+
+msgid "Footer Widget Area 4"
+msgstr "Footer Widget-Bereich 4"
+
+msgid "Add widgets here"
+msgstr "Hier Widgets hinzufügen"

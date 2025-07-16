@@ -42,7 +42,7 @@ get_header(); ?>
                             <span><?php esc_html_e('Jahre Erfahrung', 'safe-cologne'); ?></span>
                         </div>
                         <div class="stat-item">
-                            <strong>24/7</strong>
+                            <strong>
                             <span><?php esc_html_e('Verfügbarkeit', 'safe-cologne'); ?></span>
                         </div>
                     </div>

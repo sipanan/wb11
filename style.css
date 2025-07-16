@@ -3,13 +3,23 @@ Theme Name: Safe Cologne SEC UG
 Theme URI: https://safecologne.de
 Author: Sipan Nadir Askar
 Author URI: https://safecologne.de
-Description: Professional WordPress theme for Safe Cologne Security Services - Sicherheitsdienst mit Herz & System
+Description: Professional WordPress theme for Safe Cologne Security Services - Modern, modular, and fully customizable security company website with comprehensive WordPress Customizer integration
 Version: 1.0.0
 License: GPL v3 
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: safe-cologne
 Domain Path: /languages
-Tags: security, cologne, business, responsive, custom-colors, custom-menu, featured-images
+Tags: security, cologne, business, responsive, custom-colors, custom-menu, featured-images, accessibility-ready
 */
 
-/* Theme styles are loaded from assets/css/style.css */
+/* 
+ * This is the main theme style file that loads the modular CSS structure.
+ * Page-specific styles are loaded dynamically based on the current page.
+ * 
+ * Brand Colors:
+ * - Primary Red: #E30613
+ * - Dark Gray: #333333
+ * - Light Gray: #F8F9FA
+ * 
+ * No 24/7 service references as requested.
+ */
