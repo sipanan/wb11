@@ -48,7 +48,7 @@ $phone = get_option('safe_cologne_settings')['phone'] ?? '0221 65058801';
         <div class="trust-indicators">
             <div class="indicator">
                 <i class="fas fa-clock"></i>
-                <strong>24/7</strong>
+                <strong>
                 <span><?php esc_html_e('Verfügbar', 'safe-cologne'); ?></span>
             </div>
             <div class="indicator">

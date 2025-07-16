@@ -1,32 +1,152 @@
 <?php
 /**
- * Template Name: Über Uns
- *
+ * About Page Template
+ * Safe Cologne Security Services
  * @package Safe_Cologne
  */
 
-get_header(); ?>
+get_header(); 
 
-<div class="page-header">
-    <div class="container">
-        <h1 class="page-title"><?php the_title(); ?></h1>
-        <?php if (function_exists('bcn_display')) : ?>
-            <div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
-                <?php bcn_display(); ?>
-            </div>
-        <?php endif; ?>
-    </div>
-</div>
+// Get customizer options
+$company_info = safe_cologne_get_company_info();
+$team_options = safe_cologne_get_team_options();
+?>
 
-<div class="ueber-uns-page">
-    <!-- Company Story Section -->
-    <section class="section">
+<main id="main-content" class="main-content">
+    
+    <!-- About Hero -->
+    <section class="about-hero">
         <div class="container">
-            <div class="company-story">
-                <div class="story-content">
+            <h1><?php esc_html_e('Über uns', 'safe-cologne'); ?></h1>
+            <p class="subtitle"><?php echo esc_html($company_info['tagline']); ?></p>
+        </div>
+    </section>
+
+    <!-- Company Story -->
+    <section class="company-story">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-text">
+                    <h2><?php esc_html_e('Unsere Geschichte', 'safe-cologne'); ?></h2>
                     <?php while (have_posts()) : the_post(); ?>
                         <?php the_content(); ?>
                     <?php endwhile; ?>
+                </div>
+                <div class="story-image">
+                    <img src="<?php echo esc_url(SAFE_COLOGNE_URI . '/assets/images/company-story.jpg'); ?>" alt="<?php esc_attr_e('Safe Cologne Geschichte', 'safe-cologne'); ?>">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values">
+        <div class="container">
+            <h2 class="section-title"><?php esc_html_e('Unsere Werte', 'safe-cologne'); ?></h2>
+            <p class="section-subtitle"><?php esc_html_e('Was uns antreibt und leitet', 'safe-cologne'); ?></p>
+            
+            <div class="values-grid">
+                <article class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3><?php esc_html_e('Sicherheit', 'safe-cologne'); ?></h3>
+                    <p><?php esc_html_e('Höchste Sicherheitsstandards und kontinuierliche Weiterbildung unserer Mitarbeiter.', 'safe-cologne'); ?></p>
+                </article>
+                
+                <article class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3><?php esc_html_e('Vertrauen', 'safe-cologne'); ?></h3>
+                    <p><?php esc_html_e('Diskretion und Zuverlässigkeit sind die Grundlage unserer Zusammenarbeit.', 'safe-cologne'); ?></p>
+                </article>
+                
+                <article class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3><?php esc_html_e('Teamwork', 'safe-cologne'); ?></h3>
+                    <p><?php esc_html_e('Gemeinsam erreichen wir mehr - im Team und mit unseren Kunden.', 'safe-cologne'); ?></p>
+                </article>
+                
+                <article class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3><?php esc_html_e('Innovation', 'safe-cologne'); ?></h3>
+                    <p><?php esc_html_e('Moderne Technologie und innovative Lösungen für zeitgemäße Sicherheit.', 'safe-cologne'); ?></p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <h2 class="section-title"><?php echo esc_html($team_options['title']); ?></h2>
+            <p class="section-subtitle"><?php esc_html_e('Lernen Sie unser erfahrenes Team kennen', 'safe-cologne'); ?></p>
+            
+            <div class="team-grid">
+                <?php foreach ($team_options['members'] as $member) : ?>
+                    <article class="team-member">
+                        <img src="<?php echo esc_url(SAFE_COLOGNE_URI . '/assets/images/team-placeholder.jpg'); ?>" alt="<?php echo esc_attr($member['name']); ?>" class="member-image">
+                        <div class="member-info">
+                            <h3 class="member-name"><?php echo esc_html($member['name']); ?></h3>
+                            <p class="member-role"><?php echo esc_html($member['role']); ?></p>
+                            <p class="member-description"><?php echo esc_html($member['description']); ?></p>
+                        </div>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="certifications">
+        <div class="container">
+            <h2 class="section-title"><?php esc_html_e('Zertifizierungen & Qualifikationen', 'safe-cologne'); ?></h2>
+            <p class="section-subtitle"><?php esc_html_e('Unsere Qualifikationen für Ihre Sicherheit', 'safe-cologne'); ?></p>
+            
+            <div class="certifications-grid">
+                <article class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3><?php esc_html_e('IHK-Zertifizierung', 'safe-cologne'); ?></h3>
+                    <p><?php esc_html_e('Geprüft nach IHK-Standards', 'safe-cologne'); ?></p>
+                </article>
+                
+                <article class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3><?php esc_html_e('Wach- und Sicherheitsgewerbe', 'safe-cologne'); ?></h3>
+                    <p><?php esc_html_e('Lizenziert nach § 34a GewO', 'safe-cologne'); ?></p>
+                </article>
+                
+                <article class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-first-aid"></i>
+                    </div>
+                    <h3><?php esc_html_e('Erste Hilfe', 'safe-cologne'); ?></h3>
+                    <p><?php esc_html_e('Ausgebildete Ersthelfer', 'safe-cologne'); ?></p>
+                </article>
+                
+                <article class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3><?php esc_html_e('Weiterbildung', 'safe-cologne'); ?></h3>
+                    <p><?php esc_html_e('Kontinuierliche Schulungen', 'safe-cologne'); ?></p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<?php get_footer(); ?>
                     
                     <div class="company-stats">
                         <div class="stat-item">
@@ -42,7 +162,7 @@ get_header(); ?>
                             <span><?php esc_html_e('Jahre Erfahrung', 'safe-cologne'); ?></span>
                         </div>
                         <div class="stat-item">
-                            <strong>24/7</strong>
+                            <strong>
                             <span><?php esc_html_e('Verfügbarkeit', 'safe-cologne'); ?></span>
                         </div>
                     </div>

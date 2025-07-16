@@ -30,7 +30,7 @@ function safe_cologne_customize_register($wp_customize) {
     ));
     
     $wp_customize->add_control('safe_cologne_emergency_phone', array(
-        'label'    => __('24/7 Notfallnummer', 'safe-cologne'),
+        'label'    => __('Notfallnummer', 'safe-cologne'),
         'section'  => 'safe_cologne_company_info',
         'type'     => 'text',
     ));

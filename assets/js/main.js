@@ -1,5 +1,7 @@
 /**
  * Safe Cologne Main JavaScript
+ * Global functionality for Safe Cologne Security Services
+ * @package Safe_Cologne
  */
 
 (function($) {
@@ -9,13 +11,15 @@
     $(document).ready(function() {
         initNavigation();
         initScrollEffects();
-        initContactForm();
-        initCookieBanner();
         initAnimations();
-        initEmergencyButton();
+        initAccessibility();
+        initPerformanceOptimizations();
+        initGlobalEventHandlers();
     });
 
-    // Navigation
+    /**
+     * Initialize navigation functionality
+     */
     function initNavigation() {
         const $navbar = $('.navbar');
         const $mobileToggle = $('.mobile-toggle');
@@ -26,6 +30,11 @@
             $(this).toggleClass('active');
             $navMenu.toggleClass('active');
             $('body').toggleClass('menu-open');
+            
+            // Update ARIA attributes
+            const expanded = $(this).hasClass('active');
+            $(this).attr('aria-expanded', expanded);
+            $navMenu.attr('aria-hidden', !expanded);
         });
         
         // Close mobile menu on link click
@@ -33,6 +42,17 @@
             $mobileToggle.removeClass('active');
             $navMenu.removeClass('active');
             $('body').removeClass('menu-open');
+            
+            // Update ARIA attributes
+            $mobileToggle.attr('aria-expanded', false);
+            $navMenu.attr('aria-hidden', true);
+        });
+        
+        // Close mobile menu on escape key
+        $(document).on('keydown', function(e) {
+            if (e.key === 'Escape' && $navMenu.hasClass('active')) {
+                $mobileToggle.trigger('click');
+            }
         });
         
         // Navbar scroll effect
@@ -45,9 +65,262 @@
         });
     }
 
-    // Scroll Effects
+    /**
+     * Initialize scroll effects
+     */
     function initScrollEffects() {
         // Back to top button
+        const $backToTop = $('<button>')
+            .addClass('back-to-top')
+            .html('<i class="fas fa-arrow-up"></i>')
+            .attr('aria-label', 'Zurück nach oben')
+            .appendTo('body');
+        
+        $(window).on('scroll', function() {
+            if ($(this).scrollTop() > 300) {
+                $backToTop.addClass('visible');
+            } else {
+                $backToTop.removeClass('visible');
+            }
+        });
+        
+        $backToTop.on('click', function() {
+            $('html, body').animate({ scrollTop: 0 }, 600);
+        });
+        
+        // Smooth scrolling for anchor links
+        $('a[href^="#"]').on('click', function(e) {
+            e.preventDefault();
+            const target = $(this.getAttribute('href'));
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top - 100
+                }, 800);
+            }
+        });
+    }
+
+    /**
+     * Initialize animations
+     */
+    function initAnimations() {
+        // Intersection Observer for scroll animations
+        if ('IntersectionObserver' in window) {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe elements with animation classes
+            document.querySelectorAll('.feature-card, .service-card, .team-member, .value-card').forEach(el => {
+                observer.observe(el);
+            });
+        }
+        
+        // Fallback for browsers without Intersection Observer
+        else {
+            $(window).on('scroll', function() {
+                $('.feature-card, .service-card, .team-member, .value-card').each(function() {
+                    const elementTop = $(this).offset().top;
+                    const elementBottom = elementTop + $(this).outerHeight();
+                    const viewportTop = $(window).scrollTop();
+                    const viewportBottom = viewportTop + $(window).height();
+                    
+                    if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                        $(this).addClass('animate-in');
+                    }
+                });
+            });
+        }
+    }
+
+    /**
+     * Initialize accessibility features
+     */
+    function initAccessibility() {
+        // Skip to main content
+        const $skipLink = $('<a>')
+            .addClass('skip-link')
+            .attr('href', '#main-content')
+            .text('Zum Hauptinhalt springen')
+            .prependTo('body');
+        
+        // Focus management for mobile menu
+        const $mobileToggle = $('.mobile-toggle');
+        const $navMenu = $('.nav-menu, #primary-menu');
+        
+        $mobileToggle.on('click', function() {
+            if ($navMenu.hasClass('active')) {
+                // Focus first menu item when menu opens
+                setTimeout(() => {
+                    $navMenu.find('a').first().focus();
+                }, 100);
+            }
+        });
+        
+        // Trap focus in mobile menu
+        $navMenu.on('keydown', function(e) {
+            if (e.key === 'Tab' && $(this).hasClass('active')) {
+                const focusableElements = $(this).find('a, button').filter(':visible');
+                const firstElement = focusableElements.first();
+                const lastElement = focusableElements.last();
+                
+                if (e.shiftKey) {
+                    if (document.activeElement === firstElement[0]) {
+                        e.preventDefault();
+                        lastElement.focus();
+                    }
+                } else {
+                    if (document.activeElement === lastElement[0]) {
+                        e.preventDefault();
+                        firstElement.focus();
+                    }
+                }
+            }
+        });
+        
+        // Announce dynamic content changes
+        const $announcer = $('<div>')
+            .attr('aria-live', 'polite')
+            .attr('aria-atomic', 'true')
+            .addClass('sr-only')
+            .appendTo('body');
+        
+        window.announceToScreenReader = function(message) {
+            $announcer.text(message);
+        };
+    }
+
+    /**
+     * Initialize performance optimizations
+     */
+    function initPerformanceOptimizations() {
+        // Lazy load images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+        
+        // Debounce scroll events
+        let scrollTimeout;
+        const originalScrollHandlers = [];
+        
+        $(window).on('scroll.debounced', function() {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                originalScrollHandlers.forEach(handler => handler());
+            }, 16); // ~60fps
+        });
+        
+        // Preload critical resources
+        const preloadLink = document.createElement('link');
+        preloadLink.rel = 'preload';
+        preloadLink.as = 'style';
+        preloadLink.href = safeCologne.themeUrl + '/assets/css/main.css';
+        document.head.appendChild(preloadLink);
+    }
+
+    /**
+     * Initialize global event handlers
+     */
+    function initGlobalEventHandlers() {
+        // Form submission tracking
+        $('form').on('submit', function() {
+            const formName = $(this).attr('id') || 'unknown';
+            
+            // Track form submission
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'form_submit', {
+                    'form_name': formName,
+                    'page_location': window.location.href
+                });
+            }
+        });
+        
+        // External link tracking
+        $('a[href^="http"]').not('[href*="' + window.location.hostname + '"]').on('click', function() {
+            const url = $(this).attr('href');
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'external_link_click', {
+                    'link_url': url,
+                    'page_location': window.location.href
+                });
+            }
+        });
+        
+        // Phone number click tracking
+        $('a[href^="tel:"]').on('click', function() {
+            const phoneNumber = $(this).attr('href').replace('tel:', '');
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'phone_call', {
+                    'phone_number': phoneNumber,
+                    'page_location': window.location.href
+                });
+            }
+        });
+        
+        // Email click tracking
+        $('a[href^="mailto:"]').on('click', function() {
+            const email = $(this).attr('href').replace('mailto:', '');
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'email_click', {
+                    'email_address': email,
+                    'page_location': window.location.href
+                });
+            }
+        });
+    }
+
+    // Initialize on window load
+    $(window).on('load', function() {
+        // Remove loading states
+        $('.loading').removeClass('loading');
+        
+        // Initialize animations after everything is loaded
+        setTimeout(() => {
+            $(window).trigger('scroll');
+        }, 100);
+    });
+
+    // Error handling
+    window.addEventListener('error', function(e) {
+        console.error('JavaScript Error:', e.error);
+        
+        // Track errors if analytics is available
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'javascript_error', {
+                'error_message': e.message,
+                'error_filename': e.filename,
+                'error_lineno': e.lineno,
+                'page_location': window.location.href
+            });
+        }
+    });
+
+})(jQuery);
         const $backToTop = $('#backToTop');
         
         $(window).on('scroll', function() {
