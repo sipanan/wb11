@@ -92,6 +92,9 @@ function specsec_scripts() {
     if (is_page_template('page-templates/page-contact.php')) {
         wp_enqueue_style('specsec-contact', SPECSEC_URI . '/assets/css/contact.css', array('specsec-main'), SPECSEC_VERSION);
     }
+    if (is_page_template('page-templates/page-login.php')) {
+        wp_enqueue_style('specsec-login', SPECSEC_URI . '/assets/css/login.css', array('specsec-main'), SPECSEC_VERSION);
+    }
     
     // JavaScript
     wp_enqueue_script('specsec-navigation', SPECSEC_URI . '/assets/js/navigation.js', array(), SPECSEC_VERSION, true);
