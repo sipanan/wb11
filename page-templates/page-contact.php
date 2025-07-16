@@ -1,53 +1,206 @@
 <?php
 /**
  * Template Name: Kontakt
+ *
+ * @package SpecSec
  */
 
 get_header(); ?>
 
-<main id="main" class="site-main kontakt-page">
-
+<div class="contact-page">
     <!-- Hero Section -->
-    <section class="kontakt-hero">
+    <section class="page-hero">
         <div class="container">
-            <div class="hero-content">
-                <h1><?php the_title(); ?></h1>
-                <p class="subtitle">Professionelle Sicherheitslösungen nach Maß</p>
+            <h1 class="page-title"><?php esc_html_e('Kontakt', 'specsec'); ?></h1>
+            <p class="page-subtitle"><?php esc_html_e('Nehmen Sie Kontakt mit uns auf - wir beraten Sie gerne!', 'specsec'); ?></p>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="contact-info-section">
+        <div class="container">
+            <h2 class="section-title"><?php esc_html_e('So erreichen Sie uns', 'specsec'); ?></h2>
+            
+            <div class="contact-info-grid">
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3><?php esc_html_e('Telefon', 'specsec'); ?></h3>
+                    <p><?php esc_html_e('Rufen Sie uns an für eine kostenlose Beratung', 'specsec'); ?></p>
+                    <p><a href="tel:<?php echo esc_attr(specsec_get_phone()); ?>"><?php echo esc_html(specsec_get_phone()); ?></a></p>
+                </div>
+                
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3><?php esc_html_e('E-Mail', 'specsec'); ?></h3>
+                    <p><?php esc_html_e('Schreiben Sie uns eine Nachricht', 'specsec'); ?></p>
+                    <p><a href="mailto:<?php echo esc_attr(specsec_get_email()); ?>"><?php echo esc_html(specsec_get_email()); ?></a></p>
+                </div>
+                
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3><?php esc_html_e('Adresse', 'specsec'); ?></h3>
+                    <p><?php esc_html_e('Besuchen Sie uns in unserem Büro', 'specsec'); ?></p>
+                    <p><?php echo esc_html(specsec_get_address()); ?></p>
+                </div>
             </div>
         </div>
     </section>
-    
-    <!-- Contact Grid Section -->
-    <section class="kontakt-grid-section">
+
+    <!-- Contact Form -->
+    <section class="contact-form-section">
         <div class="container">
-            <div class="kontakt-grid">
-                <!-- Left Column - Contact Info -->
-                <div class="kontakt-info">
-                    <h2>Wir sind für Sie da</h2>
-                    <p>Kontaktieren Sie uns für eine unverbindliche Beratung</p>
+            <h2 class="section-title"><?php esc_html_e('Kontaktformular', 'specsec'); ?></h2>
+            <p class="section-subtitle"><?php esc_html_e('Senden Sie uns eine Nachricht und wir melden uns zeitnah bei Ihnen zurück.', 'specsec'); ?></p>
+            
+            <form class="contact-form" method="post">
+                <?php wp_nonce_field('specsec_contact_form', 'contact_form_nonce'); ?>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="contact_name"><?php esc_html_e('Name *', 'specsec'); ?></label>
+                        <input type="text" id="contact_name" name="contact_name" required>
+                    </div>
                     
-                    <div class="kontakt-methods">
-                        <!-- Phone -->
-                        <div class="kontakt-method">
-                            <div class="icon-wrapper">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                            </div>
-                            <div class="method-content">
-                                <h3>Telefonische Beratung</h3>
-                                <a href="tel:022165058801" class="primary-link">
-                                    0221 65058801
-                                </a>
-                                <p>Mo-Fr: 08:00 - 18:00 Uhr<br>Sa: 09:00 - 14:00 Uhr</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Email -->
-                        <div class="kontakt-method">
-                            <div class="icon-wrapper">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                            </div>
-                            <div class="method-content">
-                                <h3>E-Mail Kontakt</h3>
+                    <div class="form-group">
+                        <label for="contact_email"><?php esc_html_e('E-Mail *', 'specsec'); ?></label>
+                        <input type="email" id="contact_email" name="contact_email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact_phone"><?php esc_html_e('Telefon', 'specsec'); ?></label>
+                        <input type="tel" id="contact_phone" name="contact_phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact_subject"><?php esc_html_e('Betreff', 'specsec'); ?></label>
+                        <select id="contact_subject" name="contact_subject">
+                            <option value=""><?php esc_html_e('Bitte wählen', 'specsec'); ?></option>
+                            <option value="vsd"><?php esc_html_e('Veranstaltungssicherheitsdienste', 'specsec'); ?></option>
+                            <option value="vod"><?php esc_html_e('Veranstaltungsordnungsdienste', 'specsec'); ?></option>
+                            <option value="projektierung"><?php esc_html_e('Projektierung', 'specsec'); ?></option>
+                            <option value="general"><?php esc_html_e('Allgemeine Anfrage', 'specsec'); ?></option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="contact_message"><?php esc_html_e('Nachricht *', 'specsec'); ?></label>
+                    <textarea id="contact_message" name="contact_message" rows="6" required placeholder="<?php esc_attr_e('Beschreiben Sie Ihr Anliegen...', 'specsec'); ?>"></textarea>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="contact_privacy" required>
+                        <?php esc_html_e('Ich stimme der Verarbeitung meiner Daten gemäß Datenschutzerklärung zu. *', 'specsec'); ?>
+                    </label>
+                </div>
+                
+                <div class="form-submit">
+                    <button type="submit" class="btn btn-primary" name="submit_contact">
+                        <?php esc_html_e('Nachricht senden', 'specsec'); ?>
+                    </button>
+                </div>
+            </form>
+            
+            <div class="opening-hours">
+                <h3><?php esc_html_e('Öffnungszeiten', 'specsec'); ?></h3>
+                <ul class="hours-list">
+                    <li>
+                        <span><?php esc_html_e('Montag - Freitag', 'specsec'); ?></span>
+                        <span><?php esc_html_e('08:00 - 18:00 Uhr', 'specsec'); ?></span>
+                    </li>
+                    <li>
+                        <span><?php esc_html_e('Samstag', 'specsec'); ?></span>
+                        <span><?php esc_html_e('09:00 - 14:00 Uhr', 'specsec'); ?></span>
+                    </li>
+                    <li>
+                        <span><?php esc_html_e('Sonntag', 'specsec'); ?></span>
+                        <span><?php esc_html_e('Geschlossen', 'specsec'); ?></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="certifications-section">
+        <div class="container">
+            <h2 class="section-title"><?php esc_html_e('Zertifikate & Mitgliedschaften', 'specsec'); ?></h2>
+            
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3><?php esc_html_e('ISO 9001', 'specsec'); ?></h3>
+                    <p><?php esc_html_e('Qualitätsmanagement-System zertifiziert', 'specsec'); ?></p>
+                </div>
+                
+                <div class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3><?php esc_html_e('DIN 77200-1', 'specsec'); ?></h3>
+                    <p><?php esc_html_e('Sicherheitsdienstleistungen nach DIN-Norm', 'specsec'); ?></p>
+                </div>
+                
+                <div class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3><?php esc_html_e('BDSW Mitglied', 'specsec'); ?></h3>
+                    <p><?php esc_html_e('Mitglied im Bundesverband der Sicherheitswirtschaft', 'specsec'); ?></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title"><?php esc_html_e('So finden Sie uns', 'specsec'); ?></h2>
+            <div class="map-container">
+                <!-- Map will be initialized via JavaScript -->
+            </div>
+        </div>
+    </section>
+</div>
+
+<?php
+// Handle form submission
+if (isset($_POST['submit_contact']) && wp_verify_nonce($_POST['contact_form_nonce'], 'specsec_contact_form')) {
+    $name = sanitize_text_field($_POST['contact_name']);
+    $email = sanitize_email($_POST['contact_email']);
+    $phone = sanitize_text_field($_POST['contact_phone']);
+    $subject = sanitize_text_field($_POST['contact_subject']);
+    $message = sanitize_textarea_field($_POST['contact_message']);
+    
+    // Send email
+    $to = specsec_get_email();
+    $email_subject = 'Neue Kontaktanfrage von ' . $name;
+    $email_body = "Neue Kontaktanfrage:\n\n";
+    $email_body .= "Name: " . $name . "\n";
+    $email_body .= "E-Mail: " . $email . "\n";
+    $email_body .= "Telefon: " . $phone . "\n";
+    $email_body .= "Betreff: " . $subject . "\n";
+    $email_body .= "Nachricht:\n" . $message . "\n";
+    
+    $headers = array('Content-Type: text/plain; charset=UTF-8');
+    
+    if (wp_mail($to, $email_subject, $email_body, $headers)) {
+        echo '<div class="success-message">Vielen Dank für Ihre Nachricht! Wir werden uns in Kürze bei Ihnen melden.</div>';
+    } else {
+        echo '<div class="error-message">Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an.</div>';
+    }
+}
+
+get_footer(); ?>
                                 <a href="mailto:info@safecologne.de" class="contact-link">
                                     info@safecologne.de
                                 </a>

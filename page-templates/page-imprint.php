@@ -1,53 +1,204 @@
 <?php
 /**
  * Template Name: Impressum
- * 
- * Elite-tier legal page for SafeCologne
- * Compliant with German law, GDPR, and optimized for trust
- * 
- * @package SafeCologne
- * @version 5.0.0
+ *
+ * @package SpecSec
  */
 
 get_header(); ?>
 
-<main id="impressum-main" class="legal-page impressum-page">
-    
+<div class="imprint-page">
     <!-- Hero Section -->
-    <section class="legal-hero">
+    <section class="page-hero">
         <div class="container">
-            <div class="legal-hero-content">
-                <h1 class="legal-title">Impressum</h1>
-                <p class="legal-subtitle">Rechtliche Informationen gemäß § 5 TMG</p>
-                <nav class="legal-breadcrumb" aria-label="Breadcrumb">
-                    <ol>
-                        <li><a href="<?php echo home_url(); ?>">Home</a></li>
-                        <li><span aria-current="page">Impressum</span></li>
-                    </ol>
-                </nav>
-            </div>
+            <h1 class="page-title"><?php esc_html_e('Impressum', 'specsec'); ?></h1>
+            <p class="page-subtitle"><?php esc_html_e('Rechtliche Informationen gemäß § 5 TMG', 'specsec'); ?></p>
         </div>
     </section>
 
-    <!-- Quick Navigation -->
-    <section class="legal-nav-section">
+    <!-- Imprint Content -->
+    <section class="imprint-content">
         <div class="container">
-            <div class="legal-nav-wrapper">
-                <h2 class="sr-only">Schnellnavigation</h2>
-                <nav class="legal-nav">
-                    <a href="#unternehmen" class="nav-link">Unternehmen</a>
-                    <a href="#kontakt" class="nav-link">Kontakt</a>
-                    <a href="#register" class="nav-link">Registerdaten</a>
-                    <a href="#erlaubnisse" class="nav-link">Erlaubnisse</a>
-                    <a href="#haftung" class="nav-link">Haftung</a>
-                </nav>
+            <div class="imprint-wrapper">
+                <div class="imprint-main">
+                    <div class="imprint-section" id="unternehmen">
+                        <h2><?php esc_html_e('Angaben gemäß § 5 TMG', 'specsec'); ?></h2>
+                        <div class="company-info">
+                            <strong>SpecSec GmbH</strong><br>
+                            <?php echo esc_html(specsec_get_address()); ?><br><br>
+                            
+                            <strong><?php esc_html_e('Vertreten durch:', 'specsec'); ?></strong><br>
+                            <?php esc_html_e('Geschäftsführer: Max Mustermann', 'specsec'); ?><br><br>
+                            
+                            <strong><?php esc_html_e('Kontakt:', 'specsec'); ?></strong><br>
+                            <?php esc_html_e('Telefon:', 'specsec'); ?> <?php echo esc_html(specsec_get_phone()); ?><br>
+                            <?php esc_html_e('E-Mail:', 'specsec'); ?> <a href="mailto:<?php echo esc_attr(specsec_get_email()); ?>"><?php echo esc_html(specsec_get_email()); ?></a>
+                        </div>
+                    </div>
+
+                    <div class="imprint-section" id="register">
+                        <h2><?php esc_html_e('Registereintrag', 'specsec'); ?></h2>
+                        <p><?php esc_html_e('Eintragung im Handelsregister', 'specsec'); ?></p>
+                        <ul>
+                            <li><?php esc_html_e('Registergericht: Amtsgericht Köln', 'specsec'); ?></li>
+                            <li><?php esc_html_e('Registernummer: HRB 12345', 'specsec'); ?></li>
+                        </ul>
+                    </div>
+
+                    <div class="imprint-section" id="umsatzsteuer">
+                        <h2><?php esc_html_e('Umsatzsteuer-ID', 'specsec'); ?></h2>
+                        <p><?php esc_html_e('Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:', 'specsec'); ?><br>
+                        DE123456789</p>
+                    </div>
+
+                    <div class="imprint-section" id="erlaubnisse">
+                        <h2><?php esc_html_e('Erlaubnisse und Zulassungen', 'specsec'); ?></h2>
+                        <p><?php esc_html_e('Gewerberechtliche Erlaubnis nach § 34a GewO:', 'specsec'); ?></p>
+                        <ul>
+                            <li><?php esc_html_e('Erlaubnisbehörde: Ordnungsamt Stadt Bergheim', 'specsec'); ?></li>
+                            <li><?php esc_html_e('Erlaubnisnummer: 34a-2023-001', 'specsec'); ?></li>
+                        </ul>
+                        
+                        <p><?php esc_html_e('Zertifizierungen:', 'specsec'); ?></p>
+                        <ul>
+                            <li><?php esc_html_e('ISO 9001:2015 - Qualitätsmanagement', 'specsec'); ?></li>
+                            <li><?php esc_html_e('DIN 77200-1 - Sicherheitsdienstleistungen', 'specsec'); ?></li>
+                        </ul>
+                    </div>
+
+                    <div class="imprint-section" id="aufsicht">
+                        <h2><?php esc_html_e('Aufsichtsbehörde', 'specsec'); ?></h2>
+                        <p><?php esc_html_e('Zuständige Aufsichtsbehörde:', 'specsec'); ?></p>
+                        <div class="company-info">
+                            <?php esc_html_e('Ordnungsamt Stadt Bergheim', 'specsec'); ?><br>
+                            <?php esc_html_e('Rathausplatz 1', 'specsec'); ?><br>
+                            <?php esc_html_e('50126 Bergheim', 'specsec'); ?>
+                        </div>
+                    </div>
+
+                    <div class="imprint-section" id="haftung">
+                        <h2><?php esc_html_e('Haftung für Inhalte', 'specsec'); ?></h2>
+                        <p><?php esc_html_e('Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht unter der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.', 'specsec'); ?></p>
+                    </div>
+
+                    <div class="imprint-section" id="links">
+                        <h2><?php esc_html_e('Haftung für Links', 'specsec'); ?></h2>
+                        <p><?php esc_html_e('Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.', 'specsec'); ?></p>
+                    </div>
+
+                    <div class="imprint-section" id="urheberrecht">
+                        <h2><?php esc_html_e('Urheberrecht', 'specsec'); ?></h2>
+                        <p><?php esc_html_e('Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.', 'specsec'); ?></p>
+                    </div>
+
+                    <div class="imprint-section" id="streitschlichtung">
+                        <h2><?php esc_html_e('Streitschlichtung', 'specsec'); ?></h2>
+                        <p><?php esc_html_e('Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:', 'specsec'); ?> <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a></p>
+                        <p><?php esc_html_e('Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.', 'specsec'); ?></p>
+                    </div>
+
+                    <div class="imprint-section" id="mitgliedschaften">
+                        <h2><?php esc_html_e('Mitgliedschaften', 'specsec'); ?></h2>
+                        <ul>
+                            <li><?php esc_html_e('Bundesverband der Sicherheitswirtschaft (BDSW)', 'specsec'); ?></li>
+                            <li><?php esc_html_e('Landesverband Sicherheitswirtschaft NRW', 'specsec'); ?></li>
+                            <li><?php esc_html_e('IHK Köln', 'specsec'); ?></li>
+                        </ul>
+                    </div>
+
+                    <div class="imprint-section" id="aktualisierung">
+                        <h2><?php esc_html_e('Aktualität', 'specsec'); ?></h2>
+                        <p><?php esc_html_e('Dieses Impressum wurde zuletzt am', 'specsec'); ?> <?php echo date_i18n('d.m.Y'); ?> <?php esc_html_e('aktualisiert.', 'specsec'); ?></p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+</div>
 
-    <!-- Main Content -->
-    <section class="legal-content">
-        <div class="container">
+<style>
+/* Imprint Page Styles */
+.imprint-page {
+    background: #f8f9fa;
+}
+
+.imprint-content {
+    padding: 80px 0;
+}
+
+.imprint-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.imprint-main {
+    background: white;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.imprint-section {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.imprint-section:last-child {
+    border-bottom: none;
+}
+
+.imprint-section h2 {
+    color: var(--accent-dark);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.imprint-section p {
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.imprint-section ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.imprint-section li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.company-info {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-left: 4px solid var(--primary-gold);
+    margin: 1rem 0;
+}
+
+.imprint-section a {
+    color: var(--primary-gold);
+    text-decoration: none;
+}
+
+.imprint-section a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .imprint-main {
+        padding: 2rem;
+    }
+    
+    .imprint-section h2 {
+        font-size: 1.25rem;
+    }
+}
+</style>
+
+<?php get_footer(); ?>
             <div class="content-grid">
                 <!-- Main Column -->
                 <div class="main-content">

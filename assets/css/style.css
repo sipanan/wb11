@@ -1,17 +1,18 @@
 /**
- * Safe Cologne Theme Styles
+ * SpecSec Professional Security Theme Styles
  * Version: 1.0.0
  */
 
 /* CSS Variables */
 :root {
-    --primary-red: #E30613;
-    --dark-red: #B20510;
-    --light-red: #FF2633;
-    --dark-gray: #1a1a1a;
+    --primary-gold: #B8860B;
+    --secondary-brown: #8B4513;
+    --accent-dark: #1a1a1a;
+    --light-gold: #DAA520;
+    --dark-brown: #654321;
     --medium-gray: #333333;
     --light-gray: #666666;
-    --bg-light: #f8f8f8;
+    --bg-light: #f8f9fa;
     --bg-section: #ffffff;
     --white: #ffffff;
     --black: #000000;
@@ -52,7 +53,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 0 1rem;
     font-weight: 700;
     line-height: 1.2;
-    color: var(--dark-gray);
+    color: var(--accent-dark);
 }
 
 h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
@@ -64,13 +65,13 @@ p {
 }
 
 a {
-    color: var(--primary-red);
+    color: var(--primary-gold);
     text-decoration: none;
     transition: var(--transition);
 }
 
 a:hover {
-    color: var(--dark-red);
+    color: var(--secondary-brown);
 }
 
 /* Utility Classes */
@@ -88,7 +89,7 @@ a:hover {
 .section-title {
     text-align: center;
     margin-bottom: 1rem;
-    color: var(--dark-gray);
+    color: var(--accent-dark);
 }
 
 .section-subtitle {
@@ -97,6 +98,112 @@ a:hover {
     color: var(--light-gray);
     max-width: 800px;
     margin: 0 auto 3rem;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.btn-primary {
+    background: var(--primary-gold);
+    color: var(--white);
+    border: 2px solid var(--primary-gold);
+}
+
+.btn-primary:hover {
+    background: var(--secondary-brown);
+    border-color: var(--secondary-brown);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary-gold);
+    border: 2px solid var(--primary-gold);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-gold);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--accent-dark);
+    border: 2px solid var(--accent-dark);
+}
+
+.btn-outline:hover {
+    background: var(--accent-dark);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--accent-dark);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.875rem;
+    border: 2px solid #e0e0e0;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    transition: var(--transition);
+    background: var(--white);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
 }
 
 /* Skip Link */

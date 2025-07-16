@@ -1,53 +1,235 @@
 <?php
 /**
-/**
- * Template Name: privacy
+ * Template Name: Datenschutz
  *
- * @package Safe_Cologne
- *
- * @version 1.1.2
+ * @package SpecSec
  */
 
 get_header(); ?>
 
-<main id="datenschutz-main" class="legal-page privacy-page">
-    
+<div class="privacy-page">
     <!-- Hero Section -->
-    <section class="privacy-hero">
+    <section class="page-hero">
         <div class="container">
-            <div class="privacy-hero-content">
-                <div class="hero-badge">
-                    <svg width="48" height="48" viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-                    </svg>
+            <h1 class="page-title"><?php esc_html_e('Datenschutzerklärung', 'specsec'); ?></h1>
+            <p class="page-subtitle"><?php esc_html_e('Ihre Daten sind bei uns sicher – DSGVO-konform und transparent', 'specsec'); ?></p>
+        </div>
+    </section>
+
+    <!-- Privacy Content -->
+    <section class="privacy-content">
+        <div class="container">
+            <div class="privacy-wrapper">
+                <div class="privacy-nav">
+                    <h3><?php esc_html_e('Inhaltsverzeichnis', 'specsec'); ?></h3>
+                    <ul>
+                        <li><a href="#verantwortliche"><?php esc_html_e('Verantwortliche Stelle', 'specsec'); ?></a></li>
+                        <li><a href="#datenverarbeitung"><?php esc_html_e('Datenverarbeitung', 'specsec'); ?></a></li>
+                        <li><a href="#cookies"><?php esc_html_e('Cookies', 'specsec'); ?></a></li>
+                        <li><a href="#rechte"><?php esc_html_e('Ihre Rechte', 'specsec'); ?></a></li>
+                        <li><a href="#kontakt"><?php esc_html_e('Kontakt', 'specsec'); ?></a></li>
+                    </ul>
                 </div>
-                <h1 class="hero-title">Datenschutzerklärung</h1>
-                <p class="hero-subtitle">Ihre Daten sind bei uns sicher – DSGVO-konform und transparent</p>
-                <div class="hero-meta">
-                    <span class="meta-item">
-                        <svg width="16" height="16" viewBox="0 0 24 24">
-                            <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7Z"/>
-                        </svg>
-                        Zuletzt aktualisiert: <?php echo date_i18n('d. F Y'); ?>
-                    </span>
-                    <span class="meta-item">
-                        <svg width="16" height="16" viewBox="0 0 24 24">
-                            <path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 15h-2v-6h2zm0-8h-2V7h2z"/>
-                        </svg>
-                        DSGVO & BDSG-neu konform
-                    </span>
+
+                <div class="privacy-main">
+                    <div class="privacy-section" id="verantwortliche">
+                        <h2><?php esc_html_e('Verantwortliche Stelle', 'specsec'); ?></h2>
+                        <p><?php esc_html_e('Verantwortlich für die Datenverarbeitung auf dieser Website ist:', 'specsec'); ?></p>
+                        <div class="contact-info">
+                            <strong>SpecSec GmbH</strong><br>
+                            <?php echo esc_html(specsec_get_address()); ?><br>
+                            <?php esc_html_e('Telefon:', 'specsec'); ?> <?php echo esc_html(specsec_get_phone()); ?><br>
+                            <?php esc_html_e('E-Mail:', 'specsec'); ?> <?php echo esc_html(specsec_get_email()); ?>
+                        </div>
+                    </div>
+
+                    <div class="privacy-section" id="datenverarbeitung">
+                        <h2><?php esc_html_e('Datenverarbeitung auf dieser Website', 'specsec'); ?></h2>
+                        
+                        <h3><?php esc_html_e('Wofür nutzen wir Ihre Daten?', 'specsec'); ?></h3>
+                        <p><?php esc_html_e('Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.', 'specsec'); ?></p>
+                        
+                        <h3><?php esc_html_e('Welche Rechte haben Sie bezüglich Ihrer Daten?', 'specsec'); ?></h3>
+                        <p><?php esc_html_e('Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen.', 'specsec'); ?></p>
+                        
+                        <h3><?php esc_html_e('Analyse-Tools und Tools von Drittanbietern', 'specsec'); ?></h3>
+                        <p><?php esc_html_e('Beim Besuch dieser Website kann Ihr Surf-Verhalten statistisch ausgewertet werden. Das geschieht vor allem mit sogenannten Analyseprogrammen.', 'specsec'); ?></p>
+                        
+                        <h3><?php esc_html_e('Rechtsgrundlage', 'specsec'); ?></h3>
+                        <p><?php esc_html_e('Die Datenverarbeitung erfolgt auf Grundlage der gesetzlichen Bestimmungen des § 96 Abs. 3 TKG sowie des Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in der Analyse, Optimierung und dem wirtschaftlichen Betrieb unserer Website.', 'specsec'); ?></p>
+                    </div>
+
+                    <div class="privacy-section" id="cookies">
+                        <h2><?php esc_html_e('Cookies', 'specsec'); ?></h2>
+                        <p><?php esc_html_e('Unsere Website verwendet Cookies. Das sind kleine Textdateien, die Ihr Webbrowser auf Ihrem Endgerät speichert. Cookies helfen uns dabei, unser Angebot nutzerfreundlicher, effektiver und sicherer zu machen.', 'specsec'); ?></p>
+                        
+                        <h3><?php esc_html_e('Arten von Cookies', 'specsec'); ?></h3>
+                        <ul>
+                            <li><strong><?php esc_html_e('Technisch notwendige Cookies:', 'specsec'); ?></strong> <?php esc_html_e('Diese sind für die Grundfunktionen der Website erforderlich', 'specsec'); ?></li>
+                            <li><strong><?php esc_html_e('Funktionale Cookies:', 'specsec'); ?></strong> <?php esc_html_e('Diese verbessern die Benutzerfreundlichkeit', 'specsec'); ?></li>
+                            <li><strong><?php esc_html_e('Analyse-Cookies:', 'specsec'); ?></strong> <?php esc_html_e('Diese helfen uns, die Website zu verbessern', 'specsec'); ?></li>
+                        </ul>
+                        
+                        <p><?php esc_html_e('Sie können Ihre Browser-Einstellung entsprechend konfigurieren und z. B. die Annahme von Third-Party-Cookies oder allen Cookies ablehnen.', 'specsec'); ?></p>
+                    </div>
+
+                    <div class="privacy-section" id="rechte">
+                        <h2><?php esc_html_e('Ihre Rechte', 'specsec'); ?></h2>
+                        <p><?php esc_html_e('Sie haben folgende Rechte:', 'specsec'); ?></p>
+                        
+                        <ul>
+                            <li><strong><?php esc_html_e('Auskunftsrecht:', 'specsec'); ?></strong> <?php esc_html_e('Sie können Auskunft über Ihre bei uns gespeicherten personenbezogenen Daten verlangen', 'specsec'); ?></li>
+                            <li><strong><?php esc_html_e('Berichtigungsrecht:', 'specsec'); ?></strong> <?php esc_html_e('Sie können die Berichtigung unrichtiger Daten verlangen', 'specsec'); ?></li>
+                            <li><strong><?php esc_html_e('Löschungsrecht:', 'specsec'); ?></strong> <?php esc_html_e('Sie können die Löschung Ihrer Daten verlangen', 'specsec'); ?></li>
+                            <li><strong><?php esc_html_e('Widerspruchsrecht:', 'specsec'); ?></strong> <?php esc_html_e('Sie können der Verarbeitung Ihrer Daten widersprechen', 'specsec'); ?></li>
+                            <li><strong><?php esc_html_e('Datenübertragbarkeit:', 'specsec'); ?></strong> <?php esc_html_e('Sie können die Übertragung Ihrer Daten verlangen', 'specsec'); ?></li>
+                            <li><strong><?php esc_html_e('Beschwerde:', 'specsec'); ?></strong> <?php esc_html_e('Sie können sich bei der zuständigen Aufsichtsbehörde beschweren', 'specsec'); ?></li>
+                        </ul>
+                    </div>
+
+                    <div class="privacy-section" id="kontakt">
+                        <h2><?php esc_html_e('Kontakt bei Datenschutz-Fragen', 'specsec'); ?></h2>
+                        <p><?php esc_html_e('Bei Fragen zum Datenschutz können Sie sich jederzeit an uns wenden:', 'specsec'); ?></p>
+                        
+                        <div class="contact-info">
+                            <strong>SpecSec GmbH</strong><br>
+                            <?php esc_html_e('Datenschutzbeauftragter', 'specsec'); ?><br>
+                            <?php echo esc_html(specsec_get_address()); ?><br>
+                            <?php esc_html_e('E-Mail:', 'specsec'); ?> <a href="mailto:datenschutz@specsec.de">datenschutz@specsec.de</a>
+                        </div>
+                        
+                        <p><strong><?php esc_html_e('Hinweis:', 'specsec'); ?></strong> <?php esc_html_e('Diese Datenschutzerklärung wurde zuletzt am', 'specsec'); ?> <?php echo date_i18n('d.m.Y'); ?> <?php esc_html_e('aktualisiert.', 'specsec'); ?></p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+</div>
 
-    <!-- Quick Navigation -->
-    <section class="privacy-nav-section">
-        <div class="container">
-            <nav class="privacy-nav" aria-label="Datenschutz Navigation">
-                <a href="#overview" class="nav-link active">
-                    <svg width="20" height="20" viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2Z"/>
+<style>
+/* Privacy Page Styles */
+.privacy-page {
+    background: #f8f9fa;
+}
+
+.privacy-content {
+    padding: 80px 0;
+}
+
+.privacy-wrapper {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.privacy-nav {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+.privacy-nav h3 {
+    margin-bottom: 1rem;
+    color: var(--accent-dark);
+}
+
+.privacy-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.privacy-nav li {
+    margin-bottom: 0.5rem;
+}
+
+.privacy-nav a {
+    color: #666;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.privacy-nav a:hover {
+    color: var(--primary-gold);
+}
+
+.privacy-main {
+    background: white;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.privacy-section {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.privacy-section:last-child {
+    border-bottom: none;
+}
+
+.privacy-section h2 {
+    color: var(--accent-dark);
+    margin-bottom: 1.5rem;
+}
+
+.privacy-section h3 {
+    color: var(--primary-gold);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.privacy-section p {
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.privacy-section ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.privacy-section li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.contact-info {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-left: 4px solid var(--primary-gold);
+    margin: 1rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .privacy-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .privacy-nav {
+        position: static;
+        order: 2;
+    }
+    
+    .privacy-main {
+        padding: 2rem;
+    }
+}
+</style>
+
+<?php get_footer(); ?>
                     </svg>
                     Überblick
                 </a>
