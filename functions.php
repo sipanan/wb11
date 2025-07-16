@@ -21,6 +21,12 @@ require_once SAFE_COLOGNE_PATH . '/inc/customizer.php';
 require_once SAFE_COLOGNE_PATH . '/inc/custom-post-types.php';
 require_once SAFE_COLOGNE_PATH . '/inc/ajax-handlers.php';
 
+// Include page-specific functions
+require_once SAFE_COLOGNE_PATH . '/inc/page-functions/home-functions.php';
+require_once SAFE_COLOGNE_PATH . '/inc/page-functions/about-functions.php';
+require_once SAFE_COLOGNE_PATH . '/inc/page-functions/services-functions.php';
+require_once SAFE_COLOGNE_PATH . '/inc/page-functions/contact-functions.php';
+
 // Theme setup
 add_action('after_setup_theme', 'safe_cologne_setup');
 function safe_cologne_setup() {
@@ -75,6 +81,11 @@ function safe_cologne_scripts() {
     wp_enqueue_style('safe-cologne-main', SAFE_COLOGNE_URI . '/assets/css/style.css', array(), SAFE_COLOGNE_VERSION);
     wp_enqueue_style('safe-cologne-responsive', SAFE_COLOGNE_URI . '/assets/css/responsive.css', array('safe-cologne-main'), SAFE_COLOGNE_VERSION);
     
+    // Legal pages CSS
+    if (is_page_template('page-templates/page-privacy.php') || is_page_template('page-templates/page-imprint.php') || is_page('privacy') || is_page('imprint') || is_page('datenschutz') || is_page('impressum')) {
+        wp_enqueue_style('safe-cologne-legal', SAFE_COLOGNE_URI . '/assets/css/pages/legal.css', array('safe-cologne-main'), SAFE_COLOGNE_VERSION);
+    }
+    
     // JavaScript
     wp_enqueue_script('safe-cologne-navigation', SAFE_COLOGNE_URI . '/assets/js/navigation.js', array(), SAFE_COLOGNE_VERSION, true);
     wp_enqueue_script('safe-cologne-main', SAFE_COLOGNE_URI . '/assets/js/main.js', array('jquery'), SAFE_COLOGNE_VERSION, true);
@@ -90,6 +101,9 @@ function safe_cologne_scripts() {
             'loading' => __('Wird geladen...', 'safe-cologne'),
             'success' => __('Erfolgreich gesendet!', 'safe-cologne'),
             'error' => __('Ein Fehler ist aufgetreten.', 'safe-cologne'),
+            'close' => __('Schließen', 'safe-cologne'),
+            'readMore' => __('Mehr lesen', 'safe-cologne'),
+            'readLess' => __('Weniger lesen', 'safe-cologne'),
         ),
     ));
 }

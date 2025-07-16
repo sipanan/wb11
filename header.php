@@ -11,7 +11,7 @@
 
 // Performance: Cache theme options
 $phone_number = get_theme_mod('safe_cologne_phone', '0221 6505 8801');
-$emergency_text = get_theme_mod('safe_cologne_emergency', '24/7 Notdienst');
+$emergency_text = get_theme_mod('safe_cologne_emergency', 'Notruf');
 $cta_text = get_theme_mod('safe_cologne_cta_text', 'Kontakt aufnehmen');
 $cta_url = get_theme_mod('safe_cologne_cta_url', '/kontakt/');
 $show_topbar = get_theme_mod('safe_cologne_show_topbar', true);
