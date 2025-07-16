@@ -120,69 +120,6 @@ function safe_cologne_contact_customizer_settings($wp_customize) {
 add_action('customize_register', 'safe_cologne_contact_customizer_settings');
 
 /**
- * Handle contact form submission
- */
-function safe_cologne_handle_contact_form() {
-    // Verify nonce
-    if (!wp_verify_nonce($_POST['nonce'], 'safe-cologne-nonce')) {
-        wp_die('Security check failed');
-    }
-    
-    // Sanitize form data
-    $form_data = $_POST['form_data'];
-    $name = sanitize_text_field($form_data['name']);
-    $email = sanitize_email($form_data['email']);
-    $phone = sanitize_text_field($form_data['phone']);
-    $company = sanitize_text_field($form_data['company']);
-    $service = sanitize_text_field($form_data['service']);
-    $message = sanitize_textarea_field($form_data['message']);
-    
-    // Validate required fields
-    if (empty($name) || empty($email) || empty($message)) {
-        wp_send_json_error('Bitte füllen Sie alle Pflichtfelder aus.');
-        return;
-    }
-    
-    // Validate email
-    if (!is_email($email)) {
-        wp_send_json_error('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
-        return;
-    }
-    
-    // Prepare email
-    $to = get_theme_mod('safe_cologne_contact_form_email', get_option('admin_email'));
-    $subject = 'Neue Kontaktanfrage von ' . $name;
-    
-    $email_body = "Neue Kontaktanfrage über die Website:\n\n";
-    $email_body .= "Name: " . $name . "\n";
-    $email_body .= "E-Mail: " . $email . "\n";
-    $email_body .= "Telefon: " . $phone . "\n";
-    $email_body .= "Unternehmen: " . $company . "\n";
-    $email_body .= "Service: " . $service . "\n";
-    $email_body .= "Nachricht:\n" . $message . "\n\n";
-    $email_body .= "Gesendet am: " . date('d.m.Y H:i') . "\n";
-    $email_body .= "IP-Adresse: " . $_SERVER['REMOTE_ADDR'] . "\n";
-    
-    $headers = array(
-        'Content-Type: text/plain; charset=UTF-8',
-        'From: ' . $name . ' <' . $email . '>',
-        'Reply-To: ' . $email
-    );
-    
-    // Send email
-    if (wp_mail($to, $subject, $email_body, $headers)) {
-        // Save to database (optional)
-        safe_cologne_save_contact_submission($form_data);
-        
-        wp_send_json_success(get_theme_mod('safe_cologne_contact_success_message', 'Vielen Dank für Ihre Nachricht!'));
-    } else {
-        wp_send_json_error('Fehler beim Senden der E-Mail. Bitte versuchen Sie es später erneut.');
-    }
-}
-add_action('wp_ajax_safe_cologne_contact_form', 'safe_cologne_handle_contact_form');
-add_action('wp_ajax_nopriv_safe_cologne_contact_form', 'safe_cologne_handle_contact_form');
-
-/**
  * Save contact form submission to database
  */
 function safe_cologne_save_contact_submission($form_data) {

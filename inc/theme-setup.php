@@ -71,6 +71,13 @@ function safe_cologne_theme_support() {
     
     // Add support for custom units
     add_theme_support('custom-units', array('px', 'em', 'rem', '%', 'vh', 'vw'));
+    
+    // Register navigation menus
+    register_nav_menus(array(
+        'primary' => esc_html__('Primary Menu', 'safe-cologne'),
+        'footer'  => esc_html__('Footer Menu', 'safe-cologne'),
+        'mobile'  => esc_html__('Mobile Menu', 'safe-cologne'),
+    ));
 }
 
 // Register custom image sizes

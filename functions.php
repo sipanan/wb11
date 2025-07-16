@@ -28,49 +28,11 @@ require_once SAFE_COLOGNE_PATH . '/inc/page-functions/services-functions.php';
 require_once SAFE_COLOGNE_PATH . '/inc/page-functions/contact-functions.php';
 require_once SAFE_COLOGNE_PATH . '/inc/page-functions/legal-functions.php';
 
-// Theme setup
-add_action('after_setup_theme', 'safe_cologne_setup');
-function safe_cologne_setup() {
-    // Add theme support
-    add_theme_support('automatic-feed-links');
-    add_theme_support('title-tag');
-    add_theme_support('post-thumbnails');
-    add_theme_support('html5', array(
-        'search-form',
-        'comment-form',
-        'comment-list',
-        'gallery',
-        'caption',
-        'style',
-        'script',
-    ));
-    
-    add_theme_support('custom-logo', array(
-        'height'      => 100,
-        'width'       => 400,
-        'flex-height' => true,
-        'flex-width'  => true,
-    ));
-    
-    add_theme_support('customize-selective-refresh-widgets');
-    add_theme_support('wp-block-styles');
-    add_theme_support('align-wide');
-    add_theme_support('responsive-embeds');
-    
-    // Register navigation menus
-    register_nav_menus(array(
-        'primary' => esc_html__('Primary Menu', 'safe-cologne'),
-        'footer'  => esc_html__('Footer Menu', 'safe-cologne'),
-        'mobile'  => esc_html__('Mobile Menu', 'safe-cologne'),
-    ));
-    
+// Additional theme setup (main setup is in inc/theme-setup.php)
+add_action('after_setup_theme', 'safe_cologne_additional_setup');
+function safe_cologne_additional_setup() {
     // Make theme translation ready
     load_theme_textdomain('safe-cologne', SAFE_COLOGNE_PATH . '/languages');
-    
-    // Add image sizes
-    add_image_size('service-thumb', 400, 300, true);
-    add_image_size('team-member', 300, 300, true);
-    add_image_size('hero-banner', 1920, 1080, true);
 }
 
 // Enqueue scripts and styles
@@ -179,7 +141,7 @@ function safe_cologne_excerpt_more($more) {
 add_filter('body_class', 'safe_cologne_body_classes');
 function safe_cologne_body_classes($classes) {
     // Add page slug if it doesn't exist
-    if (is_single() || is_page() && !is_front_page()) {
+    if ((is_single() || is_page()) && !is_front_page()) {
         if (!in_array(basename(get_permalink()), $classes)) {
             $classes[] = basename(get_permalink());
         }
