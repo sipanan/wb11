@@ -21,59 +21,33 @@ require_once SAFE_COLOGNE_PATH . '/inc/customizer.php';
 require_once SAFE_COLOGNE_PATH . '/inc/custom-post-types.php';
 require_once SAFE_COLOGNE_PATH . '/inc/ajax-handlers.php';
 
-// Theme setup
-add_action('after_setup_theme', 'safe_cologne_setup');
-function safe_cologne_setup() {
-    // Add theme support
-    add_theme_support('automatic-feed-links');
-    add_theme_support('title-tag');
-    add_theme_support('post-thumbnails');
-    add_theme_support('html5', array(
-        'search-form',
-        'comment-form',
-        'comment-list',
-        'gallery',
-        'caption',
-        'style',
-        'script',
-    ));
-    
-    add_theme_support('custom-logo', array(
-        'height'      => 100,
-        'width'       => 400,
-        'flex-height' => true,
-        'flex-width'  => true,
-    ));
-    
-    add_theme_support('customize-selective-refresh-widgets');
-    add_theme_support('wp-block-styles');
-    add_theme_support('align-wide');
-    add_theme_support('responsive-embeds');
-    
-    // Register navigation menus
-    register_nav_menus(array(
-        'primary' => esc_html__('Primary Menu', 'safe-cologne'),
-        'footer'  => esc_html__('Footer Menu', 'safe-cologne'),
-        'mobile'  => esc_html__('Mobile Menu', 'safe-cologne'),
-    ));
-    
+// Include page-specific functions
+require_once SAFE_COLOGNE_PATH . '/inc/page-functions/home-functions.php';
+require_once SAFE_COLOGNE_PATH . '/inc/page-functions/about-functions.php';
+require_once SAFE_COLOGNE_PATH . '/inc/page-functions/services-functions.php';
+require_once SAFE_COLOGNE_PATH . '/inc/page-functions/contact-functions.php';
+require_once SAFE_COLOGNE_PATH . '/inc/page-functions/legal-functions.php';
+
+// Additional theme setup (main setup is in inc/theme-setup.php)
+add_action('after_setup_theme', 'safe_cologne_additional_setup');
+function safe_cologne_additional_setup() {
     // Make theme translation ready
     load_theme_textdomain('safe-cologne', SAFE_COLOGNE_PATH . '/languages');
-    
-    // Add image sizes
-    add_image_size('service-thumb', 400, 300, true);
-    add_image_size('team-member', 300, 300, true);
-    add_image_size('hero-banner', 1920, 1080, true);
 }
 
 // Enqueue scripts and styles
 add_action('wp_enqueue_scripts', 'safe_cologne_scripts');
 function safe_cologne_scripts() {
     // CSS
-    wp_enqueue_style('safe-cologne-google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap', array(), null);
+    wp_enqueue_style('safe-cologne-google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap', array(), null);
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css', array(), '6.5.1');
-    wp_enqueue_style('safe-cologne-main', SAFE_COLOGNE_URI . '/assets/css/style.css', array(), SAFE_COLOGNE_VERSION);
-    wp_enqueue_style('safe-cologne-responsive', SAFE_COLOGNE_URI . '/assets/css/responsive.css', array('safe-cologne-main'), SAFE_COLOGNE_VERSION);
+    wp_enqueue_style('safe-cologne-clean', SAFE_COLOGNE_URI . '/assets/css/clean-style.css', array(), SAFE_COLOGNE_VERSION);
+    wp_enqueue_style('safe-cologne-responsive', SAFE_COLOGNE_URI . '/assets/css/responsive.css', array('safe-cologne-clean'), SAFE_COLOGNE_VERSION);
+    
+    // Legal pages CSS
+    if (is_page_template('page-templates/page-privacy.php') || is_page_template('page-templates/page-imprint.php') || is_page('privacy') || is_page('imprint') || is_page('datenschutz') || is_page('impressum')) {
+        wp_enqueue_style('safe-cologne-legal', SAFE_COLOGNE_URI . '/assets/css/pages/legal.css', array('safe-cologne-main'), SAFE_COLOGNE_VERSION);
+    }
     
     // JavaScript
     wp_enqueue_script('safe-cologne-navigation', SAFE_COLOGNE_URI . '/assets/js/navigation.js', array(), SAFE_COLOGNE_VERSION, true);
@@ -90,6 +64,9 @@ function safe_cologne_scripts() {
             'loading' => __('Wird geladen...', 'safe-cologne'),
             'success' => __('Erfolgreich gesendet!', 'safe-cologne'),
             'error' => __('Ein Fehler ist aufgetreten.', 'safe-cologne'),
+            'close' => __('Schließen', 'safe-cologne'),
+            'readMore' => __('Mehr lesen', 'safe-cologne'),
+            'readLess' => __('Weniger lesen', 'safe-cologne'),
         ),
     ));
 }
@@ -164,7 +141,7 @@ function safe_cologne_excerpt_more($more) {
 add_filter('body_class', 'safe_cologne_body_classes');
 function safe_cologne_body_classes($classes) {
     // Add page slug if it doesn't exist
-    if (is_single() || is_page() && !is_front_page()) {
+    if ((is_single() || is_page()) && !is_front_page()) {
         if (!in_array(basename(get_permalink()), $classes)) {
             $classes[] = basename(get_permalink());
         }

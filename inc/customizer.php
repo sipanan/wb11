@@ -207,7 +207,7 @@ function safe_cologne_customize_register($wp_customize) {
     
     // Secondary Color
     $wp_customize->add_setting('safe_cologne_secondary_color', array(
-        'default'           => '#1a1a1a',
+        'default'           => '#B20510',
         'sanitize_callback' => 'sanitize_hex_color',
     ));
     
@@ -215,18 +215,196 @@ function safe_cologne_customize_register($wp_customize) {
         'label'    => __('Sekundärfarbe', 'safe-cologne'),
         'section'  => 'safe_cologne_colors',
     )));
+    
+    // Typography Section
+    $wp_customize->add_section('safe_cologne_typography', array(
+        'title'    => __('Typografie', 'safe-cologne'),
+        'panel'    => 'safe_cologne_panel',
+        'priority' => 55,
+    ));
+    
+    // Body Font
+    $wp_customize->add_setting('safe_cologne_body_font', array(
+        'default'           => 'Inter',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    
+    $wp_customize->add_control('safe_cologne_body_font', array(
+        'label'    => __('Hauptschrift', 'safe-cologne'),
+        'section'  => 'safe_cologne_typography',
+        'type'     => 'select',
+        'choices'  => array(
+            'Inter' => 'Inter',
+            'Roboto' => 'Roboto',
+            'Open Sans' => 'Open Sans',
+            'Lato' => 'Lato',
+            'Poppins' => 'Poppins'
+        ),
+    ));
+    
+    // Heading Font
+    $wp_customize->add_setting('safe_cologne_heading_font', array(
+        'default'           => 'Inter',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    
+    $wp_customize->add_control('safe_cologne_heading_font', array(
+        'label'    => __('Überschriften-Schrift', 'safe-cologne'),
+        'section'  => 'safe_cologne_typography',
+        'type'     => 'select',
+        'choices'  => array(
+            'Inter' => 'Inter',
+            'Roboto' => 'Roboto',
+            'Open Sans' => 'Open Sans',
+            'Lato' => 'Lato',
+            'Poppins' => 'Poppins'
+        ),
+    ));
+    
+    // Layout Section
+    $wp_customize->add_section('safe_cologne_layout', array(
+        'title'    => __('Layout', 'safe-cologne'),
+        'panel'    => 'safe_cologne_panel',
+        'priority' => 60,
+    ));
+    
+    // Container Width
+    $wp_customize->add_setting('safe_cologne_container_width', array(
+        'default'           => '1200',
+        'sanitize_callback' => 'absint',
+    ));
+    
+    $wp_customize->add_control('safe_cologne_container_width', array(
+        'label'    => __('Container Breite (px)', 'safe-cologne'),
+        'section'  => 'safe_cologne_layout',
+        'type'     => 'number',
+        'input_attrs' => array(
+            'min' => 800,
+            'max' => 1800,
+            'step' => 50,
+        ),
+    ));
+    
+    // Border Radius
+    $wp_customize->add_setting('safe_cologne_border_radius', array(
+        'default'           => '12',
+        'sanitize_callback' => 'absint',
+    ));
+    
+    $wp_customize->add_control('safe_cologne_border_radius', array(
+        'label'    => __('Border Radius (px)', 'safe-cologne'),
+        'section'  => 'safe_cologne_layout',
+        'type'     => 'number',
+        'input_attrs' => array(
+            'min' => 0,
+            'max' => 50,
+            'step' => 1,
+        ),
+    ));
 }
 
 // Output custom CSS
 add_action('wp_head', 'safe_cologne_customizer_css');
 function safe_cologne_customizer_css() {
     $primary_color = get_theme_mod('safe_cologne_primary_color', '#E30613');
-    $secondary_color = get_theme_mod('safe_cologne_secondary_color', '#1a1a1a');
+    $secondary_color = get_theme_mod('safe_cologne_secondary_color', '#B20510');
+    $body_font = get_theme_mod('safe_cologne_body_font', 'Inter');
+    $heading_font = get_theme_mod('safe_cologne_heading_font', 'Inter');
+    $container_width = get_theme_mod('safe_cologne_container_width', '1200');
+    $border_radius = get_theme_mod('safe_cologne_border_radius', '12');
     ?>
     <style type="text/css">
         :root {
             --primary-red: <?php echo esc_attr($primary_color); ?>;
-            --dark-gray: <?php echo esc_attr($secondary_color); ?>;
+            --dark-red: <?php echo esc_attr($secondary_color); ?>;
+            --light-red: <?php echo esc_attr($primary_color); ?>33;
+            --radius-md: <?php echo esc_attr($border_radius); ?>px;
+            --radius-sm: <?php echo esc_attr($border_radius / 2); ?>px;
+            --radius-lg: <?php echo esc_attr($border_radius * 1.5); ?>px;
+        }
+        
+        .container {
+            max-width: <?php echo esc_attr($container_width); ?>px;
+        }
+        
+        body {
+            font-family: '<?php echo esc_attr($body_font); ?>', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: '<?php echo esc_attr($heading_font); ?>', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .hero-section,
+        .about-hero,
+        .services-hero,
+        .contact-hero {
+            background: linear-gradient(135deg, <?php echo esc_attr($primary_color); ?> 0%, <?php echo esc_attr($secondary_color); ?> 100%);
+        }
+        
+        .feature-icon,
+        .value-icon,
+        .service-header {
+            background: linear-gradient(135deg, <?php echo esc_attr($primary_color); ?>, <?php echo esc_attr($secondary_color); ?>);
+        }
+        
+        .contact-cta,
+        .emergency-contact {
+            background: linear-gradient(135deg, <?php echo esc_attr($primary_color); ?>, <?php echo esc_attr($secondary_color); ?>);
+        }
+        
+        .service-cta,
+        .form-submit,
+        .modal-cta,
+        .pricing-cta {
+            background: <?php echo esc_attr($primary_color); ?>;
+        }
+        
+        .service-cta:hover,
+        .form-submit:hover,
+        .modal-cta:hover,
+        .pricing-cta:hover {
+            background: <?php echo esc_attr($secondary_color); ?>;
+        }
+        
+        .stat-number {
+            color: <?php echo esc_attr($primary_color); ?>;
+        }
+        
+        .timeline-date,
+        .step-number,
+        .certification-icon,
+        .contact-icon {
+            background: <?php echo esc_attr($primary_color); ?>;
+        }
+        
+        .timeline::before {
+            background: <?php echo esc_attr($primary_color); ?>;
+        }
+        
+        .pricing-card.featured {
+            border-color: <?php echo esc_attr($primary_color); ?>;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: <?php echo esc_attr($primary_color); ?>;
+            box-shadow: 0 0 0 3px <?php echo esc_attr($primary_color); ?>1a;
+        }
+        
+        .hours-item.current-day {
+            border-left-color: <?php echo esc_attr($primary_color); ?>;
+        }
+        
+        .map-placeholder i {
+            color: <?php echo esc_attr($primary_color); ?>;
+        }
+        
+        .service-filter.active,
+        .service-filter:hover {
+            background: <?php echo esc_attr($primary_color); ?>;
+            border-color: <?php echo esc_attr($primary_color); ?>;
         }
     </style>
     <?php

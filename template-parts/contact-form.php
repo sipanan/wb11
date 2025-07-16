@@ -18,7 +18,7 @@ $email = get_option('safe_cologne_settings')['email'] ?? 'info@safecologne.de';
             <div class="contact-info">
                 <div class="contact-card primary-card">
                     <i class="fas fa-phone-alt"></i>
-                    <h3><?php esc_html_e('24/7 Notdienst', 'safe-cologne'); ?></h3>
+                    <h3><?php esc_html_e('Notruf', 'safe-cologne'); ?></h3>
                     <a href="tel:<?php echo esc_attr(str_replace(' ', '', $phone)); ?>" class="contact-link"><?php echo esc_html($phone); ?></a>
                     <p><?php esc_html_e('Rund um die Uhr erreichbar', 'safe-cologne'); ?></p>
                 </div>

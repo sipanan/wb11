@@ -1,6 +1,6 @@
 <?php
 /**
- * The front page template
+ * The front page template - Clean & Simple
  *
  * @package Safe_Cologne
  */
@@ -8,158 +8,120 @@
 get_header(); ?>
 
 <!-- Hero Section -->
-<?php get_template_part('template-parts/hero', 'section'); ?>
+<section class="hero-section">
+    <div class="container">
+        <h1 class="hero-title">
+            <?php echo esc_html(get_theme_mod('safe_cologne_hero_title', 'Sicherheit mit Herz & System')); ?>
+        </h1>
+        <p class="hero-subtitle">
+            <?php echo esc_html(get_theme_mod('safe_cologne_hero_subtitle', 'Ihr zuverlässiger Partner für professionelle Sicherheitslösungen in Köln')); ?>
+        </p>
+        <a href="<?php echo esc_url(get_theme_mod('safe_cologne_hero_button_url', '/kontakt/')); ?>" class="hero-cta">
+            <?php echo esc_html(get_theme_mod('safe_cologne_hero_button_text', 'Jetzt Kontakt aufnehmen')); ?>
+        </a>
+    </div>
+</section>
 
 <!-- Features Section -->
-<section class="section features" aria-labelledby="features-title">
+<section class="section">
     <div class="container">
-        <h2 id="features-title" class="section-title"><?php esc_html_e('Was uns besonders macht', 'safe-cologne'); ?></h2>
+        <h2 class="section-title">
+            <?php echo esc_html(get_theme_mod('safe_cologne_features_title', 'Was uns besonders macht')); ?>
+        </h2>
         <p class="section-subtitle">
-            <?php esc_html_e('Professionelle Sicherheit mit menschlichem Ansatz', 'safe-cologne'); ?>
+            <?php echo esc_html(get_theme_mod('safe_cologne_features_subtitle', 'Professionelle Sicherheit mit menschlichem Ansatz')); ?>
         </p>
         
         <div class="features-grid">
-            <article class="feature-card">
+            <div class="feature-card">
                 <div class="feature-icon">
-                    <i class="fas fa-handshake"></i>
+                    <i class="fas fa-shield-alt"></i>
                 </div>
-                <h3><?php esc_html_e('Diskretion & Menschenkenntnis', 'safe-cologne'); ?></h3>
-                <p><?php esc_html_e('Wir handeln respektvoll und deeskalierend. Unsere Profis arbeiten mit Fingerspitzengefühl.', 'safe-cologne'); ?></p>
-            </article>
+                <h3 class="feature-title">24/7 Sicherheit</h3>
+                <p class="feature-description">
+                    Rund um die Uhr professionelle Sicherheitsdienstleistungen für Ihr Unternehmen.
+                </p>
+            </div>
             
-            <article class="feature-card">
+            <div class="feature-card">
                 <div class="feature-icon">
-                    <i class="fas fa-graduation-cap"></i>
+                    <i class="fas fa-users"></i>
                 </div>
-                <h3><?php esc_html_e('Geschulte Profis', 'safe-cologne'); ?></h3>
-                <p><?php esc_html_e('Vorausschauend und souverän - alle Mitarbeiter durchlaufen kontinuierliche Schulungen.', 'safe-cologne'); ?></p>
-            </article>
+                <h3 class="feature-title">Erfahrenes Team</h3>
+                <p class="feature-description">
+                    Hochqualifizierte Sicherheitsfachkräfte mit langjähriger Erfahrung.
+                </p>
+            </div>
             
-            <article class="feature-card">
+            <div class="feature-card">
                 <div class="feature-icon">
-                    <i class="fas fa-satellite-dish"></i>
+                    <i class="fas fa-heart"></i>
                 </div>
-                <h3><?php esc_html_e('Moderne Technik', 'safe-cologne'); ?></h3>
-                <p><?php esc_html_e('GPS-Tracking, Funk und Echtzeit-Kommunikation für kluge Koordination.', 'safe-cologne'); ?></p>
-            </article>
-            
-            <article class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-clipboard-check"></i>
-                </div>
-                <h3><?php esc_html_e('Verlässliche Planung', 'safe-cologne'); ?></h3>
-                <p><?php esc_html_e('Detaillierte Dokumentation für nachvollziehbare Sicherheit.', 'safe-cologne'); ?></p>
-            </article>
+                <h3 class="feature-title">Menschlicher Ansatz</h3>
+                <p class="feature-description">
+                    Sicherheit mit Herz - wir behandeln jeden Kunden individuell und persönlich.
+                </p>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Services Section -->
-<?php get_template_part('template-parts/services', 'grid'); ?>
-
-<!-- Why Choose Us Section -->
-<section class="section why-us" aria-labelledby="why-title">
+<!-- Services Preview -->
+<section class="section" style="background: #f8f9fa;">
     <div class="container">
-        <h2 id="why-title" class="section-title"><?php esc_html_e('Warum Safe Cologne?', 'safe-cologne'); ?></h2>
-        <p class="section-subtitle"><?php esc_html_e('Ihre Sicherheit ist unsere Mission', 'safe-cologne'); ?></p>
+        <h2 class="section-title">Unsere Dienstleistungen</h2>
+        <p class="section-subtitle">Professionelle Sicherheitslösungen für jeden Bedarf</p>
         
-        <div class="why-grid">
-            <div class="why-card">
-                <div class="why-number">01</div>
-                <h3><?php esc_html_e('Erfahrung & Expertise', 'safe-cologne'); ?></h3>
-                <p><?php esc_html_e('Über 15 Jahre Erfahrung in der Sicherheitsbranche mit einem Team von über 100 qualifizierten Mitarbeitern.', 'safe-cologne'); ?></p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3 class="feature-title">Objektschutz</h3>
+                <p class="feature-description">
+                    Professioneller Schutz für Ihre Gebäude und Anlagen.
+                </p>
             </div>
             
-            <div class="why-card">
-                <div class="why-number">02</div>
-                <h3><?php esc_html_e('24/7 Verfügbarkeit', 'safe-cologne'); ?></h3>
-                <p><?php esc_html_e('Rund um die Uhr für Sie erreichbar - 365 Tage im Jahr. Schnelle Reaktionszeiten garantiert.', 'safe-cologne'); ?></p>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3 class="feature-title">Sicherheitsdienst</h3>
+                <p class="feature-description">
+                    Umfassende Sicherheitsdienstleistungen für Events und Veranstaltungen.
+                </p>
             </div>
             
-            <div class="why-card">
-                <div class="why-number">03</div>
-                <h3><?php esc_html_e('Individuelle Konzepte', 'safe-cologne'); ?></h3>
-                <p><?php esc_html_e('Maßgeschneiderte Sicherheitslösungen, die perfekt auf Ihre Bedürfnisse abgestimmt sind.', 'safe-cologne'); ?></p>
-            </div>
-            
-            <div class="why-card">
-                <div class="why-number">04</div>
-                <h3><?php esc_html_e('Faire Preise', 'safe-cologne'); ?></h3>
-                <p><?php esc_html_e('Transparente Preisgestaltung ohne versteckte Kosten. Beste Qualität zu fairen Konditionen.', 'safe-cologne'); ?></p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- CTA Banner -->
-<section class="cta-banner">
-    <div class="container">
-        <div class="cta-content">
-            <h2><?php esc_html_e('Sicherheit beginnt mit einem Gespräch', 'safe-cologne'); ?></h2>
-            <p><?php esc_html_e('Lassen Sie uns gemeinsam Ihr individuelles Sicherheitskonzept entwickeln.', 'safe-cologne'); ?></p>
-            <div class="cta-buttons">
-                <?php
-                $phone = get_option('safe_cologne_settings')['phone'] ?? '0221 65058801';
-                ?>
-                <a href="tel:<?php echo esc_attr(str_replace(' ', '', $phone)); ?>" class="btn btn-white btn-lg">
-                    <i class="fas fa-phone-alt"></i>
-                                        <?php esc_html_e('Jetzt anrufen', 'safe-cologne'); ?>
-                </a>
-                <a href="https://wa.me/491701234567" class="btn btn-whatsapp btn-lg">
-                    <i class="fab fa-whatsapp"></i>
-                    <?php esc_html_e('WhatsApp', 'safe-cologne'); ?>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Testimonials Section -->
-<?php get_template_part('template-parts/testimonials'); ?>
-
-<!-- Career Section -->
-<section id="karriere" class="section career" aria-labelledby="career-title">
-    <div class="container">
-        <h2 id="career-title" class="section-title"><?php esc_html_e('Karriere bei Safe Cologne', 'safe-cologne'); ?></h2>
-        <p class="section-subtitle"><?php esc_html_e('Dein Job mit Sinn - werde Teil unseres Teams', 'safe-cologne'); ?></p>
-        
-        <div class="career-benefits">
-            <div class="benefit-card">
-                <i class="fas fa-graduation-cap"></i>
-                <h3><?php esc_html_e('Ausbildung & Aufstieg', 'safe-cologne'); ?></h3>
-                <p><?php esc_html_e('Klare Karrierepfade und kontinuierliche Weiterbildung', 'safe-cologne'); ?></p>
-            </div>
-            
-            <div class="benefit-card">
-                <i class="fas fa-euro-sign"></i>
-                <h3><?php esc_html_e('Faire Bezahlung', 'safe-cologne'); ?></h3>
-                <p><?php esc_html_e('Übertarifliche Vergütung und attraktive Zuschläge', 'safe-cologne'); ?></p>
-            </div>
-            
-            <div class="benefit-card">
-                <i class="fas fa-users"></i>
-                <h3><?php esc_html_e('Echtes Teamgefühl', 'safe-cologne'); ?></h3>
-                <p><?php esc_html_e('Kollegiales Arbeitsumfeld mit Wertschätzung', 'safe-cologne'); ?></p>
-            </div>
-            
-            <div class="benefit-card">
-                <i class="fas fa-clock"></i>
-                <h3><?php esc_html_e('Flexible Arbeitszeiten', 'safe-cologne'); ?></h3>
-                <p><?php esc_html_e('Familienfreundliche Schichtmodelle', 'safe-cologne'); ?></p>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h3 class="feature-title">Videoüberwachung</h3>
+                <p class="feature-description">
+                    Moderne Überwachungstechnik für maximale Sicherheit.
+                </p>
             </div>
         </div>
         
-        <div class="career-cta">
-            <p><?php esc_html_e('Bei uns bist du mehr als ein Ordnungsdienst – du bist Sicherheitsgastgeber!', 'safe-cologne'); ?></p>
-            <a href="mailto:bewerber@safecologne.de" class="btn btn-primary btn-lg">
-                <i class="fas fa-envelope"></i>
-                <?php esc_html_e('Jetzt bewerben', 'safe-cologne'); ?>
-            </a>
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="/dienstleistungen/" class="btn">Alle Dienstleistungen ansehen</a>
         </div>
     </div>
 </section>
 
-<!-- Contact Section -->
-<?php get_template_part('template-parts/contact', 'form'); ?>
+<!-- Contact CTA -->
+<section class="section">
+    <div class="container">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <h2 class="section-title">Bereit für mehr Sicherheit?</h2>
+            <p class="section-subtitle">
+                Kontaktieren Sie uns für eine individuelle Beratung und ein maßgeschneidertes Sicherheitskonzept.
+            </p>
+            <a href="/kontakt/" class="btn" style="margin-right: 1rem;">Jetzt Kontakt aufnehmen</a>
+            <a href="tel:022165058801" class="btn btn-outline">0221 6505 8801</a>
+        </div>
+    </div>
+</section>
 
 <?php get_footer(); ?>

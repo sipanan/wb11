@@ -1,16 +1,123 @@
 <?php
 /**
-/**
- * Template Name: privacy
+ * Template Name: Datenschutz
  *
  * @package Safe_Cologne
- *
- * @version 1.1.2
  */
 
 get_header(); ?>
 
-<main id="datenschutz-main" class="legal-page privacy-page">
+<!-- Legal Hero -->
+<section class="legal-hero" aria-labelledby="legal-hero-title">
+    <div class="container">
+        <h1 id="legal-hero-title"><?php the_title(); ?></h1>
+        <p><?php esc_html_e('Ihre Daten sind bei uns sicher und geschützt', 'safe-cologne'); ?></p>
+    </div>
+</section>
+
+<!-- Legal Content -->
+<section class="legal-content" aria-labelledby="legal-content-title">
+    <div class="container">
+        
+        <!-- Table of Contents -->
+        <div class="legal-toc">
+            <h3><?php esc_html_e('Inhalt', 'safe-cologne'); ?></h3>
+            <ul>
+                <li><a href="#verantwortlicher"><?php esc_html_e('Verantwortlicher', 'safe-cologne'); ?></a></li>
+                <li><a href="#datenarten"><?php esc_html_e('Erhobene Datenarten', 'safe-cologne'); ?></a></li>
+                <li><a href="#zwecke"><?php esc_html_e('Zwecke der Verarbeitung', 'safe-cologne'); ?></a></li>
+                <li><a href="#rechtsgrundlagen"><?php esc_html_e('Rechtsgrundlagen', 'safe-cologne'); ?></a></li>
+                <li><a href="#weitergabe"><?php esc_html_e('Weitergabe von Daten', 'safe-cologne'); ?></a></li>
+                <li><a href="#speicherdauer"><?php esc_html_e('Speicherdauer', 'safe-cologne'); ?></a></li>
+                <li><a href="#rechte"><?php esc_html_e('Ihre Rechte', 'safe-cologne'); ?></a></li>
+            </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="legal-contact-box" id="verantwortlicher">
+            <h4><?php esc_html_e('Verantwortlicher', 'safe-cologne'); ?></h4>
+            <p>
+                <?php echo esc_html(get_bloginfo('name')); ?><br>
+                <?php echo esc_html(get_theme_mod('safe_cologne_address', 'Subbelrather Str. 15A, 50823 Köln')); ?><br>
+                <?php esc_html_e('Telefon:', 'safe-cologne'); ?> 
+                <a href="tel:<?php echo esc_attr(str_replace(' ', '', get_theme_mod('safe_cologne_phone', '0221 6505 8801'))); ?>">
+                    <?php echo esc_html(get_theme_mod('safe_cologne_phone', '0221 6505 8801')); ?>
+                </a><br>
+                <?php esc_html_e('E-Mail:', 'safe-cologne'); ?> 
+                <a href="mailto:<?php echo esc_attr(get_theme_mod('safe_cologne_email', 'info@safecologne.de')); ?>">
+                    <?php echo esc_html(get_theme_mod('safe_cologne_email', 'info@safecologne.de')); ?>
+                </a>
+            </p>
+        </div>
+        
+        <?php while (have_posts()) : the_post(); ?>
+            <?php the_content(); ?>
+        <?php endwhile; ?>
+        
+        <h2 id="datenarten"><?php esc_html_e('Erhobene Datenarten', 'safe-cologne'); ?></h2>
+        <p><?php esc_html_e('Wir erheben und verarbeiten folgende Kategorien von personenbezogenen Daten:', 'safe-cologne'); ?></p>
+        <ul>
+            <li><?php esc_html_e('Kontaktdaten (Name, E-Mail-Adresse, Telefonnummer)', 'safe-cologne'); ?></li>
+            <li><?php esc_html_e('Technische Daten (IP-Adresse, Browser-Informationen)', 'safe-cologne'); ?></li>
+            <li><?php esc_html_e('Nutzungsdaten (Besuchszeit, aufgerufene Seiten)', 'safe-cologne'); ?></li>
+            <li><?php esc_html_e('Kommunikationsdaten (Nachrichten über Kontaktformular)', 'safe-cologne'); ?></li>
+        </ul>
+        
+        <h2 id="zwecke"><?php esc_html_e('Zwecke der Verarbeitung', 'safe-cologne'); ?></h2>
+        <p><?php esc_html_e('Wir verarbeiten Ihre personenbezogenen Daten zu folgenden Zwecken:', 'safe-cologne'); ?></p>
+        <ul>
+            <li><?php esc_html_e('Bereitstellung und Verbesserung unserer Website', 'safe-cologne'); ?></li>
+            <li><?php esc_html_e('Bearbeitung von Anfragen und Kontaktaufnahmen', 'safe-cologne'); ?></li>
+            <li><?php esc_html_e('Durchführung von Sicherheitsdienstleistungen', 'safe-cologne'); ?></li>
+            <li><?php esc_html_e('Erfüllung rechtlicher Verpflichtungen', 'safe-cologne'); ?></li>
+        </ul>
+        
+        <h2 id="rechtsgrundlagen"><?php esc_html_e('Rechtsgrundlagen', 'safe-cologne'); ?></h2>
+        <p><?php esc_html_e('Die Verarbeitung Ihrer personenbezogenen Daten erfolgt auf Grundlage von:', 'safe-cologne'); ?></p>
+        <ul>
+            <li><?php esc_html_e('Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)', 'safe-cologne'); ?></li>
+            <li><?php esc_html_e('Art. 6 Abs. 1 lit. c DSGVO (Rechtliche Verpflichtung)', 'safe-cologne'); ?></li>
+            <li><?php esc_html_e('Art. 6 Abs. 1 lit. f DSGVO (Berechtigtes Interesse)', 'safe-cologne'); ?></li>
+            <li><?php esc_html_e('Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)', 'safe-cologne'); ?></li>
+        </ul>
+        
+        <h2 id="weitergabe"><?php esc_html_e('Weitergabe von Daten', 'safe-cologne'); ?></h2>
+        <p><?php esc_html_e('Wir geben Ihre personenbezogenen Daten nur in folgenden Fällen weiter:', 'safe-cologne'); ?></p>
+        <ul>
+            <li><?php esc_html_e('An Dienstleister zur Vertragserfüllung', 'safe-cologne'); ?></li>
+            <li><?php esc_html_e('Bei gesetzlicher Verpflichtung', 'safe-cologne'); ?></li>
+            <li><?php esc_html_e('Mit Ihrer ausdrücklichen Einwilligung', 'safe-cologne'); ?></li>
+        </ul>
+        
+        <h2 id="speicherdauer"><?php esc_html_e('Speicherdauer', 'safe-cologne'); ?></h2>
+        <p><?php esc_html_e('Wir speichern Ihre personenbezogenen Daten nur so lange, wie es für die Erfüllung der Zwecke erforderlich ist oder gesetzliche Aufbewahrungsfristen bestehen.', 'safe-cologne'); ?></p>
+        
+        <h2 id="rechte"><?php esc_html_e('Ihre Rechte', 'safe-cologne'); ?></h2>
+        <p><?php esc_html_e('Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:', 'safe-cologne'); ?></p>
+        <ul>
+            <li><?php esc_html_e('Recht auf Auskunft (Art. 15 DSGVO)', 'safe-cologne'); ?></li>
+            <li><?php esc_html_e('Recht auf Berichtigung (Art. 16 DSGVO)', 'safe-cologne'); ?></li>
+            <li><?php esc_html_e('Recht auf Löschung (Art. 17 DSGVO)', 'safe-cologne'); ?></li>
+            <li><?php esc_html_e('Recht auf Einschränkung (Art. 18 DSGVO)', 'safe-cologne'); ?></li>
+            <li><?php esc_html_e('Recht auf Datenübertragbarkeit (Art. 20 DSGVO)', 'safe-cologne'); ?></li>
+            <li><?php esc_html_e('Recht auf Widerspruch (Art. 21 DSGVO)', 'safe-cologne'); ?></li>
+        </ul>
+        
+        <div class="legal-notice">
+            <h4><?php esc_html_e('Wichtiger Hinweis', 'safe-cologne'); ?></h4>
+            <p><?php esc_html_e('Bei Fragen zum Datenschutz können Sie sich jederzeit an uns wenden. Wir nehmen den Schutz Ihrer personenbezogenen Daten sehr ernst.', 'safe-cologne'); ?></p>
+        </div>
+        
+        <p><strong><?php esc_html_e('Stand:', 'safe-cologne'); ?></strong> <?php echo date('d.m.Y'); ?></p>
+    </div>
+</section>
+
+<!-- Back to Top -->
+<div class="back-to-top">
+    <i class="fas fa-chevron-up"></i>
+</div>
+
+<?php get_footer(); ?>
     
     <!-- Hero Section -->
     <section class="privacy-hero">

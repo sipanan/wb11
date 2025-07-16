@@ -51,7 +51,7 @@
             <div class="emergency-contact">
                 <a href="tel:<?php echo esc_attr(str_replace(' ', '', $phone)); ?>" class="phone-link">
                     <i class="fas fa-phone-alt"></i>
-                    <span><?php esc_html_e('24/7 Notdienst', 'safe-cologne'); ?></span>
+                    <span><?php esc_html_e('Notruf', 'safe-cologne'); ?></span>
                 </a>
             </div>
         </div>

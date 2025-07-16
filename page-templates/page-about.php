@@ -7,46 +7,144 @@
 
 get_header(); ?>
 
-<div class="page-header">
+<!-- About Hero -->
+<section class="about-hero" aria-labelledby="about-hero-title">
     <div class="container">
-        <h1 class="page-title"><?php the_title(); ?></h1>
-        <?php if (function_exists('bcn_display')) : ?>
-            <div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
-                <?php bcn_display(); ?>
-            </div>
-        <?php endif; ?>
+        <h1 id="about-hero-title">
+            <?php echo esc_html(get_theme_mod('safe_cologne_about_hero_title', 'Über Safe Cologne')); ?>
+        </h1>
+        <p>
+            <?php echo esc_html(get_theme_mod('safe_cologne_about_hero_subtitle', 'Ihr vertrauensvoller Partner für Sicherheit in Köln')); ?>
+        </p>
     </div>
-</div>
+</section>
 
-<div class="ueber-uns-page">
-    <!-- Company Story Section -->
-    <section class="section">
-        <div class="container">
-            <div class="company-story">
-                <div class="story-content">
-                    <?php while (have_posts()) : the_post(); ?>
-                        <?php the_content(); ?>
-                    <?php endwhile; ?>
-                    
-                    <div class="company-stats">
-                        <div class="stat-item">
-                            <strong><?php echo esc_html(get_theme_mod('safe_cologne_founding_year', '2023')); ?></strong>
-                            <span><?php esc_html_e('Gegründet', 'safe-cologne'); ?></span>
-                        </div>
-                        <div class="stat-item">
-                            <strong><?php echo esc_html(get_theme_mod('safe_cologne_clients_count', '50')); ?>+</strong>
-                            <span><?php esc_html_e('Zufriedene Kunden', 'safe-cologne'); ?></span>
-                        </div>
-                        <div class="stat-item">
-                            <strong><?php echo esc_html(get_theme_mod('safe_cologne_experience_years', '20')); ?>+</strong>
-                            <span><?php esc_html_e('Jahre Erfahrung', 'safe-cologne'); ?></span>
-                        </div>
-                        <div class="stat-item">
-                            <strong>24/7</strong>
-                            <span><?php esc_html_e('Verfügbarkeit', 'safe-cologne'); ?></span>
-                        </div>
+<!-- Company Story -->
+<section class="company-story" aria-labelledby="story-title">
+    <div class="container">
+        <div class="story-content">
+            <div class="story-text">
+                <h2 id="story-title"><?php esc_html_e('Unsere Geschichte', 'safe-cologne'); ?></h2>
+                <p><?php echo esc_html(get_theme_mod('safe_cologne_company_story', 'Seit über 15 Jahren stehen wir für Sicherheit und Vertrauen in Köln.')); ?></p>
+                
+                <?php while (have_posts()) : the_post(); ?>
+                    <?php the_content(); ?>
+                <?php endwhile; ?>
+                
+                <p><?php echo esc_html(get_theme_mod('safe_cologne_mission', 'Unsere Mission ist es, höchste Sicherheitsstandards mit menschlicher Wärme zu verbinden.')); ?></p>
+            </div>
+            
+            <div class="story-image">
+                <?php if (has_post_thumbnail()) : ?>
+                    <?php the_post_thumbnail('large'); ?>
+                <?php else : ?>
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/about-story.jpg'); ?>" alt="<?php esc_attr_e('Über Safe Cologne', 'safe-cologne'); ?>">
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Values Section -->
+<section class="values-section" aria-labelledby="values-title">
+    <div class="container">
+        <h2 id="values-title" class="section-title">
+            <?php echo esc_html(get_theme_mod('safe_cologne_values_title', 'Unsere Werte')); ?>
+        </h2>
+        <p class="section-subtitle"><?php esc_html_e('Was uns antreibt und leitet', 'safe-cologne'); ?></p>
+        
+        <div class="values-grid">
+            <?php
+            $values = safe_cologne_get_company_values();
+            foreach ($values as $value) : ?>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="<?php echo esc_attr($value['icon']); ?>"></i>
+                    </div>
+                    <h3><?php echo esc_html($value['title']); ?></h3>
+                    <p><?php echo esc_html($value['description']); ?></p>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="team-section" aria-labelledby="team-title">
+    <div class="container">
+        <h2 id="team-title" class="section-title">
+            <?php echo esc_html(get_theme_mod('safe_cologne_team_title', 'Unser Team')); ?>
+        </h2>
+        <p class="section-subtitle"><?php esc_html_e('Lernen Sie die Menschen hinter Safe Cologne kennen', 'safe-cologne'); ?></p>
+        
+        <div class="team-grid">
+            <?php
+            $team_members = safe_cologne_get_team_members();
+            foreach ($team_members as $member) : ?>
+                <div class="team-member">
+                    <div class="member-image">
+                        <?php if (isset($member['image']) && $member['image']) : ?>
+                            <img src="<?php echo esc_url($member['image']); ?>" alt="<?php echo esc_attr($member['name']); ?>">
+                        <?php else : ?>
+                            <i class="fas fa-user"></i>
+                        <?php endif; ?>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name"><?php echo esc_html($member['name']); ?></h3>
+                        <p class="member-role"><?php echo esc_html($member['role']); ?></p>
+                        <p class="member-description"><?php echo esc_html($member['description']); ?></p>
                     </div>
                 </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<!-- Timeline Section -->
+<section class="timeline-section" aria-labelledby="timeline-title">
+    <div class="container">
+        <h2 id="timeline-title" class="section-title"><?php esc_html_e('Unsere Entwicklung', 'safe-cologne'); ?></h2>
+        <p class="section-subtitle"><?php esc_html_e('Wichtige Meilensteine unserer Firmengeschichte', 'safe-cologne'); ?></p>
+        
+        <div class="timeline">
+            <?php
+            $timeline = safe_cologne_get_company_timeline();
+            foreach ($timeline as $item) : ?>
+                <div class="timeline-item">
+                    <div class="timeline-date"><?php echo esc_html($item['year']); ?></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title"><?php echo esc_html($item['title']); ?></h3>
+                        <p class="timeline-description"><?php echo esc_html($item['description']); ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<!-- Certifications Section -->
+<section class="certifications-section" aria-labelledby="certifications-title">
+    <div class="container">
+        <h2 id="certifications-title" class="section-title"><?php esc_html_e('Zertifikate & Qualifikationen', 'safe-cologne'); ?></h2>
+        <p class="section-subtitle"><?php esc_html_e('Unsere Qualifikationen und Zertifizierungen', 'safe-cologne'); ?></p>
+        
+        <div class="certifications-grid">
+            <?php
+            $certifications = safe_cologne_get_certifications();
+            foreach ($certifications as $certification) : ?>
+                <div class="certification-card">
+                    <div class="certification-icon">
+                        <i class="<?php echo esc_attr($certification['icon']); ?>"></i>
+                    </div>
+                    <h4><?php echo esc_html($certification['title']); ?></h4>
+                    <p><?php echo esc_html($certification['description']); ?></p>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<?php get_footer(); ?>
                 
                 <?php if (has_post_thumbnail()) : ?>
                     <div class="story-image">
