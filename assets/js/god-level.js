@@ -108,6 +108,32 @@
                 }
             });
         });
+        
+        // Add scroll indicator functionality
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+        if (scrollIndicator) {
+            scrollIndicator.addEventListener('click', () => {
+                const nextSection = document.querySelector('.features');
+                if (nextSection) {
+                    nextSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+            
+            // Hide scroll indicator when scrolling
+            window.addEventListener('scroll', () => {
+                const scrollY = window.pageYOffset;
+                if (scrollY > 200) {
+                    scrollIndicator.style.opacity = '0';
+                    scrollIndicator.style.pointerEvents = 'none';
+                } else {
+                    scrollIndicator.style.opacity = '1';
+                    scrollIndicator.style.pointerEvents = 'auto';
+                }
+            });
+        }
     }
 
     // ============================================
@@ -224,13 +250,30 @@
     // PREMIUM LOADING ANIMATIONS
     // ============================================
     function initLoadingAnimations() {
+        // Create premium loading screen
+        const loadingScreen = document.createElement('div');
+        loadingScreen.className = 'loading-screen';
+        loadingScreen.innerHTML = `
+            <div class="loading-content">
+                <div class="loading-logo"></div>
+                <div class="loading-text">SafeCologne wird geladen...</div>
+            </div>
+        `;
+        document.body.appendChild(loadingScreen);
+        
         // Add loading class to body initially
         document.body.classList.add('loading');
         
         window.addEventListener('load', () => {
             setTimeout(() => {
+                loadingScreen.classList.add('fade-out');
                 document.body.classList.remove('loading');
                 document.body.classList.add('loaded');
+                
+                // Remove loading screen after fade out
+                setTimeout(() => {
+                    loadingScreen.remove();
+                }, 600);
                 
                 // Animate elements on page load
                 const animateElements = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-cta');
@@ -239,7 +282,7 @@
                         element.classList.add('animate-in');
                     }, index * 200);
                 });
-            }, 500);
+            }, 1000);
         });
     }
 
@@ -328,9 +371,39 @@
         initLoadingAnimations();
         initContactForm();
         initMobileMenu();
+        initHeroParticles();
         
         // Add CSS animations
         addAnimationStyles();
+    }
+
+    // ============================================
+    // PREMIUM HERO PARTICLES
+    // ============================================
+    function initHeroParticles() {
+        const heroSection = document.querySelector('.hero-section');
+        if (!heroSection) return;
+        
+        const particles = document.createElement('div');
+        particles.className = 'particles';
+        heroSection.appendChild(particles);
+        
+        // Create multiple floating particles
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.cssText = `
+                position: absolute;
+                width: ${Math.random() * 4 + 1}px;
+                height: ${Math.random() * 4 + 1}px;
+                background: rgba(255,255,255,${Math.random() * 0.5 + 0.1});
+                border-radius: 50%;
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                animation: float ${Math.random() * 3 + 4}s ease-in-out ${Math.random() * 2}s infinite;
+            `;
+            particles.appendChild(particle);
+        }
     }
 
     // ============================================
@@ -360,6 +433,55 @@
             .loading .hero-title, .loading .hero-subtitle, .loading .hero-cta {
                 opacity: 0;
                 transform: translateY(30px);
+            }
+            
+            .loading-screen {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(135deg, #E30613 0%, #B20510 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 99999;
+                opacity: 1;
+                transition: opacity 0.6s ease-in-out;
+            }
+            
+            .loading-screen.fade-out {
+                opacity: 0;
+                pointer-events: none;
+            }
+            
+            .loading-logo {
+                width: 80px;
+                height: 80px;
+                border: 3px solid rgba(255,255,255,0.2);
+                border-top: 3px solid white;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+            }
+            
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            
+            .loading-text {
+                color: white;
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-top: 2rem;
+                text-align: center;
+                opacity: 0.9;
+                animation: pulse 1.5s ease-in-out infinite;
+            }
+            
+            @keyframes pulse {
+                0%, 100% { opacity: 0.9; }
+                50% { opacity: 0.6; }
             }
             
             .sc-header {

@@ -22,6 +22,16 @@ get_header(); ?>
                 <i class="fas fa-arrow-right"></i>
             </a>
         </div>
+        
+        <!-- Premium Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-text">Erfahren Sie mehr</div>
+            <div class="scroll-arrow">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M12 16l-6-6h12z"/>
+                </svg>
+            </div>
+        </div>
     </div>
 </section>
 
