@@ -1,33 +1,223 @@
 <?php
 /**
- * Template Name: Dienstleistungen (Services)
- * 
- * Elite-tier services page for SafeCologne
- * Designed for maximum conversion and trust
- * 
- * @package SafeCologne
- * @version 6.0.0
+ * Services Page Template
+ * Safe Cologne Security Services
+ * @package Safe_Cologne
  */
 
-get_header(); ?>
+get_header(); 
 
-<main id="services-main" class="services-page">
+// Get customizer options
+$services_options = safe_cologne_get_services_options();
+$company_info = safe_cologne_get_company_info();
+?>
+
+<main id="main-content" class="main-content">
     
-    <!-- Hero Section -->
+    <!-- Services Hero -->
     <section class="services-hero">
-        <div class="hero-background">
-            <div class="hero-overlay"></div>
-            <video autoplay muted loop playsinline class="hero-video">
-                <source src="<?php echo get_template_directory_uri(); ?>/assets/videos/security-hero.mp4" type="video/mp4">
-            </video>
-        </div>
         <div class="container">
-            <div class="hero-content">
-                <span class="hero-badge">Seit 2023 in Köln</span>
-                <h1 class="hero-title">
-                    <span class="title-line">Unsere</span>
-                    <span class="title-highlight">Sicherheitsdienstleistungen</span>
-                </h1>
+            <h1><?php echo esc_html($services_options['title']); ?></h1>
+            <p class="subtitle"><?php echo esc_html($services_options['subtitle']); ?></p>
+        </div>
+    </section>
+
+    <!-- Services Main -->
+    <section class="services-main">
+        <div class="container">
+            <div class="services-grid">
+                
+                <!-- Objektschutz -->
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3><?php esc_html_e('Objektschutz', 'safe-cologne'); ?></h3>
+                    <p><?php esc_html_e('Professioneller Schutz für Ihre Gebäude, Anlagen und Immobilien mit modernster Sicherheitstechnik.', 'safe-cologne'); ?></p>
+                    
+                    <div class="service-features">
+                        <ul>
+                            <li><?php esc_html_e('Pförtnerdienste', 'safe-cologne'); ?></li>
+                            <li><?php esc_html_e('Zugangskontrollen', 'safe-cologne'); ?></li>
+                            <li><?php esc_html_e('Objektüberwachung', 'safe-cologne'); ?></li>
+                            <li><?php esc_html_e('Sicherheitsrundgänge', 'safe-cologne'); ?></li>
+                        </ul>
+                    </div>
+                    
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="service-link">
+                        <?php esc_html_e('Angebot anfordern', 'safe-cologne'); ?>
+                    </a>
+                </article>
+                
+                <!-- Personenschutz -->
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3><?php esc_html_e('Personenschutz', 'safe-cologne'); ?></h3>
+                    <p><?php esc_html_e('Diskreter und professioneller Schutz für Personen des öffentlichen Lebens und Privatpersonen.', 'safe-cologne'); ?></p>
+                    
+                    <div class="service-features">
+                        <ul>
+                            <li><?php esc_html_e('Personenschutz', 'safe-cologne'); ?></li>
+                            <li><?php esc_html_e('Begleitschutz', 'safe-cologne'); ?></li>
+                            <li><?php esc_html_e('Residenzschutz', 'safe-cologne'); ?></li>
+                            <li><?php esc_html_e('Sicherheitsberatung', 'safe-cologne'); ?></li>
+                        </ul>
+                    </div>
+                    
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="service-link">
+                        <?php esc_html_e('Angebot anfordern', 'safe-cologne'); ?>
+                    </a>
+                </article>
+                
+                <!-- Veranstaltungsschutz -->
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3><?php esc_html_e('Veranstaltungsschutz', 'safe-cologne'); ?></h3>
+                    <p><?php esc_html_e('Umfassende Sicherheit für Events, Messen, Konzerte und private Veranstaltungen.', 'safe-cologne'); ?></p>
+                    
+                    <div class="service-features">
+                        <ul>
+                            <li><?php esc_html_e('Einlasskontrollen', 'safe-cologne'); ?></li>
+                            <li><?php esc_html_e('Ordnerdienst', 'safe-cologne'); ?></li>
+                            <li><?php esc_html_e('Publikumsbetreuung', 'safe-cologne'); ?></li>
+                            <li><?php esc_html_e('Veranstaltungsplanung', 'safe-cologne'); ?></li>
+                        </ul>
+                    </div>
+                    
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="service-link">
+                        <?php esc_html_e('Angebot anfordern', 'safe-cologne'); ?>
+                    </a>
+                </article>
+                
+                <!-- Sicherheitsberatung -->
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3><?php esc_html_e('Sicherheitsberatung', 'safe-cologne'); ?></h3>
+                    <p><?php esc_html_e('Professionelle Beratung zur Optimierung Ihrer Sicherheitskonzepte und -prozesse.', 'safe-cologne'); ?></p>
+                    
+                    <div class="service-features">
+                        <ul>
+                            <li><?php esc_html_e('Sicherheitsanalyse', 'safe-cologne'); ?></li>
+                            <li><?php esc_html_e('Risikobeurteilung', 'safe-cologne'); ?></li>
+                            <li><?php esc_html_e('Konzeptentwicklung', 'safe-cologne'); ?></li>
+                            <li><?php esc_html_e('Schulungen', 'safe-cologne'); ?></li>
+                        </ul>
+                    </div>
+                    
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="service-link">
+                        <?php esc_html_e('Angebot anfordern', 'safe-cologne'); ?>
+                    </a>
+                </article>
+                
+                <!-- Sicherheitstechnik -->
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3><?php esc_html_e('Sicherheitstechnik', 'safe-cologne'); ?></h3>
+                    <p><?php esc_html_e('Moderne Sicherheitstechnik für optimalen Schutz Ihrer Objekte und Personen.', 'safe-cologne'); ?></p>
+                    
+                    <div class="service-features">
+                        <ul>
+                            <li><?php esc_html_e('Videoüberwachung', 'safe-cologne'); ?></li>
+                            <li><?php esc_html_e('Alarmanlagen', 'safe-cologne'); ?></li>
+                            <li><?php esc_html_e('Zutrittskontrolle', 'safe-cologne'); ?></li>
+                            <li><?php esc_html_e('Brandschutz', 'safe-cologne'); ?></li>
+                        </ul>
+                    </div>
+                    
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="service-link">
+                        <?php esc_html_e('Angebot anfordern', 'safe-cologne'); ?>
+                    </a>
+                </article>
+                
+                <!-- Revierdienst -->
+                <article class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3><?php esc_html_e('Revierdienst', 'safe-cologne'); ?></h3>
+                    <p><?php esc_html_e('Mobile Sicherheitsstreifen für größere Areale und mehrere Objekte.', 'safe-cologne'); ?></p>
+                    
+                    <div class="service-features">
+                        <ul>
+                            <li><?php esc_html_e('Kontrollfahrten', 'safe-cologne'); ?></li>
+                            <li><?php esc_html_e('Objektkontrollen', 'safe-cologne'); ?></li>
+                            <li><?php esc_html_e('Interventionsdienst', 'safe-cologne'); ?></li>
+                            <li><?php esc_html_e('Dokumentation', 'safe-cologne'); ?></li>
+                        </ul>
+                    </div>
+                    
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="service-link">
+                        <?php esc_html_e('Angebot anfordern', 'safe-cologne'); ?>
+                    </a>
+                </article>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Categories -->
+    <section class="service-categories">
+        <div class="container">
+            <h2 class="section-title"><?php esc_html_e('Unsere Leistungsbereiche', 'safe-cologne'); ?></h2>
+            <p class="section-subtitle"><?php esc_html_e('Spezialisiert auf verschiedene Sicherheitsbereiche', 'safe-cologne'); ?></p>
+            
+            <div class="categories-grid">
+                <article class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3><?php esc_html_e('Gewerbe & Industrie', 'safe-cologne'); ?></h3>
+                    <p><?php esc_html_e('Sicherheitslösungen für Unternehmen, Industrieanlagen und Gewerbeobjekte.', 'safe-cologne'); ?></p>
+                </article>
+                
+                <article class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3><?php esc_html_e('Privatkunden', 'safe-cologne'); ?></h3>
+                    <p><?php esc_html_e('Individueller Schutz für Privatpersonen und Wohnbereiche.', 'safe-cologne'); ?></p>
+                </article>
+                
+                <article class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3><?php esc_html_e('Events & Veranstaltungen', 'safe-cologne'); ?></h3>
+                    <p><?php esc_html_e('Professionelle Sicherheit für Events jeder Größenordnung.', 'safe-cologne'); ?></p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services CTA -->
+    <section class="services-cta">
+        <div class="container">
+            <h2><?php esc_html_e('Benötigen Sie professionelle Sicherheit?', 'safe-cologne'); ?></h2>
+            <p><?php esc_html_e('Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch und erfahren Sie, wie wir Ihnen helfen können.', 'safe-cologne'); ?></p>
+            
+            <div class="cta-buttons">
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="cta-button primary">
+                    <?php esc_html_e('Kostenlose Beratung', 'safe-cologne'); ?>
+                </a>
+                <a href="tel:<?php echo esc_attr($company_info['phone']); ?>" class="cta-button secondary">
+                    <i class="fas fa-phone"></i>
+                    <?php esc_html_e('Sofort anrufen', 'safe-cologne'); ?>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<?php get_footer(); ?>
                 <p class="hero-lead">
                     Bei Safe Cologne verstehen wir Sicherheit nicht nur als Maßnahme, sondern als Haltung. 
                     Wir schützen nicht einfach nur – wir geben Menschen das Gefühl, in jeder Situation 

@@ -1,33 +1,178 @@
 <?php
 /**
- * Template Name: Kontakt
+ * Contact Page Template
+ * Safe Cologne Security Services
+ * @package Safe_Cologne
  */
 
-get_header(); ?>
+get_header(); 
 
-<main id="main" class="site-main kontakt-page">
+// Get customizer options
+$company_info = safe_cologne_get_company_info();
+$business_hours = safe_cologne_get_business_hours();
+?>
 
-    <!-- Hero Section -->
-    <section class="kontakt-hero">
+<main id="main-content" class="main-content">
+    
+    <!-- Contact Hero -->
+    <section class="contact-hero">
         <div class="container">
-            <div class="hero-content">
-                <h1><?php the_title(); ?></h1>
-                <p class="subtitle">Professionelle Sicherheitslösungen nach Maß</p>
+            <h1><?php esc_html_e('Kontakt', 'safe-cologne'); ?></h1>
+            <p class="subtitle"><?php esc_html_e('Wir sind für Sie da - kontaktieren Sie uns jederzeit', 'safe-cologne'); ?></p>
+        </div>
+    </section>
+
+    <!-- Contact Main -->
+    <section class="contact-main">
+        <div class="container">
+            <div class="contact-content">
+                
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h2><?php esc_html_e('Nachricht senden', 'safe-cologne'); ?></h2>
+                    
+                    <form id="contact-form" method="post" action="<?php echo esc_url(admin_url('admin-ajax.php')); ?>">
+                        <div class="form-group">
+                            <label for="name"><?php esc_html_e('Name', 'safe-cologne'); ?> *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email"><?php esc_html_e('E-Mail', 'safe-cologne'); ?> *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone"><?php esc_html_e('Telefon', 'safe-cologne'); ?></label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject"><?php esc_html_e('Betreff', 'safe-cologne'); ?></label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message"><?php esc_html_e('Nachricht', 'safe-cologne'); ?> *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-submit">
+                            <?php esc_html_e('Nachricht senden', 'safe-cologne'); ?>
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h2><?php esc_html_e('Kontaktinformationen', 'safe-cologne'); ?></h2>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong><?php esc_html_e('Telefon', 'safe-cologne'); ?></strong>
+                                <span><?php echo esc_html($company_info['phone']); ?></span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong><?php esc_html_e('E-Mail', 'safe-cologne'); ?></strong>
+                                <span><?php echo esc_html($company_info['email']); ?></span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong><?php esc_html_e('Adresse', 'safe-cologne'); ?></strong>
+                                <span><?php echo esc_html($company_info['address']); ?></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </section>
-    
-    <!-- Contact Grid Section -->
-    <section class="kontakt-grid-section">
+
+    <!-- Business Hours -->
+    <section class="business-hours">
         <div class="container">
-            <div class="kontakt-grid">
-                <!-- Left Column - Contact Info -->
-                <div class="kontakt-info">
-                    <h2>Wir sind für Sie da</h2>
-                    <p>Kontaktieren Sie uns für eine unverbindliche Beratung</p>
-                    
-                    <div class="kontakt-methods">
-                        <!-- Phone -->
+            <h2 class="section-title"><?php esc_html_e('Öffnungszeiten', 'safe-cologne'); ?></h2>
+            <p class="section-subtitle"><?php esc_html_e('Unsere Bürozeiten für Ihre Anfragen', 'safe-cologne'); ?></p>
+            
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <div class="hours-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3><?php esc_html_e('Geschäftszeiten', 'safe-cologne'); ?></h3>
+                    <ul class="hours-list">
+                        <li>
+                            <span class="day"><?php esc_html_e('Montag - Freitag', 'safe-cologne'); ?></span>
+                            <span class="time"><?php echo esc_html($business_hours['weekdays']); ?></span>
+                        </li>
+                        <li>
+                            <span class="day"><?php esc_html_e('Samstag', 'safe-cologne'); ?></span>
+                            <span class="time"><?php echo esc_html($business_hours['saturday']); ?></span>
+                        </li>
+                        <li>
+                            <span class="day"><?php esc_html_e('Sonntag', 'safe-cologne'); ?></span>
+                            <span class="time"><?php echo esc_html($business_hours['sunday']); ?></span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="hours-card">
+                    <div class="hours-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3><?php esc_html_e('Erreichbarkeit', 'safe-cologne'); ?></h3>
+                    <p><?php echo esc_html($business_hours['emergency']); ?></p>
+                    <p><?php esc_html_e('Für dringende Anfragen sind wir auch außerhalb der Geschäftszeiten erreichbar.', 'safe-cologne'); ?></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title"><?php esc_html_e('Standort', 'safe-cologne'); ?></h2>
+            <p class="section-subtitle"><?php esc_html_e('Besuchen Sie uns in unserem Büro in Köln', 'safe-cologne'); ?></p>
+            
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3><?php esc_html_e('Karte wird geladen', 'safe-cologne'); ?></h3>
+                    <p><?php esc_html_e('Unsere Adresse:', 'safe-cologne'); ?><br><?php echo esc_html($company_info['address']); ?></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Contact -->
+    <section class="emergency-contact">
+        <div class="container">
+            <h2><?php esc_html_e('Notfallkontakt', 'safe-cologne'); ?></h2>
+            <p><?php esc_html_e('Bei Notfällen erreichen Sie uns direkt unter:', 'safe-cologne'); ?></p>
+            <div class="emergency-phone"><?php echo esc_html($company_info['phone']); ?></div>
+            <p class="emergency-note"><?php esc_html_e('Schnelle Hilfe wenn Sie sie brauchen', 'safe-cologne'); ?></p>
+        </div>
+    </section>
+
+</main>
+
+<?php get_footer(); ?>
                         <div class="kontakt-method">
                             <div class="icon-wrapper">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
