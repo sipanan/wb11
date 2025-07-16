@@ -39,11 +39,10 @@ function safe_cologne_additional_setup() {
 add_action('wp_enqueue_scripts', 'safe_cologne_scripts');
 function safe_cologne_scripts() {
     // CSS
-    wp_enqueue_style('safe-cologne-google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap', array(), null);
+    wp_enqueue_style('safe-cologne-google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap', array(), null);
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css', array(), '6.5.1');
-    wp_enqueue_style('safe-cologne-main', SAFE_COLOGNE_URI . '/assets/css/style.css', array(), SAFE_COLOGNE_VERSION);
-    wp_enqueue_style('safe-cologne-god-level', SAFE_COLOGNE_URI . '/assets/css/god-level.css', array('safe-cologne-main'), SAFE_COLOGNE_VERSION);
-    wp_enqueue_style('safe-cologne-responsive', SAFE_COLOGNE_URI . '/assets/css/responsive.css', array('safe-cologne-god-level'), SAFE_COLOGNE_VERSION);
+    wp_enqueue_style('safe-cologne-clean', SAFE_COLOGNE_URI . '/assets/css/clean-style.css', array(), SAFE_COLOGNE_VERSION);
+    wp_enqueue_style('safe-cologne-responsive', SAFE_COLOGNE_URI . '/assets/css/responsive.css', array('safe-cologne-clean'), SAFE_COLOGNE_VERSION);
     
     // Legal pages CSS
     if (is_page_template('page-templates/page-privacy.php') || is_page_template('page-templates/page-imprint.php') || is_page('privacy') || is_page('imprint') || is_page('datenschutz') || is_page('impressum')) {
@@ -53,11 +52,10 @@ function safe_cologne_scripts() {
     // JavaScript
     wp_enqueue_script('safe-cologne-navigation', SAFE_COLOGNE_URI . '/assets/js/navigation.js', array(), SAFE_COLOGNE_VERSION, true);
     wp_enqueue_script('safe-cologne-main', SAFE_COLOGNE_URI . '/assets/js/main.js', array('jquery'), SAFE_COLOGNE_VERSION, true);
-    wp_enqueue_script('safe-cologne-god-level', SAFE_COLOGNE_URI . '/assets/js/god-level.js', array('jquery'), SAFE_COLOGNE_VERSION, true);
     wp_enqueue_script('safe-cologne-contact', SAFE_COLOGNE_URI . '/assets/js/contact-form.js', array('jquery'), SAFE_COLOGNE_VERSION, true);
     
     // Localize script
-    wp_localize_script('safe-cologne-god-level', 'safeCologne', array(
+    wp_localize_script('safe-cologne-main', 'safeCologne', array(
         'ajaxUrl' => admin_url('admin-ajax.php'),
         'nonce' => wp_create_nonce('safe-cologne-nonce'),
         'homeUrl' => home_url('/'),

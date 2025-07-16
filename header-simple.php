@@ -66,4 +66,4 @@ $phone_number = get_theme_mod('safe_cologne_phone', '0221 6505 8801');
     </div>
 </header>
 
-<main id="main-content" class="site-main">
+<main id="main-content" class="site-main"><?php
