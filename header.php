@@ -54,20 +54,10 @@ $current_datetime = date('Y-m-d H:i:s');
 <div class="sc-topbar" role="banner">
     <div class="sc-container">
         <div class="sc-topbar-left">
-            <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $phone_number)); ?>" class="sc-emergency-call">
-                <svg class="sc-icon" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24">
-                    <path fill="currentColor" d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
-                </svg>
-                <span><?php echo esc_html($phone_number); ?></span>
-                <strong><?php echo esc_html($emergency_text); ?></strong>
-            </a>
-            
-            <div class="sc-datetime">
-                <svg class="sc-icon" aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24">
-                    <path fill="currentColor" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
-                    <path fill="currentColor" d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
-                </svg>
-                <span><?php echo esc_html($current_datetime); ?></span>
+            <div class="sc-company-tagline">
+                <span class="sc-tagline-text">Professional Security Solutions</span>
+                <span class="sc-tagline-separator">•</span>
+                <span class="sc-tagline-location">Köln</span>
             </div>
         </div>
         
@@ -142,12 +132,18 @@ $current_datetime = date('Y-m-d H:i:s');
             
             <!-- CTA Section -->
             <div class="sc-cta-section">
-                <a href="<?php echo esc_url(home_url($cta_url)); ?>" class="sc-cta-button">
-                    <span><?php echo esc_html($cta_text); ?></span>
-                    <svg class="sc-cta-icon" width="16" height="16" viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-                    </svg>
-                </a>
+                <div class="sc-emergency-cta">
+                    <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $phone_number)); ?>" class="sc-emergency-button">
+                        <svg class="sc-phone-icon" width="18" height="18" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
+                        </svg>
+                        <div class="sc-emergency-text">
+                            <span class="sc-emergency-label">Sofort erreichbar</span>
+                            <strong class="sc-emergency-number"><?php echo esc_html($phone_number); ?></strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
             </div>
             
             <!-- Mobile Toggle -->

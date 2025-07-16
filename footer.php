@@ -418,7 +418,198 @@ $address = get_theme_mod('safe_cologne_address', 'Subbelrather Str. 15A, 50823 K
     padding: 0;
     margin: 0;
 }
+
+/* === FLOATING EMERGENCY BUTTON === */
+.floating-emergency-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.8);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.floating-emergency-button.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.floating-emergency-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #E30613 0%, #B20510 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.025em;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 8px 32px rgba(227,6,19,0.3);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.floating-emergency-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.floating-emergency-link::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s ease;
+    pointer-events: none;
+}
+
+.floating-emergency-link:hover::after {
+    left: 100%;
+}
+
+.floating-emergency-link:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 16px 48px rgba(227,6,19,0.4);
+    border-color: rgba(255,255,255,0.2);
+}
+
+.floating-phone-icon {
+    width: 22px;
+    height: 22px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.floating-emergency-link:hover .floating-phone-icon {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.floating-emergency-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+}
+
+.floating-emergency-label {
+    font-size: 0.75rem;
+    opacity: 0.9;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.floating-emergency-number {
+    font-size: 1.05rem;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.025em;
+}
+
+@media (max-width: 768px) {
+    .floating-emergency-button {
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+    
+    .floating-emergency-link {
+        padding: 14px 20px;
+    }
+    
+    .floating-emergency-text {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .floating-emergency-label {
+        font-size: 0.7rem;
+    }
+    
+    .floating-emergency-number {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-emergency-button {
+        bottom: 1rem;
+        right: 1rem;
+    }
+    
+    .floating-emergency-link {
+        padding: 12px 16px;
+        border-radius: 40px;
+    }
+    
+    .floating-emergency-text {
+        display: none;
+    }
+    
+    .floating-phone-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
 </style>
+
+<!-- Elite Floating Emergency Button -->
+<div class="floating-emergency-button">
+    <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $phone)); ?>" class="floating-emergency-link">
+        <svg class="floating-phone-icon" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
+        </svg>
+        <span class="floating-emergency-text">
+            <span class="floating-emergency-label">Sofort</span>
+            <span class="floating-emergency-number"><?php echo esc_html($phone); ?></span>
+        </span>
+    </a>
+</div>
+
+<script>
+(function() {
+    'use strict';
+    
+    // Show/hide floating emergency button on scroll
+    const floatingButton = document.querySelector('.floating-emergency-button');
+    let scrollTimeout;
+    
+    if (floatingButton) {
+        window.addEventListener('scroll', () => {
+            const scrollY = window.pageYOffset;
+            
+            if (scrollY > 400) {
+                floatingButton.classList.add('show');
+            } else {
+                floatingButton.classList.remove('show');
+            }
+            
+            // Hide on scroll down, show on scroll up
+            clearTimeout(scrollTimeout);
+            floatingButton.style.opacity = '0.7';
+            
+            scrollTimeout = setTimeout(() => {
+                floatingButton.style.opacity = '1';
+            }, 150);
+        });
+    }
+})();
+</script>
 
 <?php wp_footer(); ?>
 

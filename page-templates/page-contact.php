@@ -44,17 +44,6 @@ get_header(); ?>
                     </div>
                 <?php endforeach; ?>
                 
-                <!-- Emergency Contact -->
-                <div class="emergency-contact">
-                    <h3><?php esc_html_e('Notruf', 'safe-cologne'); ?></h3>
-                    <div class="emergency-phone">
-                        <a href="tel:<?php echo esc_attr(str_replace(' ', '', get_theme_mod('safe_cologne_phone', '0221 6505 8801'))); ?>">
-                            <?php echo esc_html(get_theme_mod('safe_cologne_phone', '0221 6505 8801')); ?>
-                        </a>
-                    </div>
-                    <p class="emergency-text"><?php esc_html_e('Rund um die Uhr für Sie erreichbar', 'safe-cologne'); ?></p>
-                </div>
-                
                 <!-- Business Hours -->
                 <div class="business-hours">
                     <h3><?php esc_html_e('Geschäftszeiten', 'safe-cologne'); ?></h3>
