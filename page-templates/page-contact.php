@@ -1,53 +1,181 @@
 <?php
 /**
  * Template Name: Kontakt
+ *
+ * @package Safe_Cologne
  */
 
 get_header(); ?>
 
-<main id="main" class="site-main kontakt-page">
+<!-- Contact Hero -->
+<section class="contact-hero" aria-labelledby="contact-hero-title">
+    <div class="container">
+        <h1 id="contact-hero-title">
+            <?php echo esc_html(get_theme_mod('safe_cologne_contact_hero_title', 'Kontakt')); ?>
+        </h1>
+        <p>
+            <?php echo esc_html(get_theme_mod('safe_cologne_contact_hero_subtitle', 'Nehmen Sie Kontakt mit uns auf - wir sind für Sie da')); ?>
+        </p>
+    </div>
+</section>
 
-    <!-- Hero Section -->
-    <section class="kontakt-hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1><?php the_title(); ?></h1>
-                <p class="subtitle">Professionelle Sicherheitslösungen nach Maß</p>
+<!-- Contact Main -->
+<section class="contact-main" aria-labelledby="contact-main-title">
+    <div class="container">
+        <div class="contact-wrapper">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h2 id="contact-main-title"><?php esc_html_e('Kontaktieren Sie uns', 'safe-cologne'); ?></h2>
+                
+                <?php
+                $contact_methods = safe_cologne_get_contact_methods();
+                foreach ($contact_methods as $method) : ?>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="<?php echo esc_attr($method['icon']); ?>"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3><?php echo esc_html($method['title']); ?></h3>
+                            <p><?php echo esc_html($method['description']); ?></p>
+                            <a href="<?php echo esc_url($method['link']); ?>" target="_blank" rel="noopener">
+                                <?php echo esc_html($method['value']); ?>
+                            </a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+                
+                <!-- Emergency Contact -->
+                <div class="emergency-contact">
+                    <h3><?php esc_html_e('Notruf', 'safe-cologne'); ?></h3>
+                    <div class="emergency-phone">
+                        <a href="tel:<?php echo esc_attr(str_replace(' ', '', get_theme_mod('safe_cologne_phone', '0221 6505 8801'))); ?>">
+                            <?php echo esc_html(get_theme_mod('safe_cologne_phone', '0221 6505 8801')); ?>
+                        </a>
+                    </div>
+                    <p class="emergency-text"><?php esc_html_e('Rund um die Uhr für Sie erreichbar', 'safe-cologne'); ?></p>
+                </div>
+                
+                <!-- Business Hours -->
+                <div class="business-hours">
+                    <h3><?php esc_html_e('Geschäftszeiten', 'safe-cologne'); ?></h3>
+                    <ul class="hours-list">
+                        <?php
+                        $business_hours = safe_cologne_get_business_hours();
+                        foreach ($business_hours as $index => $hour) : ?>
+                            <li class="hours-item" data-day="<?php echo esc_attr($index); ?>">
+                                <span class="hours-day"><?php echo esc_html($hour['day']); ?></span>
+                                <span class="hours-time <?php echo (strpos($hour['time'], 'Geschlossen') !== false) ? 'hours-closed' : ''; ?>">
+                                    <?php echo esc_html($hour['time']); ?>
+                                </span>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Contact Grid Section -->
-    <section class="kontakt-grid-section">
-        <div class="container">
-            <div class="kontakt-grid">
-                <!-- Left Column - Contact Info -->
-                <div class="kontakt-info">
-                    <h2>Wir sind für Sie da</h2>
-                    <p>Kontaktieren Sie uns für eine unverbindliche Beratung</p>
+            
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h2><?php esc_html_e('Nachricht senden', 'safe-cologne'); ?></h2>
+                
+                <form id="contact-form" method="post" action="<?php echo esc_url(admin_url('admin-ajax.php')); ?>">
+                    <div class="form-status" style="display: none;"></div>
                     
-                    <div class="kontakt-methods">
-                        <!-- Phone -->
-                        <div class="kontakt-method">
-                            <div class="icon-wrapper">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                            </div>
-                            <div class="method-content">
-                                <h3>Telefonische Beratung</h3>
-                                <a href="tel:022165058801" class="primary-link">
-                                    0221 65058801
-                                </a>
-                                <p>Mo-Fr: 08:00 - 18:00 Uhr<br>Sa: 09:00 - 14:00 Uhr</p>
-                            </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact-name"><?php esc_html_e('Name', 'safe-cologne'); ?> *</label>
+                            <input type="text" id="contact-name" name="name" required>
                         </div>
                         
-                        <!-- Email -->
-                        <div class="kontakt-method">
-                            <div class="icon-wrapper">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                            </div>
-                            <div class="method-content">
-                                <h3>E-Mail Kontakt</h3>
+                        <div class="form-group">
+                            <label for="contact-email"><?php esc_html_e('E-Mail', 'safe-cologne'); ?> *</label>
+                            <input type="email" id="contact-email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact-phone"><?php esc_html_e('Telefon', 'safe-cologne'); ?></label>
+                            <input type="tel" id="contact-phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-company"><?php esc_html_e('Unternehmen', 'safe-cologne'); ?></label>
+                            <input type="text" id="contact-company" name="company">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-service"><?php esc_html_e('Gewünschter Service', 'safe-cologne'); ?></label>
+                        <select id="contact-service" name="service">
+                            <option value=""><?php esc_html_e('Bitte wählen...', 'safe-cologne'); ?></option>
+                            <option value="Objektschutz"><?php esc_html_e('Objektschutz', 'safe-cologne'); ?></option>
+                            <option value="Veranstaltungsschutz"><?php esc_html_e('Veranstaltungsschutz', 'safe-cologne'); ?></option>
+                            <option value="Revierdienst"><?php esc_html_e('Revierdienst', 'safe-cologne'); ?></option>
+                            <option value="Sicherheitsberatung"><?php esc_html_e('Sicherheitsberatung', 'safe-cologne'); ?></option>
+                            <option value="Personenschutz"><?php esc_html_e('Personenschutz', 'safe-cologne'); ?></option>
+                            <option value="Preisanfrage"><?php esc_html_e('Preisanfrage', 'safe-cologne'); ?></option>
+                            <option value="Sonstiges"><?php esc_html_e('Sonstiges', 'safe-cologne'); ?></option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-message"><?php esc_html_e('Nachricht', 'safe-cologne'); ?> *</label>
+                        <textarea id="contact-message" name="message" rows="5" maxlength="1000" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">
+                        <?php esc_html_e('Nachricht senden', 'safe-cologne'); ?>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="map-section" aria-labelledby="map-title">
+    <div class="container">
+        <h2 id="map-title" class="section-title"><?php esc_html_e('Unser Standort', 'safe-cologne'); ?></h2>
+        <div class="map-container">
+            <?php
+            $google_maps_embed = get_theme_mod('safe_cologne_google_maps_embed', '');
+            if ($google_maps_embed) : ?>
+                <?php echo wp_kses_post($google_maps_embed); ?>
+            <?php else : ?>
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3><?php esc_html_e('Standort anzeigen', 'safe-cologne'); ?></h3>
+                    <p><?php echo esc_html(get_theme_mod('safe_cologne_address', 'Subbelrather Str. 15A, 50823 Köln')); ?></p>
+                    <p><small><?php esc_html_e('Klicken Sie hier, um die Karte zu öffnen', 'safe-cologne'); ?></small></p>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section" aria-labelledby="faq-title">
+    <div class="container">
+        <h2 id="faq-title" class="section-title"><?php esc_html_e('Häufig gestellte Fragen', 'safe-cologne'); ?></h2>
+        <div class="faq-list">
+            <?php
+            $faq_items = safe_cologne_get_contact_faq();
+            foreach ($faq_items as $item) : ?>
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <?php echo esc_html($item['question']); ?>
+                    </button>
+                    <div class="faq-answer">
+                        <p><?php echo esc_html($item['answer']); ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<?php get_footer(); ?>
                                 <a href="mailto:info@safecologne.de" class="contact-link">
                                     info@safecologne.de
                                 </a>

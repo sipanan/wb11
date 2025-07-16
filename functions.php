@@ -26,6 +26,7 @@ require_once SAFE_COLOGNE_PATH . '/inc/page-functions/home-functions.php';
 require_once SAFE_COLOGNE_PATH . '/inc/page-functions/about-functions.php';
 require_once SAFE_COLOGNE_PATH . '/inc/page-functions/services-functions.php';
 require_once SAFE_COLOGNE_PATH . '/inc/page-functions/contact-functions.php';
+require_once SAFE_COLOGNE_PATH . '/inc/page-functions/legal-functions.php';
 
 // Theme setup
 add_action('after_setup_theme', 'safe_cologne_setup');
