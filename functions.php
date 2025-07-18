@@ -20,6 +20,7 @@ require_once SAFE_COLOGNE_PATH . '/inc/theme-setup.php';
 require_once SAFE_COLOGNE_PATH . '/inc/customizer.php';
 require_once SAFE_COLOGNE_PATH . '/inc/custom-post-types.php';
 require_once SAFE_COLOGNE_PATH . '/inc/custom-blocks.php';
+require_once SAFE_COLOGNE_PATH . '/inc/theme-options.php';
 require_once SAFE_COLOGNE_PATH . '/inc/ajax-handlers.php';
 
 // Theme setup

@@ -309,7 +309,7 @@ function safe_cologne_register_block_templates() {
         }
         
         // Add template for specific post types
-        if ($post_type === 'job_openings') {
+        if ($post_type === 'jobs') {
             add_filter("rest_pre_insert_{$post_type}", function($post) {
                 if (empty($post->post_content)) {
                     $post->post_content = '<!-- wp:group {"layout":{"type":"constrained"}} -->
