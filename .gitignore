@@ -1,0 +1,46 @@
+# WordPress
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build artifacts
+*.min.css
+*.min.js
+dist/
+build/
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Environment files
+.env
+.env.local
+
+# Backup files
+*.bak
+*.backup
+
+# Package manager locks (if using)
+package-lock.json
+composer.lock
+yarn.lock

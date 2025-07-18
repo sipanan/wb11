@@ -96,19 +96,19 @@ function safe_cologne_register_post_types() {
         'show_in_rest'          => true,
     ));
     
-    // Job Openings CPT
-    register_post_type('job_openings', array(
+    // Jobs CPT (renamed from job_openings for better clarity)
+    register_post_type('jobs', array(
         'labels' => array(
-            'name'                  => _x('Stellenangebote', 'Post type general name', 'safe-cologne'),
-            'singular_name'         => _x('Stellenangebot', 'Post type singular name', 'safe-cologne'),
-            'menu_name'             => _x('Stellenangebote', 'Admin Menu text', 'safe-cologne'),
-            'add_new'               => __('Neue Stelle', 'safe-cologne'),
-            'add_new_item'          => __('Neues Stellenangebot hinzufügen', 'safe-cologne'),
-            'edit_item'             => __('Stellenangebot bearbeiten', 'safe-cologne'),
-            'new_item'              => __('Neues Stellenangebot', 'safe-cologne'),
-            'view_item'             => __('Stellenangebot ansehen', 'safe-cologne'),
-            'search_items'          => __('Stellenangebote suchen', 'safe-cologne'),
-            'not_found'             => __('Keine Stellenangebote gefunden', 'safe-cologne'),
+            'name'                  => _x('Jobs', 'Post type general name', 'safe-cologne'),
+            'singular_name'         => _x('Job', 'Post type singular name', 'safe-cologne'),
+            'menu_name'             => _x('Jobs', 'Admin Menu text', 'safe-cologne'),
+            'add_new'               => __('Neuer Job', 'safe-cologne'),
+            'add_new_item'          => __('Neuen Job hinzufügen', 'safe-cologne'),
+            'edit_item'             => __('Job bearbeiten', 'safe-cologne'),
+            'new_item'              => __('Neuer Job', 'safe-cologne'),
+            'view_item'             => __('Job ansehen', 'safe-cologne'),
+            'search_items'          => __('Jobs suchen', 'safe-cologne'),
+            'not_found'             => __('Keine Jobs gefunden', 'safe-cologne'),
         ),
         'public'                => true,
         'publicly_queryable'    => true,
@@ -174,7 +174,8 @@ function safe_cologne_add_meta_boxes() {
         'job_details',
         __('Stellen Details', 'safe-cologne'),
         'safe_cologne_job_details_callback',
-        'job_openings',
+        'jobs',
+        'jobs',
         'normal',
         'default'
     );
@@ -375,7 +376,7 @@ function safe_cologne_save_meta_box_data($post_id) {
             }
             break;
             
-        case 'job_openings':
+        case 'jobs':
             if (isset($_POST['job_type'])) {
                 update_post_meta($post_id, '_job_type', sanitize_text_field($_POST['job_type']));
             }
@@ -467,7 +468,7 @@ function safe_cologne_testimonial_column_content($column, $post_id) {
 }
 
 // Add custom columns for job openings
-add_filter('manage_job_openings_posts_columns', 'safe_cologne_job_columns');
+add_filter('manage_jobs_posts_columns', 'safe_cologne_job_columns');
 function safe_cologne_job_columns($columns) {
     $new_columns = array();
     foreach ($columns as $key => $value) {
@@ -480,7 +481,7 @@ function safe_cologne_job_columns($columns) {
     return $new_columns;
 }
 
-add_action('manage_job_openings_posts_custom_column', 'safe_cologne_job_column_content', 10, 2);
+add_action('manage_jobs_posts_custom_column', 'safe_cologne_job_column_content', 10, 2);
 function safe_cologne_job_column_content($column, $post_id) {
     switch ($column) {
         case 'job_type':
