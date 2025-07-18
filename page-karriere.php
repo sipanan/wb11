@@ -290,25 +290,7 @@ $header_height = 80; // Adjust based on your actual header
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Bereit für den nächsten Karriereschritt?</h2>
-                <p>Unser HR-Team freut sich auf Ihre Bewerbung</p>
-                <div class="cta-buttons">
-                    <a href="tel:+4922112345678" class="cta-button cta-primary">
-                        <svg width="20" height="20"><use href="#icon-phone"/></svg>
-                        0221 123 456 78
-                    </a>
-                    <a href="mailto:karriere@safecologne.de" class="cta-button cta-secondary">
-                        <svg width="20" height="20"><use href="#icon-email"/></svg>
-                        E-Mail schreiben
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
 </main>
 

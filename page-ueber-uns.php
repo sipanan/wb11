@@ -166,10 +166,6 @@ get_header(); ?>
                         <i class="fas fa-calendar-check"></i>
                         <?php esc_html_e('Termin vereinbaren', 'safe-cologne'); ?>
                     </a>
-                    <a href="tel:<?php echo esc_attr(str_replace(' ', '', get_option('safe_cologne_settings')['phone'] ?? '022165058801')); ?>" class="btn btn-white btn-lg">
-                        <i class="fas fa-phone-alt"></i>
-                        <?php esc_html_e('Direkt anrufen', 'safe-cologne'); ?>
-                    </a>
                 </div>
             </div>
         </div>

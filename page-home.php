@@ -149,12 +149,9 @@ get_header(); ?>
             </div>
         </div>
         
-        <div class="career-cta">
+        <div class="career-info">
             <p><?php esc_html_e('Bei uns bist du mehr als ein Ordnungsdienst – du bist Sicherheitsgastgeber!', 'safe-cologne'); ?></p>
-            <a href="mailto:bewerber@safecologne.de" class="btn btn-primary btn-lg">
-                <i class="fas fa-envelope"></i>
-                <?php esc_html_e('Jetzt bewerben', 'safe-cologne'); ?>
-            </a>
+            <p><a href="<?php echo esc_url(get_permalink(get_page_by_path('karriere'))); ?>" class="text-link"><?php esc_html_e('Mehr über Karrieremöglichkeiten erfahren', 'safe-cologne'); ?></a></p>
         </div>
     </div>
 </section>
