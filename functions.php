@@ -20,6 +20,8 @@ require_once SAFE_COLOGNE_PATH . '/inc/theme-setup.php';
 require_once SAFE_COLOGNE_PATH . '/inc/customizer.php';
 require_once SAFE_COLOGNE_PATH . '/inc/custom-post-types.php';
 require_once SAFE_COLOGNE_PATH . '/inc/ajax-handlers.php';
+require_once SAFE_COLOGNE_PATH . '/inc/custom-blocks.php';
+require_once SAFE_COLOGNE_PATH . '/inc/theme-options.php';
 
 // Theme setup
 add_action('after_setup_theme', 'safe_cologne_setup');
@@ -69,16 +71,35 @@ function safe_cologne_setup() {
 // Enqueue scripts and styles
 add_action('wp_enqueue_scripts', 'safe_cologne_scripts');
 function safe_cologne_scripts() {
-    // CSS
-    wp_enqueue_style('safe-cologne-google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap', array(), null);
-    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css', array(), '6.5.1');
-    wp_enqueue_style('safe-cologne-main', SAFE_COLOGNE_URI . '/assets/css/style.css', array(), SAFE_COLOGNE_VERSION);
-    wp_enqueue_style('safe-cologne-responsive', SAFE_COLOGNE_URI . '/assets/css/responsive.css', array('safe-cologne-main'), SAFE_COLOGNE_VERSION);
+    // CSS - GDPR compliant local fonts
+    wp_enqueue_style('safe-cologne-fonts', SAFE_COLOGNE_URI . '/assets/css/fonts.css', array(), SAFE_COLOGNE_VERSION);
+    wp_enqueue_style('font-awesome', SAFE_COLOGNE_URI . '/assets/css/fontawesome.min.css', array(), '6.5.1');
+    wp_enqueue_style('safe-cologne-base', SAFE_COLOGNE_URI . '/style.css', array(), SAFE_COLOGNE_VERSION);
+    wp_enqueue_style('safe-cologne-responsive', SAFE_COLOGNE_URI . '/assets/css/responsive.css', array('safe-cologne-base'), SAFE_COLOGNE_VERSION);
+    
+    // Page-specific CSS
+    if (is_front_page()) {
+        wp_enqueue_style('safe-cologne-home', SAFE_COLOGNE_URI . '/css/home.css', array('safe-cologne-base'), SAFE_COLOGNE_VERSION);
+    } elseif (is_page('karriere') || is_page_template('page-karriere.php')) {
+        wp_enqueue_style('safe-cologne-karriere', SAFE_COLOGNE_URI . '/css/karriere.css', array('safe-cologne-base'), SAFE_COLOGNE_VERSION);
+    } elseif (is_page('dienstleistungen') || is_page_template('page-dienstleistungen.php')) {
+        wp_enqueue_style('safe-cologne-services', SAFE_COLOGNE_URI . '/css/dienstleistungen.css', array('safe-cologne-base'), SAFE_COLOGNE_VERSION);
+    } elseif (is_page('ueber-uns') || is_page_template('page-ueber-uns.php')) {
+        wp_enqueue_style('safe-cologne-about', SAFE_COLOGNE_URI . '/css/ueber-uns.css', array('safe-cologne-base'), SAFE_COLOGNE_VERSION);
+    } elseif (is_page('kontakt') || is_page_template('page-kontakt.php')) {
+        wp_enqueue_style('safe-cologne-contact', SAFE_COLOGNE_URI . '/css/kontakt.css', array('safe-cologne-base'), SAFE_COLOGNE_VERSION);
+    }
     
     // JavaScript
     wp_enqueue_script('safe-cologne-navigation', SAFE_COLOGNE_URI . '/assets/js/navigation.js', array(), SAFE_COLOGNE_VERSION, true);
     wp_enqueue_script('safe-cologne-main', SAFE_COLOGNE_URI . '/assets/js/main.js', array('jquery'), SAFE_COLOGNE_VERSION, true);
-    wp_enqueue_script('safe-cologne-contact', SAFE_COLOGNE_URI . '/assets/js/contact-form.js', array('jquery'), SAFE_COLOGNE_VERSION, true);
+    
+    // Page-specific JS
+    if (is_front_page()) {
+        wp_enqueue_script('safe-cologne-home', SAFE_COLOGNE_URI . '/js/home.js', array('jquery'), SAFE_COLOGNE_VERSION, true);
+    } elseif (is_page('kontakt') || is_page_template('page-kontakt.php')) {
+        wp_enqueue_script('safe-cologne-contact', SAFE_COLOGNE_URI . '/js/kontakt.js', array('jquery'), SAFE_COLOGNE_VERSION, true);
+    }
     
     // Localize script
     wp_localize_script('safe-cologne-main', 'safeCologne', array(
