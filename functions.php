@@ -17,68 +17,42 @@ define('SAFE_COLOGNE_PATH', get_template_directory());
 
 // Include required files
 require_once SAFE_COLOGNE_PATH . '/inc/theme-setup.php';
-require_once SAFE_COLOGNE_PATH . '/inc/customizer.php';
 require_once SAFE_COLOGNE_PATH . '/inc/custom-post-types.php';
 require_once SAFE_COLOGNE_PATH . '/inc/ajax-handlers.php';
-
-// Theme setup
-add_action('after_setup_theme', 'safe_cologne_setup');
-function safe_cologne_setup() {
-    // Add theme support
-    add_theme_support('automatic-feed-links');
-    add_theme_support('title-tag');
-    add_theme_support('post-thumbnails');
-    add_theme_support('html5', array(
-        'search-form',
-        'comment-form',
-        'comment-list',
-        'gallery',
-        'caption',
-        'style',
-        'script',
-    ));
-    
-    add_theme_support('custom-logo', array(
-        'height'      => 100,
-        'width'       => 400,
-        'flex-height' => true,
-        'flex-width'  => true,
-    ));
-    
-    add_theme_support('customize-selective-refresh-widgets');
-    add_theme_support('wp-block-styles');
-    add_theme_support('align-wide');
-    add_theme_support('responsive-embeds');
-    
-    // Register navigation menus
-    register_nav_menus(array(
-        'primary' => esc_html__('Primary Menu', 'safe-cologne'),
-        'footer'  => esc_html__('Footer Menu', 'safe-cologne'),
-        'mobile'  => esc_html__('Mobile Menu', 'safe-cologne'),
-    ));
-    
-    // Make theme translation ready
-    load_theme_textdomain('safe-cologne', SAFE_COLOGNE_PATH . '/languages');
-    
-    // Add image sizes
-    add_image_size('service-thumb', 400, 300, true);
-    add_image_size('team-member', 300, 300, true);
-    add_image_size('hero-banner', 1920, 1080, true);
-}
+require_once SAFE_COLOGNE_PATH . '/inc/custom-blocks.php';
+require_once SAFE_COLOGNE_PATH . '/inc/theme-options.php';
 
 // Enqueue scripts and styles
 add_action('wp_enqueue_scripts', 'safe_cologne_scripts');
 function safe_cologne_scripts() {
-    // CSS
-    wp_enqueue_style('safe-cologne-google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap', array(), null);
-    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css', array(), '6.5.1');
-    wp_enqueue_style('safe-cologne-main', SAFE_COLOGNE_URI . '/assets/css/style.css', array(), SAFE_COLOGNE_VERSION);
-    wp_enqueue_style('safe-cologne-responsive', SAFE_COLOGNE_URI . '/assets/css/responsive.css', array('safe-cologne-main'), SAFE_COLOGNE_VERSION);
+    // CSS - GDPR compliant local fonts
+    wp_enqueue_style('safe-cologne-fonts', SAFE_COLOGNE_URI . '/assets/css/fonts.css', array(), SAFE_COLOGNE_VERSION);
+    wp_enqueue_style('safe-cologne-base', SAFE_COLOGNE_URI . '/style.css', array(), SAFE_COLOGNE_VERSION);
+    wp_enqueue_style('safe-cologne-responsive', SAFE_COLOGNE_URI . '/assets/css/responsive.css', array('safe-cologne-base'), SAFE_COLOGNE_VERSION);
+    
+    // Page-specific CSS
+    if (is_front_page()) {
+        wp_enqueue_style('safe-cologne-home', SAFE_COLOGNE_URI . '/css/home.css', array('safe-cologne-base'), SAFE_COLOGNE_VERSION);
+    } elseif (is_page('karriere') || is_page_template('page-karriere.php')) {
+        wp_enqueue_style('safe-cologne-karriere', SAFE_COLOGNE_URI . '/css/karriere.css', array('safe-cologne-base'), SAFE_COLOGNE_VERSION);
+    } elseif (is_page('dienstleistungen') || is_page_template('page-dienstleistungen.php')) {
+        wp_enqueue_style('safe-cologne-services', SAFE_COLOGNE_URI . '/css/dienstleistungen.css', array('safe-cologne-base'), SAFE_COLOGNE_VERSION);
+    } elseif (is_page('ueber-uns') || is_page_template('page-ueber-uns.php')) {
+        wp_enqueue_style('safe-cologne-about', SAFE_COLOGNE_URI . '/css/ueber-uns.css', array('safe-cologne-base'), SAFE_COLOGNE_VERSION);
+    } elseif (is_page('kontakt') || is_page_template('page-kontakt.php')) {
+        wp_enqueue_style('safe-cologne-contact', SAFE_COLOGNE_URI . '/css/kontakt.css', array('safe-cologne-base'), SAFE_COLOGNE_VERSION);
+    }
     
     // JavaScript
     wp_enqueue_script('safe-cologne-navigation', SAFE_COLOGNE_URI . '/assets/js/navigation.js', array(), SAFE_COLOGNE_VERSION, true);
     wp_enqueue_script('safe-cologne-main', SAFE_COLOGNE_URI . '/assets/js/main.js', array('jquery'), SAFE_COLOGNE_VERSION, true);
-    wp_enqueue_script('safe-cologne-contact', SAFE_COLOGNE_URI . '/assets/js/contact-form.js', array('jquery'), SAFE_COLOGNE_VERSION, true);
+    
+    // Page-specific JS
+    if (is_front_page()) {
+        wp_enqueue_script('safe-cologne-home', SAFE_COLOGNE_URI . '/js/home.js', array('jquery'), SAFE_COLOGNE_VERSION, true);
+    } elseif (is_page('kontakt') || is_page_template('page-kontakt.php')) {
+        wp_enqueue_script('safe-cologne-contact', SAFE_COLOGNE_URI . '/js/kontakt.js', array('jquery'), SAFE_COLOGNE_VERSION, true);
+    }
     
     // Localize script
     wp_localize_script('safe-cologne-main', 'safeCologne', array(
@@ -197,78 +171,4 @@ function safe_cologne_disable_emojis() {
     remove_filter('the_content_feed', 'wp_staticize_emoji');
     remove_filter('comment_text_rss', 'wp_staticize_emoji');
     remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
-}
-
-// Theme options page
-add_action('admin_menu', 'safe_cologne_add_admin_menu');
-function safe_cologne_add_admin_menu() {
-    add_theme_page(
-        __('Safe Cologne Options', 'safe-cologne'),
-        __('Theme Options', 'safe-cologne'),
-        'manage_options',
-        'safe-cologne-options',
-        'safe_cologne_options_page'
-    );
-}
-
-function safe_cologne_options_page() {
-    ?>
-    <div class="wrap">
-        <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
-        <form action="options.php" method="post">
-            <?php
-            settings_fields('safe_cologne_options');
-            do_settings_sections('safe_cologne_options');
-            submit_button();
-            ?>
-        </form>
-    </div>
-    <?php
-}
-
-// Register theme settings
-add_action('admin_init', 'safe_cologne_settings_init');
-function safe_cologne_settings_init() {
-    register_setting('safe_cologne_options', 'safe_cologne_settings');
-    
-    add_settings_section(
-        'safe_cologne_section_general',
-        __('General Settings', 'safe-cologne'),
-        'safe_cologne_section_general_cb',
-        'safe_cologne_options'
-    );
-    
-    add_settings_field(
-        'safe_cologne_field_phone',
-        __('Emergency Phone Number', 'safe-cologne'),
-        'safe_cologne_field_phone_cb',
-        'safe_cologne_options',
-        'safe_cologne_section_general'
-    );
-    
-    add_settings_field(
-        'safe_cologne_field_email',
-        __('Contact Email', 'safe-cologne'),
-        'safe_cologne_field_email_cb',
-        'safe_cologne_options',
-        'safe_cologne_section_general'
-    );
-}
-
-function safe_cologne_section_general_cb() {
-    echo '<p>' . __('General theme settings', 'safe-cologne') . '</p>';
-}
-
-function safe_cologne_field_phone_cb() {
-    $options = get_option('safe_cologne_settings');
-    ?>
-    <input type="text" name="safe_cologne_settings[phone]" value="<?php echo isset($options['phone']) ? esc_attr($options['phone']) : ''; ?>" />
-    <?php
-}
-
-function safe_cologne_field_email_cb() {
-    $options = get_option('safe_cologne_settings');
-    ?>
-    <input type="email" name="safe_cologne_settings[email]" value="<?php echo isset($options['email']) ? esc_attr($options['email']) : ''; ?>" />
-    <?php
 }
