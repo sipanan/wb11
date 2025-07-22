@@ -2,52 +2,221 @@
 /**
  * Template Name: Über uns
  * 
- * The about us page template for Safe Cologne
- * Telling the company story and introducing the team
+ * Clean about us page for Safe Cologne
  * 
  * @package Safe_Cologne
- * @version 2.0.0
+ * @version 4.0.0
  */
 
 get_header(); ?>
 
-<main id="main" class="site-main ueber-uns-page" role="main">
+<main class="about-page">
     
-    <!-- Hero Section -->
-    <section class="about-hero bg-secondary" aria-labelledby="about-hero-title">
-        <div class="hero-background">
-            <div class="hero-overlay"></div>
-            <?php 
-            $hero_image = get_theme_mod('about_hero_image', get_template_directory_uri() . '/assets/images/about-hero.jpg');
-            if ($hero_image): ?>
-                <img src="<?php echo esc_url($hero_image); ?>" alt="Safe Cologne Team" class="hero-bg-image" loading="eager">
-            <?php endif; ?>
-        </div>
-        
+    <!-- About Header -->
+    <section class="section bg-light text-center">
         <div class="container">
-            <div class="hero-content text-center text-white">
-                <h1 id="about-hero-title" class="hero-title">
-                    <?php echo get_theme_mod('about_hero_title', 'Über Safe Cologne'); ?>
-                </h1>
-                <p class="hero-subtitle">
-                    <?php echo get_theme_mod('about_hero_subtitle', 'Sicherheitsdienst mit Herz & System'); ?>
-                </p>
-                <p class="hero-description">
-                    <?php echo get_theme_mod('about_hero_description', 'Seit 2023 stehen wir für professionelle Sicherheitsdienstleistungen in Köln. Lernen Sie unser Team und unsere Geschichte kennen.'); ?>
-                </p>
+            <h1>Über Safe Cologne</h1>
+            <p class="text-lg text-muted">Sicherheitsdienst mit Herz & System</p>
+        </div>
+    </section>
+
+    <!-- Company Story -->
+    <section class="section bg-white">
+        <div class="container">
+            <div class="grid grid-2 gap-8" style="align-items: center;">
+                <div>
+                    <h2>Unsere Geschichte</h2>
+                    <p>Seit 2023 stehen wir für professionelle Sicherheitsdienstleistungen in Köln und Umgebung. Als junges, dynamisches Unternehmen verbinden wir moderne Sicherheitstechnik mit einem menschlichen Ansatz.</p>
+                    <p>Unser Ziel ist es, nicht nur zu schützen, sondern Vertrauen zu schaffen. Dabei setzen wir auf geschulte Mitarbeiter, modernste Technik und individuelle Lösungen für jeden Kunden.</p>
+                    <p>Mit über 500 erfolgreich geschützten Objekten und einer Zuverlässigkeitsquote von 99,9% haben wir uns schnell als vertrauensvoller Partner etabliert.</p>
+                </div>
+                
+                <div class="grid grid-2 gap-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <div class="text-primary fw-bold" style="font-size: 2.5rem;">2023</div>
+                            <div class="text-sm text-muted">Gründungsjahr</div>
+                        </div>
+                    </div>
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <div class="text-primary fw-bold" style="font-size: 2.5rem;">500+</div>
+                            <div class="text-sm text-muted">Geschützte Objekte</div>
+                        </div>
+                    </div>
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <div class="text-primary fw-bold" style="font-size: 2.5rem;">99.9%</div>
+                            <div class="text-sm text-muted">Zuverlässigkeit</div>
+                        </div>
+                    </div>
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <div class="text-primary fw-bold" style="font-size: 2.5rem;">24/7</div>
+                            <div class="text-sm text-muted">Verfügbar</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Company Story Section -->
-    <section class="company-story section bg-white" aria-labelledby="story-title">
+    <!-- Mission & Values -->
+    <section class="section bg-light">
         <div class="container">
-            <div class="story-content">
-                <div class="story-text">
-                    <h2 id="story-title" class="section-title">
-                        <?php echo get_theme_mod('story_title', 'Unsere Geschichte'); ?>
-                    </h2>
-                    <div class="story-intro">
+            <div class="text-center" style="margin-bottom: 3rem;">
+                <h2>Unsere Werte</h2>
+                <p class="text-lg text-muted">Was uns antreibt und auszeichnet</p>
+            </div>
+            
+            <div class="grid grid-3 gap-8">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="flex-center" style="margin-bottom: 1rem;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            </svg>
+                        </div>
+                        <h3>Vertrauen</h3>
+                        <p class="text-muted">Vertrauen ist die Basis unserer Arbeit. Wir schaffen Sicherheit durch Transparenz und Zuverlässigkeit.</p>
+                    </div>
+                </div>
+                
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="flex-center" style="margin-bottom: 1rem;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3>Qualität</h3>
+                        <p class="text-muted">Höchste Qualitätsstandards in allen Bereichen – von der Ausbildung bis zur Ausrüstung.</p>
+                    </div>
+                </div>
+                
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="flex-center" style="margin-bottom: 1rem;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 7a4 4 0 108 0 4 4 0 00-8 0zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                            </svg>
+                        </div>
+                        <h3>Menschlichkeit</h3>
+                        <p class="text-muted">Sicherheit mit einem menschlichen Ansatz – respektvoll, empathisch und professionell.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section bg-white">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 3rem;">
+                <h2>Unser Team</h2>
+                <p class="text-lg text-muted">Professionelle und erfahrene Sicherheitsexperten</p>
+            </div>
+            
+            <div class="grid grid-2 gap-8">
+                <div>
+                    <h3>Qualifikationen unseres Teams</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>IHK-zertifizierte Sicherheitsfachkräfte</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Regelmäßige Weiterbildungen</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Erste-Hilfe-Ausbildung</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Deeskalationstraining</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Brandschutzhelfer-Ausbildung</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Unser Versprechen</h3>
+                    <p>Jeder Mitarbeiter unseres Teams durchläuft eine umfassende Ausbildung und regelmäßige Schulungen. Wir legen großen Wert auf:</p>
+                    
+                    <div class="card" style="margin-top: 1.5rem;">
+                        <div class="card-body">
+                            <h4 class="text-primary">Kontinuierliche Weiterbildung</h4>
+                            <p style="margin: 0;">Unsere Mitarbeiter nehmen regelmäßig an Schulungen teil, um immer auf dem neuesten Stand der Sicherheitstechnik und -verfahren zu bleiben.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card" style="margin-top: 1rem;">
+                        <div class="card-body">
+                            <h4 class="text-primary">Persönliche Integrität</h4>
+                            <p style="margin: 0;">Alle Teammitglieder werden sorgfältig ausgewählt und durchlaufen umfassende Hintergrundprüfungen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="section bg-light">
+        <div class="container text-center">
+            <h2>Zertifizierungen & Standards</h2>
+            <p class="text-lg text-muted" style="margin-bottom: 3rem;">Höchste Qualitätsstandards durch anerkannte Zertifizierungen</p>
+            
+            <div class="grid grid-4 gap-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4>IHK</h4>
+                        <p class="text-sm text-muted">Zertifizierte Sicherheitsfachkräfte</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h4>BDSW</h4>
+                        <p class="text-sm text-muted">Bundesverband Sicherheitswirtschaft</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h4>ISO 9001</h4>
+                        <p class="text-sm text-muted">Qualitätsmanagement</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h4>DSGVO</h4>
+                        <p class="text-sm text-muted">Datenschutz-Compliance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<?php get_footer(); ?>
                         <?php 
                         $story_content = get_theme_mod('story_content', 'Safe Cologne wurde 2023 mit einer klaren Vision gegründet: Sicherheit mit menschlichem Ansatz zu bieten. Was als kleine Idee begann, ist heute ein vertrauensvoller Partner für Unternehmen und Privatpersonen in ganz Köln und Umgebung.');
                         echo wp_kses_post(wpautop($story_content));

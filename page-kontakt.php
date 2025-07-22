@@ -2,51 +2,188 @@
 /**
  * Template Name: Kontakt
  * 
- * The contact page template for Safe Cologne
- * Comprehensive contact information and form
+ * Clean contact page for Safe Cologne
  * 
  * @package Safe_Cologne
- * @version 2.0.0
+ * @version 4.0.0
  */
 
 get_header(); ?>
 
-<main id="main" class="site-main kontakt-page" role="main">
+<main class="contact-page">
     
-    <!-- Hero Section -->
-    <section class="contact-hero bg-secondary" aria-labelledby="contact-hero-title">
-        <div class="hero-background">
-            <div class="hero-overlay"></div>
-            <?php 
-            $hero_image = get_theme_mod('contact_hero_image', get_template_directory_uri() . '/assets/images/contact-hero.jpg');
-            if ($hero_image): ?>
-                <img src="<?php echo esc_url($hero_image); ?>" alt="Safe Cologne Kontakt" class="hero-bg-image" loading="eager">
-            <?php endif; ?>
-        </div>
-        
+    <!-- Contact Header -->
+    <section class="section bg-light text-center">
         <div class="container">
-            <div class="hero-content text-center text-white">
-                <h1 id="contact-hero-title" class="hero-title">
-                    <?php echo get_theme_mod('contact_hero_title', 'Kontaktieren Sie uns'); ?>
-                </h1>
-                <p class="hero-subtitle">
-                    <?php echo get_theme_mod('contact_hero_subtitle', 'Ihr direkter Weg zu professioneller Sicherheit'); ?>
-                </p>
-                <p class="hero-description">
-                    <?php echo get_theme_mod('contact_hero_description', 'Wir sind 24/7 für Sie erreichbar und beraten Sie gerne persönlich zu allen Fragen rund um Ihre Sicherheit.'); ?>
-                </p>
+            <h1>Kontaktieren Sie uns</h1>
+            <p class="text-lg text-muted">Ihr direkter Weg zu professioneller Sicherheit</p>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="section bg-white">
+        <div class="container">
+            <div class="grid grid-3 gap-8">
                 
-                <div class="hero-contact-info">
-                    <div class="contact-highlight">
-                        <div class="contact-method">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <!-- Phone Contact -->
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="flex-center" style="margin-bottom: 1rem;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
                                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                             </svg>
-                            <div>
-                                <strong><?php echo get_theme_mod('contact_phone', '0221 65058801'); ?></strong>
-                                <span><?php esc_html_e('24/7 Hotline', 'safe-cologne'); ?></span>
+                        </div>
+                        <h3>Telefon</h3>
+                        <p class="text-muted">24/7 für Notfälle erreichbar</p>
+                        <a href="tel:022165058801" class="fw-semibold">0221 6505 8801</a>
+                    </div>
+                </div>
+                
+                <!-- Email Contact -->
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="flex-center" style="margin-bottom: 1rem;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </div>
+                        <h3>E-Mail</h3>
+                        <p class="text-muted">Für Anfragen und Informationen</p>
+                        <a href="mailto:info@safecologne.de" class="fw-semibold">info@safecologne.de</a>
+                    </div>
+                </div>
+                
+                <!-- Location -->
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="flex-center" style="margin-bottom: 1rem;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </div>
+                        <h3>Adresse</h3>
+                        <p class="text-muted">Unser Büro in Köln</p>
+                        <address class="fw-semibold" style="font-style: normal;">
+                            Subbelrather Str. 15A<br>
+                            50823 Köln
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="grid grid-2 gap-8" style="align-items: start;">
+                
+                <!-- Form -->
+                <div>
+                    <h2>Nachricht senden</h2>
+                    <p class="text-muted">Senden Sie uns Ihre Anfrage und wir melden uns schnellstmöglich bei Ihnen.</p>
+                    
+                    <form class="contact-form" action="#" method="post">
+                        <div class="grid grid-2 gap-4">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Name *</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">E-Mail *</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
                             </div>
                         </div>
+                        
+                        <div class="grid grid-2 gap-4">
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Telefon</label>
+                                <input type="tel" id="phone" name="phone" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="company" class="form-label">Unternehmen</label>
+                                <input type="text" id="company" name="company" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Betreff *</label>
+                            <select id="subject" name="subject" class="form-control" required>
+                                <option value="">Bitte wählen</option>
+                                <option value="objektschutz">Objektschutz</option>
+                                <option value="personenschutz">Personenschutz</option>
+                                <option value="veranstaltung">Veranstaltungssicherheit</option>
+                                <option value="shuttleservice">VIP Shuttleservice</option>
+                                <option value="sonstiges">Sonstiges</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Nachricht *</label>
+                            <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Nachricht senden</button>
+                    </form>
+                </div>
+                
+                <!-- Info -->
+                <div>
+                    <h3>Warum Safe Cologne?</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>24/7 Verfügbarkeit</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Professionelle Beratung</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Individuelle Lösungen</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Langjährige Erfahrung</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="card" style="margin-top: 2rem;">
+                        <div class="card-body">
+                            <h4>Öffnungszeiten</h4>
+                            <div style="margin-top: 1rem;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                    <span>Montag - Freitag:</span>
+                                    <span>08:00 - 18:00</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                    <span>Samstag:</span>
+                                    <span>09:00 - 14:00</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Notdienst:</span>
+                                    <span class="text-primary fw-semibold">24/7</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<?php get_footer(); ?>
                         
                         <div class="contact-method">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">

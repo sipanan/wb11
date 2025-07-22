@@ -2,52 +2,239 @@
 /**
  * Template Name: Dienstleistungen
  * 
- * The services page template for Safe Cologne
- * Showcasing all security services offered
+ * Clean services page for Safe Cologne
  * 
  * @package Safe_Cologne
- * @version 2.0.0
+ * @version 4.0.0
  */
 
 get_header(); ?>
 
-<main id="main" class="site-main dienstleistungen-page" role="main">
+<main class="services-page">
     
-    <!-- Hero Section -->
-    <section class="services-hero bg-secondary" aria-labelledby="services-hero-title">
-        <div class="hero-background">
-            <div class="hero-overlay"></div>
-            <?php 
-            $hero_image = get_theme_mod('services_hero_image', get_template_directory_uri() . '/assets/images/services-hero.jpg');
-            if ($hero_image): ?>
-                <img src="<?php echo esc_url($hero_image); ?>" alt="Safe Cologne Sicherheitsdienstleistungen" class="hero-bg-image" loading="eager">
-            <?php endif; ?>
-        </div>
-        
+    <!-- Services Header -->
+    <section class="section bg-light text-center">
         <div class="container">
-            <div class="hero-content text-center text-white">
-                <div class="hero-badge">
-                    <span><?php esc_html_e('Professionelle Sicherheitslösungen', 'safe-cologne'); ?></span>
+            <h1>Unsere Sicherheitsdienstleistungen</h1>
+            <p class="text-lg text-muted">Professionelle Sicherheitslösungen für jeden Bedarf</p>
+        </div>
+    </section>
+
+    <!-- Main Services -->
+    <section class="section bg-white">
+        <div class="container">
+            <div class="grid grid-2 gap-8">
+                
+                <!-- Objektschutz -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="flex-center" style="margin-bottom: 1.5rem;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-primary text-center">Objektschutz</h3>
+                        <p class="text-center">Professioneller Schutz für Industrieanlagen, Bürokomplexe und Baustellen.</p>
+                        
+                        <h4 style="margin-top: 2rem;">Leistungen:</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>Zutrittskontrolle & Kontrollgänge</span>
+                            </li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>Schließdienste & Alarmverfolgung</span>
+                            </li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>Bodycams & GPS-Tracking</span>
+                            </li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>Digitale Dokumentation</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <h1 id="services-hero-title" class="hero-title">
-                    <?php echo get_theme_mod('services_hero_title', 'Unsere Sicherheitsdienstleistungen'); ?>
-                </h1>
-                
-                <p class="hero-description">
-                    <?php echo get_theme_mod('services_hero_description', 'Von Veranstaltungsschutz bis Objektsicherung – wir bieten maßgeschneiderte Sicherheitslösungen für jeden Bedarf. Professionell, zuverlässig und mit menschlichem Ansatz.'); ?>
-                </p>
-                
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label"><?php esc_html_e('Geschützte Objekte', 'safe-cologne'); ?></div>
+                <!-- VIP Shuttleservice -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="flex-center" style="margin-bottom: 1.5rem;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-primary text-center">VIP Shuttleservice</h3>
+                        <p class="text-center">Diskreter und sicherer Transport für Prominente, Politiker und Geschäftsleute.</p>
+                        
+                        <h4 style="margin-top: 2rem;">Highlights:</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>Gepanzerte Fahrzeuge verfügbar</span>
+                            </li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>Geschulte Sicherheitsfahrer</span>
+                            </li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>Defensives & taktisches Fahren</span>
+                            </li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>Absolute Diskretion garantiert</span>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">15+</div>
-                        <div class="stat-label"><?php esc_html_e('Jahre Erfahrung', 'safe-cologne'); ?></div>
+                </div>
+                
+                <!-- Veranstaltungssicherheit -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="flex-center" style="margin-bottom: 1.5rem;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 7a4 4 0 108 0 4 4 0 00-8 0zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-primary text-center">Veranstaltungssicherheit</h3>
+                        <p class="text-center">Professionelle Sicherheit für Events, Konzerte und private Feiern.</p>
+                        
+                        <h4 style="margin-top: 2rem;">Services:</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>Einlasskontrollen</span>
+                            </li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>Crowd Management</span>
+                            </li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>VIP-Betreuung</span>
+                            </li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>Notfallmanagement</span>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="stat-item">
+                </div>
+                
+                <!-- Personenschutz -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="flex-center" style="margin-bottom: 1.5rem;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 5.5V12.5H9V11C8.2 10.9 7.4 10.7 6.6 10.4L5 9.9V11.9L10 13.4V20C10 20.6 10.4 21 11 21S12 20.6 12 21V15H13.5L15.5 16.5L16.9 15.1L14.4 12.5H21V10.5H15V9H21Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-primary text-center">Personenschutz</h3>
+                        <p class="text-center">Diskreter Schutz für Personen des öffentlichen Lebens und Privatpersonen.</p>
+                        
+                        <h4 style="margin-top: 2rem;">Expertise:</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>Begleitschutz</span>
+                            </li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>Risikoanalyse</span>
+                            </li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>Sicherheitskonzepte</span>
+                            </li>
+                            <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>24/7 Verfügbarkeit</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section bg-light">
+        <div class="container text-center">
+            <h2>Warum Safe Cologne wählen?</h2>
+            <p class="text-lg text-muted" style="margin-bottom: 3rem;">Vertrauen Sie auf unsere Expertise und Erfahrung</p>
+            
+            <div class="grid grid-3 gap-8">
+                <div>
+                    <div class="flex-center" style="margin-bottom: 1rem;">
+                        <div style="width: 64px; height: 64px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold;">
+                            500+
+                        </div>
+                    </div>
+                    <h4>Geschützte Objekte</h4>
+                    <p class="text-muted">Über 500 erfolgreich geschützte Objekte sprechen für unsere Kompetenz.</p>
+                </div>
+                
+                <div>
+                    <div class="flex-center" style="margin-bottom: 1rem;">
+                        <div style="width: 64px; height: 64px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold;">
+                            99.9%
+                        </div>
+                    </div>
+                    <h4>Zuverlässigkeit</h4>
+                    <p class="text-muted">Eine Erfolgsquote von 99,9% bestätigt unsere professionelle Arbeitsweise.</p>
+                </div>
+                
+                <div>
+                    <div class="flex-center" style="margin-bottom: 1rem;">
+                        <div style="width: 64px; height: 64px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.25rem; font-weight: bold;">
+                            24/7
+                        </div>
+                    </div>
+                    <h4>Verfügbarkeit</h4>
+                    <p class="text-muted">Rund um die Uhr für Sie da – auch an Feiertagen und Wochenenden.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<?php get_footer(); ?>
                         <div class="stat-number">24/7</div>
                         <div class="stat-label"><?php esc_html_e('Verfügbarkeit', 'safe-cologne'); ?></div>
                     </div>

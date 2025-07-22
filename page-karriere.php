@@ -2,52 +2,265 @@
 /**
  * Template Name: Karriere
  * 
- * The careers page template for Safe Cologne
- * Focused on recruitment and team building
+ * Clean careers page for Safe Cologne
  * 
  * @package Safe_Cologne
- * @version 2.0.0
+ * @version 4.0.0
  */
 
 get_header(); ?>
 
-<main id="main" class="site-main karriere-page" role="main">
+<main class="careers-page">
     
-    <!-- Hero Section -->
-    <section class="karriere-hero bg-secondary" aria-labelledby="karriere-hero-title">
-        <div class="hero-background">
-            <div class="hero-overlay"></div>
-            <?php 
-            $hero_image = get_theme_mod('karriere_hero_image', get_template_directory_uri() . '/assets/images/team-karriere.jpg');
-            if ($hero_image): ?>
-                <img src="<?php echo esc_url($hero_image); ?>" alt="Karriere bei Safe Cologne" class="hero-bg-image" loading="eager">
-            <?php endif; ?>
-        </div>
-        
+    <!-- Careers Header -->
+    <section class="section bg-light text-center">
         <div class="container">
-            <div class="hero-content text-center text-white">
-                <h1 id="karriere-hero-title" class="hero-title">
-                    <?php echo get_theme_mod('karriere_hero_title', 'Dein Job mit Sinn'); ?>
-                </h1>
-                <p class="hero-subtitle">
-                    <?php echo get_theme_mod('karriere_hero_subtitle', 'Werde Teil unseres Teams bei Safe Cologne'); ?>
-                </p>
-                <p class="hero-description">
-                    <?php echo get_theme_mod('karriere_hero_description', 'Bei uns bist du mehr als ein Sicherheitsmitarbeiter – du bist Sicherheitsgastgeber mit Herz und Verstand.'); ?>
-                </p>
+            <h1>Karriere bei Safe Cologne</h1>
+            <p class="text-lg text-muted">Werde Teil unseres Teams und arbeite mit Sinn</p>
+        </div>
+    </section>
+
+    <!-- Why Work With Us -->
+    <section class="section bg-white">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 3rem;">
+                <h2>Warum bei uns arbeiten?</h2>
+                <p class="text-lg text-muted">Bei uns bist du mehr als ein Sicherheitsmitarbeiter</p>
+            </div>
+            
+            <div class="grid grid-3 gap-8">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="flex-center" style="margin-bottom: 1rem;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 7a4 4 0 108 0 4 4 0 00-8 0zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                            </svg>
+                        </div>
+                        <h3>Teamgeist</h3>
+                        <p class="text-muted">Ein starkes Team, das zusammenhält und sich gegenseitig unterstützt.</p>
+                    </div>
+                </div>
                 
-                <div class="hero-cta">
-                    <a href="#jobs" class="btn btn-primary btn-lg">
-                        <?php esc_html_e('Offene Stellen ansehen', 'safe-cologne'); ?>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8.59 16.58L13.17 12l-4.58-4.59L10 6l6 6-6 6-1.41-1.42z"/>
-                        </svg>
-                    </a>
-                    <a href="mailto:bewerbung@safecologne.de" class="btn btn-white btn-lg">
-                        <?php esc_html_e('Initiativbewerbung', 'safe-cologne'); ?>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                        </svg>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="flex-center" style="margin-bottom: 1rem;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M12 14l9-5-9-5-9 5 9 5z M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                            </svg>
+                        </div>
+                        <h3>Weiterbildung</h3>
+                        <p class="text-muted">Regelmäßige Schulungen und Weiterbildungsmöglichkeiten für deine Entwicklung.</p>
+                    </div>
+                </div>
+                
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="flex-center" style="margin-bottom: 1rem;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3>Sicherheit</h3>
+                        <p class="text-muted">Unbefristete Arbeitsverträge und faire Bezahlung nach Tarif.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="grid grid-2 gap-8" style="align-items: center;">
+                <div>
+                    <h2>Deine Vorteile bei uns</h2>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Tarifliche Bezahlung nach Sicherheitstarifvertrag</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Unbefristete Arbeitsverträge</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Kostenlose Ausbildung und Schulungen</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Moderne Arbeitskleidung und Ausrüstung</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Flexible Arbeitszeiten</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Betriebliche Altersvorsorge</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="text-primary">Starte noch heute!</h3>
+                            <p>Wir unterstützen dich beim Einstieg in die Sicherheitsbranche:</p>
+                            <ul style="margin: 1rem 0;">
+                                <li>Kostenlose Vorbereitung auf die IHK-Prüfung</li>
+                                <li>Übernahme der Prüfungsgebühren</li>
+                                <li>Bezahlte Einarbeitungszeit</li>
+                                <li>Persönlicher Ansprechpartner</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Open Positions -->
+    <section id="jobs" class="section bg-white">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 3rem;">
+                <h2>Offene Stellen</h2>
+                <p class="text-lg text-muted">Aktuelle Jobangebote bei Safe Cologne</p>
+            </div>
+            
+            <div class="grid gap-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="flex-between">
+                            <div>
+                                <h3>Sicherheitsmitarbeiter (m/w/d)</h3>
+                                <p class="text-muted">Objektschutz • Vollzeit • Köln</p>
+                                <p>Wir suchen zuverlässige Sicherheitsmitarbeiter für den Objektschutz in Köln und Umgebung. Keine Vorerfahrung notwendig.</p>
+                            </div>
+                            <div style="margin-left: 2rem;">
+                                <span class="btn btn-primary">Bewerben</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <div class="flex-between">
+                            <div>
+                                <h3>VIP Shuttleservice Fahrer (m/w/d)</h3>
+                                <p class="text-muted">Personenschutz • Vollzeit/Teilzeit • Köln</p>
+                                <p>Diskreter und sicherer Transport für VIP-Kunden. Führerschein Klasse B erforderlich, weitere Ausbildung durch uns.</p>
+                            </div>
+                            <div style="margin-left: 2rem;">
+                                <span class="btn btn-primary">Bewerben</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <div class="flex-between">
+                            <div>
+                                <h3>Veranstaltungssicherheit (m/w/d)</h3>
+                                <p class="text-muted">Events • Flexibel • Köln/NRW</p>
+                                <p>Sicherheit bei Events, Konzerten und Veranstaltungen. Flexible Einsatzzeiten, auch für Studenten geeignet.</p>
+                            </div>
+                            <div style="margin-left: 2rem;">
+                                <span class="btn btn-primary">Bewerben</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Process -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 3rem;">
+                <h2>So läuft deine Bewerbung ab</h2>
+                <p class="text-lg text-muted">Einfach und unkompliziert</p>
+            </div>
+            
+            <div class="grid grid-4 gap-6">
+                <div class="text-center">
+                    <div class="flex-center" style="margin-bottom: 1rem;">
+                        <div style="width: 64px; height: 64px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold;">
+                            1
+                        </div>
+                    </div>
+                    <h4>Bewerbung</h4>
+                    <p class="text-muted">Sende uns deine Bewerbung per E-Mail oder über unser Kontaktformular.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="flex-center" style="margin-bottom: 1rem;">
+                        <div style="width: 64px; height: 64px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold;">
+                            2
+                        </div>
+                    </div>
+                    <h4>Gespräch</h4>
+                    <p class="text-muted">Wir lernen uns in einem persönlichen Gespräch kennen und beantworten deine Fragen.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="flex-center" style="margin-bottom: 1rem;">
+                        <div style="width: 64px; height: 64px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold;">
+                            3
+                        </div>
+                    </div>
+                    <h4>Ausbildung</h4>
+                    <p class="text-muted">Kostenlose Vorbereitung auf die IHK-Prüfung und Einarbeitung in dein Aufgabengebiet.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="flex-center" style="margin-bottom: 1rem;">
+                        <div style="width: 64px; height: 64px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold;">
+                            4
+                        </div>
+                    </div>
+                    <h4>Start</h4>
+                    <p class="text-muted">Du startest in deinen neuen Job mit unserem vollen Support und Betreuung.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section bg-white">
+        <div class="container text-center">
+            <h2>Bereit für den nächsten Schritt?</h2>
+            <p class="text-lg text-muted" style="margin-bottom: 2rem;">Bewirb dich noch heute oder kontaktiere uns für weitere Informationen.</p>
+            
+            <div class="d-flex gap-4" style="justify-content: center;">
+                <a href="mailto:bewerbung@safecologne.de" class="btn btn-primary btn-lg">
+                    E-Mail Bewerbung
+                </a>
+                <a href="tel:022165058801" class="btn btn-secondary btn-lg">
+                    Anrufen
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<?php get_footer(); ?>
                     </a>
                 </div>
             </div>
