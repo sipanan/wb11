@@ -91,27 +91,129 @@ get_header(); ?>
     </div>
 </section>
 
-<!-- CTA Banner -->
-<section class="cta-banner">
+<!-- Trust & Quality Section -->
+<section class="trust-quality-section">
     <div class="container">
-        <div class="cta-content">
-            <h2><?php esc_html_e('Sicherheit beginnt mit einem Gespräch', 'safe-cologne'); ?></h2>
-            <p><?php esc_html_e('Lassen Sie uns gemeinsam Ihr individuelles Sicherheitskonzept entwickeln.', 'safe-cologne'); ?></p>
-            <div class="cta-buttons">
-                <?php
-                $cta_text = get_theme_mod('safe_cologne_cta_text', 'Kostenlose Beratung');
-                $cta_url = get_theme_mod('safe_cologne_cta_url', '/kontakt/');
-                ?>
-                <a href="<?php echo esc_url(home_url($cta_url)); ?>" class="btn btn-white btn-lg">
-                    <i class="fas fa-shield-alt"></i>
-                    <?php echo esc_html($cta_text); ?>
-                </a>
-            </div>
-                </a>
+        <div class="trust-content">
+            <h2><?php esc_html_e('Vertrauen durch Qualität', 'safe-cologne'); ?></h2>
+            <p><?php esc_html_e('Seit über 15 Jahren stehen wir für höchste Sicherheitsstandards in Köln und Umgebung.', 'safe-cologne'); ?></p>
+            <div class="trust-stats">
+                <div class="trust-stat">
+                    <strong>98%</strong>
+                    <span>Kundenzufriedenheit</span>
+                </div>
+                <div class="trust-stat">
+                    <strong>500+</strong>
+                    <span>Projekte erfolgreich</span>
+                </div>
+                <div class="trust-stat">
+                    <strong>15+</strong>
+                    <span>Jahre Erfahrung</span>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+<style>
+.trust-quality-section {
+    background: linear-gradient(135deg, #E30613 0%, #C2050F 100%);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.trust-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.trust-content p {
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+}
+
+.trust-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.trust-stat {
+    text-align: center;
+}
+
+.trust-stat strong {
+    display: block;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.trust-stat span {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.values-section {
+    background: #F9FAFB;
+    padding: 80px 0;
+}
+
+.values-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #111827;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.value-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.value-item:hover {
+    transform: translateY(-4px);
+}
+
+.value-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #E30613;
+}
+
+.value-item p {
+    color: #6B7280;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .trust-stats {
+        gap: 2rem;
+    }
+    
+    .trust-stat strong {
+        font-size: 2.5rem;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 
 <!-- Testimonials Section -->
 <?php get_template_part('template-parts/testimonials'); ?>
@@ -158,7 +260,25 @@ get_header(); ?>
     </div>
 </section>
 
-<!-- Contact Section -->
-<?php get_template_part('template-parts/contact', 'form'); ?>
+<!-- Company Values Section -->
+<section class="values-section">
+    <div class="container">
+        <h2><?php esc_html_e('Unsere Werte', 'safe-cologne'); ?></h2>
+        <div class="values-grid">
+            <div class="value-item">
+                <h3><?php esc_html_e('Zuverlässigkeit', 'safe-cologne'); ?></h3>
+                <p><?php esc_html_e('Pünktlich, präzise und verlässlich - darauf können Sie sich verlassen.', 'safe-cologne'); ?></p>
+            </div>
+            <div class="value-item">
+                <h3><?php esc_html_e('Professionalität', 'safe-cologne'); ?></h3>
+                <p><?php esc_html_e('Geschulte Mitarbeiter mit jahrelanger Erfahrung im Sicherheitsdienst.', 'safe-cologne'); ?></p>
+            </div>
+            <div class="value-item">
+                <h3><?php esc_html_e('Transparenz', 'safe-cologne'); ?></h3>
+                <p><?php esc_html_e('Klare Kommunikation und nachvollziehbare Preisgestaltung.', 'safe-cologne'); ?></p>
+            </div>
+        </div>
+    </div>
+</section>
 
 <?php get_footer(); ?>

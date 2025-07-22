@@ -101,9 +101,6 @@ $address = get_theme_mod('safe_cologne_address', '');
                             <address><?php echo esc_html($address); ?></address>
                         </div>
                     </div>
-                    <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="sc-footer-cta">
-                        Kontakt aufnehmen →
-                    </a>
                 </div>
                 
             </div>
@@ -118,8 +115,8 @@ $address = get_theme_mod('safe_cologne_address', '');
                     &copy; <?php echo date('Y'); ?> SafeCologne. Alle Rechte vorbehalten.
                 </div>
                 <nav class="sc-footer-legal">
-                    <a href="<?php echo home_url('/impressum'); ?>">Impressum</a>
-                    <a href="<?php echo home_url('/datenschutz'); ?>">Datenschutz</a>
+                    <a href="https://safecologne.de/impressum/">Impressum</a>
+                    <a href="https://safecologne.de/datenschutz/">Datenschutz</a>
                     <a href="<?php echo home_url('/agb'); ?>">AGB</a>
                 </nav>
             </div>

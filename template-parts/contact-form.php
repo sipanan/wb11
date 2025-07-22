@@ -102,7 +102,7 @@ $whatsapp = get_theme_mod('safe_cologne_whatsapp', '');
                         <input type="checkbox" name="privacy" required>
                         <span><?php printf(
                             esc_html__('Ich habe die %s gelesen und stimme zu. *', 'safe-cologne'),
-                            '<a href="' . esc_url(get_privacy_policy_url()) . '" target="_blank">' . esc_html__('Datenschutzerklärung', 'safe-cologne') . '</a>'
+                            '<a href="https://safecologne.de/datenschutz/" target="_blank">' . esc_html__('Datenschutzerklärung', 'safe-cologne') . '</a>'
                         ); ?></span>
                     </label>
                 </div>

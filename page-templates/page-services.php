@@ -493,7 +493,7 @@ get_header(); ?>
                             <div class="form-consent">
                                 <label>
                                     <input type="checkbox" name="consent" required>
-                                    <span>Ich stimme der Verarbeitung meiner Daten gemäß <a href="/datenschutz" target="_blank">Datenschutzerklärung</a> zu.</span>
+                                    <span>Ich stimme der Verarbeitung meiner Daten gemäß <a href="https://safecologne.de/datenschutz/" target="_blank">Datenschutzerklärung</a> zu.</span>
                                 </label>
                             </div>
                             <button type="submit" class="submit-btn">
@@ -768,21 +768,25 @@ get_header(); ?>
     transition: var(--transition);
     display: flex;
     flex-direction: column;
+    border: 2px solid var(--gray-200);
 }
 
 .service-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-xl);
+    border-color: var(--primary);
 }
 
 .service-card.featured {
     grid-column: span 2;
-    background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     color: var(--white);
+    border-color: var(--primary);
 }
 
 .service-card.premium {
-    border: 2px solid var(--gold);
+    border: 2px solid var(--primary);
+    background: linear-gradient(135deg, rgba(227,6,19,0.05) 0%, rgba(227,6,19,0.02) 100%);
 }
 
 .service-image {
@@ -937,29 +941,46 @@ get_header(); ?>
     text-decoration: none;
     font-weight: 600;
     transition: var(--transition);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    border: 2px solid var(--primary);
+    background: transparent;
 }
 
 .service-cta:hover {
+    background: var(--primary);
+    color: var(--white);
     gap: 0.75rem;
+}
+
+.service-card.featured .service-cta {
+    color: var(--white);
+    border-color: var(--white);
+}
+
+.service-card.featured .service-cta:hover {
+    background: var(--white);
+    color: var(--primary);
 }
 
 .service-cta.primary {
     display: flex;
     justify-content: center;
     padding: 1rem 2rem;
-    background: var(--gold);
-    color: var(--gray-900);
-    border-radius: var(--radius);
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
 }
 
 .service-cta.primary:hover {
-    background: var(--gold);
+    background: var(--primary-dark);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
 
 .service-cta.gold {
-    color: var(--gold);
+    color: var(--primary);
+    border-color: var(--primary);
 }
 
 /* Trust Section */
@@ -1792,114 +1813,6 @@ get_header(); ?>
             });
         };
         
-        // ===== Exit Intent Popup =====
-        const initExitIntent = () => {
-            let shown = false;
-            
-            document.addEventListener('mouseleave', function(e) {
-                if (e.clientY <= 0 && !shown) {
-                    shown = true;
-                    showExitPopup();
-                }
-            });
-        };
-        
-        const showExitPopup = () => {
-            const popup = document.createElement('div');
-            popup.className = 'exit-popup';
-            popup.innerHTML = `
-                <div class="exit-overlay" onclick="closeExitPopup()"></div>
-                <div class="exit-content">
-                    <button class="exit-close" onclick="closeExitPopup()">×</button>
-                    <h2>Warten Sie!</h2>
-                    <p>Sichern Sie sich jetzt Ihr kostenloses Sicherheitsaudit im Wert von 500€</p>
-                    <form class="exit-form">
-                        <input type="email" placeholder="Ihre E-Mail-Adresse" required>
-                        <button type="submit">Audit sichern</button>
-                    </form>
-                </div>
-            `;
-            
-            document.body.appendChild(popup);
-            
-            // Add styles
-            const style = document.createElement('style');
-            style.textContent = `
-                .exit-popup {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    z-index: 9999;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    animation: fadeIn 0.3s ease-out;
-                }
-                
-                .exit-overlay {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background: rgba(0,0,0,0.7);
-                }
-                
-                .exit-content {
-                    position: relative;
-                    background: var(--white);
-                    padding: 3rem;
-                    border-radius: var(--radius-xl);
-                    max-width: 500px;
-                    width: 90%;
-                    text-align: center;
-                    box-shadow: var(--shadow-xl);
-                }
-                
-                .exit-close {
-                    position: absolute;
-                    top: 1rem;
-                    right: 1rem;
-                    background: none;
-                    border: none;
-                    font-size: 2rem;
-                    color: var(--gray-400);
-                    cursor: pointer;
-                }
-                
-                .exit-form {
-                    display: flex;
-                    gap: 0.75rem;
-                    margin-top: 1.5rem;
-                }
-                
-                .exit-form input {
-                    flex: 1;
-                    padding: 0.875rem;
-                    border: 2px solid var(--gray-200);
-                    border-radius: var(--radius);
-                }
-                
-                .exit-form button {
-                    padding: 0.875rem 2rem;
-                    background: var(--primary);
-                    color: var(--white);
-                    border: none;
-                    border-radius: var(--radius);
-                    font-weight: 600;
-                    cursor: pointer;
-                }
-            `;
-            document.head.appendChild(style);
-        };
-        
-        window.closeExitPopup = () => {
-            const popup = document.querySelector('.exit-popup');
-            if (popup) popup.remove();
-        };
-        
         // ===== Initialize Everything =====
         initFiltering();
         initForm();
@@ -1909,11 +1822,6 @@ get_header(); ?>
         initAOS();
         preloadImages();
         initRecommendations();
-        
-        // Only show exit intent on desktop
-        if (window.innerWidth > 768) {
-            initExitIntent();
-        }
     });
 })();
 </script>
