@@ -8,6 +8,7 @@
 // Theme options
 $cta_text = get_theme_mod('safe_cologne_cta_text', 'Kontakt aufnehmen');
 $cta_url = get_theme_mod('safe_cologne_cta_url', '/kontakt/');
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> itemscope itemtype="https://schema.org/SecurityCompany">
 <head>
