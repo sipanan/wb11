@@ -1,6 +1,28 @@
 /**
- * Safe Cologne Responsive Styles
+ * Safe Cologne Responsive Styles - Clean Professional Design
+ * Version: 2.0.0
  */
+
+/* CSS Variables - Consistent with main theme */
+:root {
+    --primary-red: #E30613;
+    --primary-dark: #C2050F;
+    --white: #FFFFFF;
+    --black: #1A1A1A;
+    --gray-100: #F8F9FA;
+    --gray-200: #E9ECEF;
+    --gray-300: #DEE2E6;
+    --gray-600: #6C757D;
+    --gray-900: #212529;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.15);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.2);
+    --shadow-xl: 0 16px 48px rgba(0,0,0,0.25);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+}
 
 /* Tablet Landscape */
 @media (max-width: 1024px) {
@@ -478,7 +500,7 @@
     
     /* Reset colors for print */
     * {
-        color: #000 !important;
+        color: var(--black) !important;
         background: transparent !important;
         box-shadow: none !important;
     }
@@ -524,7 +546,7 @@
     
     /* Contact info */
     .contact-card {
-        border: 1px solid #000;
+        border: 1px solid var(--black);
         padding: 0.5cm;
         margin: 0.25cm 0;
     }

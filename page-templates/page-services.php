@@ -148,7 +148,7 @@ get_header(); ?>
                             <li>Personenkontrollen & Backstage-Security</li>
                             <li>VIP-Begleitung & Künstlerschutz</li>
                             <li>Digitale Einsatzplanung & Funkkoordination</li>
-                            <li>24/7 Bereitschaftsdienst</li>
+                            <li>Rund um die Uhr Bereitschaftsdienst</li>
                         </ul>
                         <div class="service-footer">
                             <a href="#contact" class="service-cta">
@@ -199,7 +199,7 @@ get_header(); ?>
                              alt="Objekt- & Werkschutz" 
                              loading="lazy">
                         <div class="service-overlay">
-                            <span class="service-badge">24/7 Service</span>
+                            <span class="service-badge">Rund um die Uhr Service</span>
                         </div>
                     </div>
                     <div class="service-content">
@@ -509,33 +509,31 @@ get_header(); ?>
                 <div class="cta-alternatives" data-aos="fade-up" data-aos-delay="300">
                     <p>Oder kontaktieren Sie uns direkt:</p>
                     <div class="contact-options">
-                        <a href="tel:+4922165058801" class="contact-option">
+                        <?php
+                        $phone = get_theme_mod('safe_cologne_phone', '');
+                        $email = get_theme_mod('safe_cologne_email', '');
+                        if ($phone) : ?>
+                        <a href="tel:<?php echo esc_attr(str_replace(' ', '', $phone)); ?>" class="contact-option">
                             <svg width="24" height="24" viewBox="0 0 24 24">
                                 <path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                             </svg>
-                            <span>0221 6505 8801</span>
+                            <span><?php echo esc_html($phone); ?></span>
                         </a>
-                        <a href="mailto:info@safecologne.de" class="contact-option">
+                        <?php endif; if ($email) : ?>
+                        <a href="mailto:<?php echo esc_attr($email); ?>" class="contact-option">
                             <svg width="24" height="24" viewBox="0 0 24 24">
                                 <path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                             </svg>
-                            <span>info@safecologne.de</span>
+                            <span><?php echo esc_html($email); ?></span>
                         </a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Floating Emergency -->
-    <div class="emergency-float show">
-        <a href="tel:+4922165058801" class="emergency-btn">
-            <svg width="24" height="24" viewBox="0 0 24 24">
-                <path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-            </svg>
-            <span class="emergency-text">24/7 Notdienst</span>
-        </a>
-    </div>
+
 
 </main>
 

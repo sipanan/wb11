@@ -135,6 +135,42 @@ function safe_cologne_setup() {
     add_image_size('hero-banner', 1920, 1080, true);
 }
 
+// Register custom block patterns
+add_action('init', 'safe_cologne_register_block_patterns');
+function safe_cologne_register_block_patterns() {
+    // Register Safe Cologne pattern category
+    if (function_exists('register_block_pattern_category')) {
+        register_block_pattern_category(
+            'safe-cologne',
+            array(
+                'label' => __('Safe Cologne', 'safe-cologne'),
+            )
+        );
+    }
+    
+    // Register patterns
+    if (function_exists('register_block_pattern')) {
+        $patterns = array(
+            'hero-banner',
+            'services-section',
+            'cta-section'
+        );
+        
+        foreach ($patterns as $pattern) {
+            $pattern_file = SAFE_COLOGNE_PATH . '/patterns/' . $pattern . '.php';
+            if (file_exists($pattern_file)) {
+                $pattern_data = include $pattern_file;
+                if (is_array($pattern_data)) {
+                    register_block_pattern(
+                        'safe-cologne/' . $pattern,
+                        $pattern_data
+                    );
+                }
+            }
+        }
+    }
+}
+
 // Enqueue scripts and styles
 add_action('wp_enqueue_scripts', 'safe_cologne_scripts');
 function safe_cologne_scripts() {
