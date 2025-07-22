@@ -148,7 +148,7 @@ get_header(); ?>
                             <li>Personenkontrollen & Backstage-Security</li>
                             <li>VIP-Begleitung & Künstlerschutz</li>
                             <li>Digitale Einsatzplanung & Funkkoordination</li>
-                            <li>24/7 Bereitschaftsdienst</li>
+                            <li>Professioneller Bereitschaftsdienst</li>
                         </ul>
                         <div class="service-footer">
                             <a href="#contact" class="service-cta">
@@ -199,7 +199,7 @@ get_header(); ?>
                              alt="Objekt- & Werkschutz" 
                              loading="lazy">
                         <div class="service-overlay">
-                            <span class="service-badge">24/7 Service</span>
+                            <span class="service-badge">Rund um die Uhr</span>
                         </div>
                     </div>
                     <div class="service-content">
@@ -505,37 +505,11 @@ get_header(); ?>
                         </div>
                     </form>
                 </div>
-                
-                <div class="cta-alternatives" data-aos="fade-up" data-aos-delay="300">
-                    <p>Oder kontaktieren Sie uns direkt:</p>
-                    <div class="contact-options">
-                        <a href="tel:+4922165058801" class="contact-option">
-                            <svg width="24" height="24" viewBox="0 0 24 24">
-                                <path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                            </svg>
-                            <span>0221 6505 8801</span>
-                        </a>
-                        <a href="mailto:info@safecologne.de" class="contact-option">
-                            <svg width="24" height="24" viewBox="0 0 24 24">
-                                <path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                            </svg>
-                            <span>info@safecologne.de</span>
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Floating Emergency -->
-    <div class="emergency-float show">
-        <a href="tel:+4922165058801" class="emergency-btn">
-            <svg width="24" height="24" viewBox="0 0 24 24">
-                <path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-            </svg>
-            <span class="emergency-text">24/7 Notdienst</span>
-        </a>
-    </div>
+
 
 </main>
 
@@ -1212,59 +1186,7 @@ get_header(); ?>
     transform: translateY(-2px);
 }
 
-/* Emergency Float */
-.emergency-float {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 200;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: var(--transition);
-}
 
-.emergency-float.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.emergency-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 1.5rem;
-    background: var(--primary);
-    color: var(--white);
-    text-decoration: none;
-    border-radius: 999px;
-    box-shadow: var(--shadow-xl);
-    transition: var(--transition);
-    position: relative;
-}
-
-.emergency-btn::before {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    background: var(--primary);
-    border-radius: 999px;
-    opacity: 0.3;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 0.3; }
-    50% { transform: scale(1.1); opacity: 0; }
-    100% { transform: scale(1); opacity: 0; }
-}
-
-.emergency-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 20px 40px rgba(227, 6, 19, 0.4);
-}
 
 /* Responsive Design */
 @media (max-width: 1024px) {
@@ -1339,23 +1261,13 @@ get_header(); ?>
         width: 100%;
         justify-content: center;
     }
-    
-    .emergency-float {
-        bottom: 1rem;
-        right: 1rem;
-    }
-    
-    .emergency-text {
-        display: none;
-    }
 }
 
 /* Print Styles */
 @media print {
     .services-hero,
     .services-nav-section,
-    .cta-section,
-    .emergency-float {
+    .cta-section {
         display: none;
     }
     
@@ -1587,20 +1499,6 @@ get_header(); ?>
             });
         };
         
-        // ===== Emergency Button Visibility =====
-        const handleEmergencyButton = () => {
-            const emergencyFloat = document.querySelector('.emergency-float');
-            const scrollThreshold = 500;
-            
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > scrollThreshold) {
-                    emergencyFloat.classList.add('show');
-                } else {
-                    emergencyFloat.classList.remove('show');
-                }
-            });
-        };
-        
         // ===== Service Card Interactions =====
         const enhanceServiceCards = () => {
             const cards = document.querySelectorAll('.service-card');
@@ -1794,128 +1692,15 @@ get_header(); ?>
             });
         };
         
-        // ===== Exit Intent Popup =====
-        const initExitIntent = () => {
-            let shown = false;
-            
-            document.addEventListener('mouseleave', function(e) {
-                if (e.clientY <= 0 && !shown) {
-                    shown = true;
-                    showExitPopup();
-                }
-            });
-        };
-        
-        const showExitPopup = () => {
-            const popup = document.createElement('div');
-            popup.className = 'exit-popup';
-            popup.innerHTML = `
-                <div class="exit-overlay" onclick="closeExitPopup()"></div>
-                <div class="exit-content">
-                    <button class="exit-close" onclick="closeExitPopup()">×</button>
-                    <h2>Warten Sie!</h2>
-                    <p>Sichern Sie sich jetzt Ihr kostenloses Sicherheitsaudit im Wert von 500€</p>
-                    <form class="exit-form">
-                        <input type="email" placeholder="Ihre E-Mail-Adresse" required>
-                        <button type="submit">Audit sichern</button>
-                    </form>
-                </div>
-            `;
-            
-            document.body.appendChild(popup);
-            
-            // Add styles
-            const style = document.createElement('style');
-            style.textContent = `
-                .exit-popup {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    z-index: 9999;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    animation: fadeIn 0.3s ease-out;
-                }
-                
-                .exit-overlay {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background: rgba(0,0,0,0.7);
-                }
-                
-                .exit-content {
-                    position: relative;
-                    background: var(--white);
-                    padding: 3rem;
-                    border-radius: var(--radius-xl);
-                    max-width: 500px;
-                    width: 90%;
-                    text-align: center;
-                    box-shadow: var(--shadow-xl);
-                }
-                
-                .exit-close {
-                    position: absolute;
-                    top: 1rem;
-                    right: 1rem;
-                    background: none;
-                    border: none;
-                    font-size: 2rem;
-                    color: var(--gray-400);
-                    cursor: pointer;
-                }
-                
-                .exit-form {
-                    display: flex;
-                    gap: 0.75rem;
-                    margin-top: 1.5rem;
-                }
-                
-                .exit-form input {
-                    flex: 1;
-                    padding: 0.875rem;
-                    border: 2px solid var(--gray-200);
-                    border-radius: var(--radius);
-                }
-                
-                .exit-form button {
-                    padding: 0.875rem 2rem;
-                    background: var(--primary);
-                    color: var(--white);
-                    border: none;
-                    border-radius: var(--radius);
-                    font-weight: 600;
-                    cursor: pointer;
-                }
-            `;
-            document.head.appendChild(style);
-        };
-        
-        window.closeExitPopup = () => {
-            const popup = document.querySelector('.exit-popup');
-            if (popup) popup.remove();
-        };
         
         // ===== Initialize Everything =====
         initFiltering();
         initForm();
         initSmoothScroll();
-        handleEmergencyButton();
         enhanceServiceCards();
         initAOS();
         preloadImages();
         initRecommendations();
-        
-        // Only show exit intent on desktop
-        if (window.innerWidth > 768) {
-            initExitIntent();
-        }
     });
 })();
 </script>

@@ -33,14 +33,10 @@ $phone = get_option('safe_cologne_settings')['phone'] ?? '0221 65058801';
             <?php echo esc_html($hero_description); ?>
         </p>
         
-                <div class="hero-cta">
+        <div class="hero-cta">
             <a href="#kontakt" class="btn btn-primary btn-lg">
                 <i class="fas fa-shield-alt"></i>
                 <?php esc_html_e('Kostenlose Beratung', 'safe-cologne'); ?>
-            </a>
-            <a href="tel:<?php echo esc_attr(str_replace(' ', '', $phone)); ?>" class="btn btn-white btn-lg">
-                <i class="fas fa-phone-alt"></i>
-                <?php echo esc_html($phone); ?>
             </a>
         </div>
         

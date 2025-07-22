@@ -196,7 +196,7 @@ function safe_cologne_customize_register($wp_customize) {
     
     // Primary Color
     $wp_customize->add_setting('safe_cologne_primary_color', array(
-        'default'           => '#E30613',
+        'default'           => '#E2001A',
         'sanitize_callback' => 'sanitize_hex_color',
     ));
     
@@ -220,7 +220,7 @@ function safe_cologne_customize_register($wp_customize) {
 // Output custom CSS
 add_action('wp_head', 'safe_cologne_customizer_css');
 function safe_cologne_customizer_css() {
-    $primary_color = get_theme_mod('safe_cologne_primary_color', '#E30613');
+    $primary_color = get_theme_mod('safe_cologne_primary_color', '#E2001A');
     $secondary_color = get_theme_mod('safe_cologne_secondary_color', '#1a1a1a');
     ?>
     <style type="text/css">

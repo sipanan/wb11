@@ -175,19 +175,19 @@ function safe_cologne_theme_activation() {
     $default_pages = array(
         'dienstleistungen' => array(
             'title' => 'Dienstleistungen',
-            'template' => 'page-templates/page-services.php'
+            'template' => 'page-dienstleistungen.php'
         ),
         'ueber-uns' => array(
             'title' => 'Über uns',
-            'template' => 'page-templates/page-about.php'
+            'template' => 'page-ueber-uns.php'
         ),
         'kontakt' => array(
             'title' => 'Kontakt',
-            'template' => 'page-templates/page-contact.php'
+            'template' => 'page-kontakt.php'
         ),
-        'jobportal' => array(
-            'title' => 'Jobportal',
-            'template' => 'page-templates/page-jobportal.php'
+        'karriere' => array(
+            'title' => 'Karriere',
+            'template' => 'page-karriere.php'
         ),
         'datenschutz' => array(
             'title' => 'Datenschutz',
