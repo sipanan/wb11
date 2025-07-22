@@ -83,7 +83,7 @@ $services = get_posts(array(
                     </div>
                     <div class="service-content">
                         <h3><?php esc_html_e('Objekt- und Werkschutz', 'safe-cologne'); ?></h3>
-                        <p><?php esc_html_e('24/7 Schutz für Ihre Immobilien, Bürogebäude und Industrieanlagen.', 'safe-cologne'); ?></p>
+                        <p><?php esc_html_e('Rund um die Uhr Schutz für Ihre Immobilien, Bürogebäude und Industrieanlagen.', 'safe-cologne'); ?></p>
                         <ul class="service-features">
                             <li><i class="fas fa-check"></i> <?php esc_html_e('Pfortendienst', 'safe-cologne'); ?></li>
                             <li><i class="fas fa-check"></i> <?php esc_html_e('Kontrollgänge', 'safe-cologne'); ?></li>

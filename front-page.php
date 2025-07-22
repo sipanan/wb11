@@ -72,7 +72,7 @@ get_header(); ?>
             
             <div class="why-card">
                 <div class="why-number">02</div>
-                <h3><?php esc_html_e('24/7 Verfügbarkeit', 'safe-cologne'); ?></h3>
+                <h3><?php esc_html_e('Rund um die Uhr Verfügbarkeit', 'safe-cologne'); ?></h3>
                 <p><?php esc_html_e('Rund um die Uhr für Sie erreichbar - 365 Tage im Jahr. Schnelle Reaktionszeiten garantiert.', 'safe-cologne'); ?></p>
             </div>
             
@@ -99,15 +99,14 @@ get_header(); ?>
             <p><?php esc_html_e('Lassen Sie uns gemeinsam Ihr individuelles Sicherheitskonzept entwickeln.', 'safe-cologne'); ?></p>
             <div class="cta-buttons">
                 <?php
-                $phone = get_option('safe_cologne_settings')['phone'] ?? '0221 65058801';
+                $cta_text = get_theme_mod('safe_cologne_cta_text', 'Kostenlose Beratung');
+                $cta_url = get_theme_mod('safe_cologne_cta_url', '/kontakt/');
                 ?>
-                <a href="tel:<?php echo esc_attr(str_replace(' ', '', $phone)); ?>" class="btn btn-white btn-lg">
-                    <i class="fas fa-phone-alt"></i>
-                                        <?php esc_html_e('Jetzt anrufen', 'safe-cologne'); ?>
+                <a href="<?php echo esc_url(home_url($cta_url)); ?>" class="btn btn-white btn-lg">
+                    <i class="fas fa-shield-alt"></i>
+                    <?php echo esc_html($cta_text); ?>
                 </a>
-                <a href="https://wa.me/491701234567" class="btn btn-whatsapp btn-lg">
-                    <i class="fab fa-whatsapp"></i>
-                    <?php esc_html_e('WhatsApp', 'safe-cologne'); ?>
+            </div>
                 </a>
             </div>
         </div>
