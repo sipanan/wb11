@@ -2,102 +2,139 @@
 /**
  * Template Name: Startseite
  * 
- * The homepage template for Safe Cologne
- * Optimized for conversion and user experience
+ * Clean, professional homepage for Safe Cologne
  * 
  * @package Safe_Cologne
- * @version 2.0.0
+ * @version 4.0.0
  */
 
 get_header(); ?>
 
-<main id="main" class="site-main homepage" role="main">
+<main class="homepage">
     
     <!-- Hero Section -->
-    <section class="hero-section bg-secondary" aria-labelledby="hero-title">
-        <div class="hero-background">
-            <div class="hero-overlay"></div>
-            <?php 
-            $hero_image = get_theme_mod('hero_background_image', get_template_directory_uri() . '/assets/images/hero-security.jpg');
-            if ($hero_image): ?>
-                <img src="<?php echo esc_url($hero_image); ?>" alt="Safe Cologne Sicherheitsdienst" class="hero-bg-image" loading="eager">
-            <?php endif; ?>
-        </div>
-        
+    <section class="hero section-lg bg-light text-center">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span><?php esc_html_e('Sicherheitsdienst mit Herz & System', 'safe-cologne'); ?></span>
-                </div>
-                
-                <h1 id="hero-title" class="hero-title">
-                    <span class="title-line"><?php echo get_theme_mod('hero_title_line1', 'Professionelle'); ?></span>
-                    <span class="title-highlight"><?php echo get_theme_mod('hero_title_line2', 'Sicherheit für Köln'); ?></span>
-                </h1>
-                
-                <p class="hero-description">
-                    <?php echo get_theme_mod('hero_description', 'Wir schützen Menschen, Objekte und Veranstaltungen mit modernster Technik, geschulten Profis und einem menschlichen Ansatz. Ihre Sicherheit ist unsere Mission.'); ?>
-                </p>
-                
-                <div class="hero-features">
-                    <div class="feature-item">
-                        <svg class="feature-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-                        </svg>
-                        <span><?php esc_html_e('24/7 Verfügbar', 'safe-cologne'); ?></span>
-                    </div>
-                    <div class="feature-item">
-                        <svg class="feature-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        <span><?php esc_html_e('Zertifizierte Qualität', 'safe-cologne'); ?></span>
-                    </div>
-                    <div class="feature-item">
-                        <svg class="feature-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 7a4 4 0 108 0 4 4 0 00-8 0zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
-                        </svg>
-                        <span><?php esc_html_e('Erfahrenes Team', 'safe-cologne'); ?></span>
+            <h1 class="fw-bold">
+                Professionelle <span class="text-primary">Sicherheit für Köln</span>
+            </h1>
+            <p class="text-lg text-muted">
+                Wir schützen Menschen, Objekte und Veranstaltungen mit modernster Technik, geschulten Profis und einem menschlichen Ansatz. Ihre Sicherheit ist unsere Mission.
+            </p>
+            
+            <div class="grid grid-3 gap-8" style="margin: 3rem 0;">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="flex-center" style="margin-bottom: 1rem;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            </svg>
+                        </div>
+                        <h3>24/7 Verfügbar</h3>
+                        <p class="text-muted">Rund um die Uhr für Ihre Sicherheit im Einsatz</p>
                     </div>
                 </div>
                 
-                <div class="hero-cta">
-                    <?php 
-                    $phone = get_theme_mod('contact_phone', '0221 65058801');
-                    $whatsapp = get_theme_mod('contact_whatsapp', '491701234567');
-                    ?>
-                    <a href="tel:<?php echo esc_attr(str_replace(' ', '', $phone)); ?>" class="btn btn-primary btn-lg hero-btn-primary">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                        </svg>
-                        <?php esc_html_e('Jetzt anrufen', 'safe-cologne'); ?>
-                    </a>
-                    <a href="#services" class="btn btn-white btn-lg hero-btn-secondary">
-                        <?php esc_html_e('Unsere Services', 'safe-cologne'); ?>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8.59 16.58L13.17 12l-4.58-4.59L10 6l6 6-6 6-1.41-1.42z"/>
-                        </svg>
-                    </a>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="flex-center" style="margin-bottom: 1rem;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3>Zertifizierte Qualität</h3>
+                        <p class="text-muted">Höchste Standards und regelmäßige Schulungen</p>
+                    </div>
+                </div>
+                
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="flex-center" style="margin-bottom: 1rem;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-color);">
+                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 7a4 4 0 108 0 4 4 0 00-8 0zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                            </svg>
+                        </div>
+                        <h3>Erfahrenes Team</h3>
+                        <p class="text-muted">Professionelle und vertrauensvolle Mitarbeiter</p>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <div class="hero-scroll">
-            <span><?php esc_html_e('Mehr erfahren', 'safe-cologne'); ?></span>
-            <svg class="scroll-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
-            </svg>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section bg-white">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 3rem;">
+                <h2>Unsere Leistungen</h2>
+                <p class="text-lg text-muted">Umfassende Sicherheitslösungen für jeden Bedarf</p>
+            </div>
+            
+            <div class="grid grid-2 gap-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="text-primary">Objektschutz</h3>
+                        <p>Professioneller Schutz für Industrieanlagen, Bürokomplexe und Baustellen. Unsere geschulten Sicherheitskräfte sorgen für die Sicherheit Ihrer Immobilien.</p>
+                        <ul style="margin: 1rem 0; list-style: none; padding: 0;">
+                            <li>✓ Zutrittskontrolle & Kontrollgänge</li>
+                            <li>✓ Schließdienste & Alarmverfolgung</li>
+                            <li>✓ Bodycams & GPS-Tracking</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="text-primary">VIP Shuttleservice</h3>
+                        <p>Diskreter und sicherer Transport für Prominente, Politiker und Geschäftsleute. Höchste Sicherheitsstandards und absolute Vertraulichkeit.</p>
+                        <ul style="margin: 1rem 0; list-style: none; padding: 0;">
+                            <li>✓ Gepanzerte Fahrzeuge verfügbar</li>
+                            <li>✓ Geschulte Sicherheitsfahrer</li>
+                            <li>✓ Defensives & taktisches Fahren</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Company Introduction -->
-    <section class="company-intro section bg-white" aria-labelledby="intro-title">
+    <!-- Company Info -->
+    <section class="section bg-light">
         <div class="container">
-            <div class="intro-content">
-                <div class="intro-text">
-                    <h2 id="intro-title" class="section-title">
-                        <?php echo get_theme_mod('intro_title', 'Safe Cologne – Sicherheit, die Sie spüren können'); ?>
-                    </h2>
-                    <div class="intro-description">
+            <div class="grid grid-2 gap-8" style="align-items: center;">
+                <div>
+                    <h2>Safe Cologne – Sicherheit, die Sie spüren können</h2>
+                    <p>Seit 2023 sind wir Ihr verlässlicher Partner für professionelle Sicherheitsdienstleistungen in Köln und Umgebung. Mit modernster Technik, geschulten Mitarbeitern und einem menschlichen Ansatz sorgen wir dafür, dass Sie sich sicher fühlen können.</p>
+                    <p>Unsere Mission ist es, nicht nur zu schützen, sondern Vertrauen zu schaffen.</p>
+                </div>
+                
+                <div class="grid grid-3 gap-4 text-center">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-primary fw-bold" style="font-size: 2rem;">500+</div>
+                            <div class="text-sm text-muted">Geschützte Objekte</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-primary fw-bold" style="font-size: 2rem;">99.9%</div>
+                            <div class="text-sm text-muted">Zuverlässigkeit</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-primary fw-bold" style="font-size: 2rem;">24/7</div>
+                            <div class="text-sm text-muted">Verfügbar</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<?php get_footer(); ?>
                         <?php 
                         $intro_content = get_theme_mod('intro_content', 'Seit 2023 sind wir Ihr verlässlicher Partner für professionelle Sicherheitsdienstleistungen in Köln und Umgebung. Mit modernster Technik, geschulten Mitarbeitern und einem menschlichen Ansatz sorgen wir dafür, dass Sie sich sicher fühlen können. Unsere Mission ist es, nicht nur zu schützen, sondern Vertrauen zu schaffen.');
                         echo wp_kses_post(wpautop($intro_content));
