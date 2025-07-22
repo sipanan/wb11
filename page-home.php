@@ -91,25 +91,15 @@ get_header(); ?>
     </div>
 </section>
 
-<!-- CTA Banner -->
+<!-- Single CTA Banner -->
 <section class="cta-banner">
     <div class="container">
         <div class="cta-content">
             <h2><?php esc_html_e('Sicherheit beginnt mit einem Gespräch', 'safe-cologne'); ?></h2>
             <p><?php esc_html_e('Lassen Sie uns gemeinsam Ihr individuelles Sicherheitskonzept entwickeln.', 'safe-cologne'); ?></p>
-            <div class="cta-buttons">
-                <?php
-                $phone = get_option('safe_cologne_settings')['phone'] ?? '0221 65058801';
-                ?>
-                <a href="tel:<?php echo esc_attr(str_replace(' ', '', $phone)); ?>" class="btn btn-white btn-lg">
-                    <i class="fas fa-phone-alt"></i>
-                                        <?php esc_html_e('Jetzt anrufen', 'safe-cologne'); ?>
-                </a>
-                <a href="https://wa.me/491701234567" class="btn btn-whatsapp btn-lg">
-                    <i class="fab fa-whatsapp"></i>
-                    <?php esc_html_e('WhatsApp', 'safe-cologne'); ?>
-                </a>
-            </div>
+            <a href="<?php echo esc_url(home_url('/kontakt/')); ?>" class="btn btn-primary btn-lg">
+                <?php esc_html_e('Kostenlose Beratung', 'safe-cologne'); ?>
+            </a>
         </div>
     </div>
 </section>

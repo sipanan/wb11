@@ -148,7 +148,7 @@ get_header(); ?>
                             <li>Personenkontrollen & Backstage-Security</li>
                             <li>VIP-Begleitung & Künstlerschutz</li>
                             <li>Digitale Einsatzplanung & Funkkoordination</li>
-                            <li>24/7 Bereitschaftsdienst</li>
+                            <li>Professioneller Bereitschaftsdienst</li>
                         </ul>
                         <div class="service-footer">
                             <a href="#contact" class="service-cta">
@@ -199,7 +199,7 @@ get_header(); ?>
                              alt="Objekt- & Werkschutz" 
                              loading="lazy">
                         <div class="service-overlay">
-                            <span class="service-badge">24/7 Service</span>
+                            <span class="service-badge">Rund um die Uhr</span>
                         </div>
                     </div>
                     <div class="service-content">
@@ -1692,113 +1692,6 @@ get_header(); ?>
             });
         };
         
-        // ===== Exit Intent Popup =====
-        const initExitIntent = () => {
-            let shown = false;
-            
-            document.addEventListener('mouseleave', function(e) {
-                if (e.clientY <= 0 && !shown) {
-                    shown = true;
-                    showExitPopup();
-                }
-            });
-        };
-        
-        const showExitPopup = () => {
-            const popup = document.createElement('div');
-            popup.className = 'exit-popup';
-            popup.innerHTML = `
-                <div class="exit-overlay" onclick="closeExitPopup()"></div>
-                <div class="exit-content">
-                    <button class="exit-close" onclick="closeExitPopup()">×</button>
-                    <h2>Warten Sie!</h2>
-                    <p>Sichern Sie sich jetzt Ihr kostenloses Sicherheitsaudit im Wert von 500€</p>
-                    <form class="exit-form">
-                        <input type="email" placeholder="Ihre E-Mail-Adresse" required>
-                        <button type="submit">Audit sichern</button>
-                    </form>
-                </div>
-            `;
-            
-            document.body.appendChild(popup);
-            
-            // Add styles
-            const style = document.createElement('style');
-            style.textContent = `
-                .exit-popup {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    z-index: 9999;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    animation: fadeIn 0.3s ease-out;
-                }
-                
-                .exit-overlay {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background: rgba(0,0,0,0.7);
-                }
-                
-                .exit-content {
-                    position: relative;
-                    background: var(--white);
-                    padding: 3rem;
-                    border-radius: var(--radius-xl);
-                    max-width: 500px;
-                    width: 90%;
-                    text-align: center;
-                    box-shadow: var(--shadow-xl);
-                }
-                
-                .exit-close {
-                    position: absolute;
-                    top: 1rem;
-                    right: 1rem;
-                    background: none;
-                    border: none;
-                    font-size: 2rem;
-                    color: var(--gray-400);
-                    cursor: pointer;
-                }
-                
-                .exit-form {
-                    display: flex;
-                    gap: 0.75rem;
-                    margin-top: 1.5rem;
-                }
-                
-                .exit-form input {
-                    flex: 1;
-                    padding: 0.875rem;
-                    border: 2px solid var(--gray-200);
-                    border-radius: var(--radius);
-                }
-                
-                .exit-form button {
-                    padding: 0.875rem 2rem;
-                    background: var(--primary);
-                    color: var(--white);
-                    border: none;
-                    border-radius: var(--radius);
-                    font-weight: 600;
-                    cursor: pointer;
-                }
-            `;
-            document.head.appendChild(style);
-        };
-        
-        window.closeExitPopup = () => {
-            const popup = document.querySelector('.exit-popup');
-            if (popup) popup.remove();
-        };
         
         // ===== Initialize Everything =====
         initFiltering();
@@ -1808,11 +1701,6 @@ get_header(); ?>
         initAOS();
         preloadImages();
         initRecommendations();
-        
-        // Only show exit intent on desktop
-        if (window.innerWidth > 768) {
-            initExitIntent();
-        }
     });
 })();
 </script>
