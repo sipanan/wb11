@@ -49,6 +49,75 @@ function safe_cologne_setup() {
     add_theme_support('wp-block-styles');
     add_theme_support('align-wide');
     add_theme_support('responsive-embeds');
+    add_theme_support('editor-styles');
+    add_theme_support('dark-editor-style');
+    
+    // Block editor color palette
+    add_theme_support('editor-color-palette', array(
+        array(
+            'name'  => esc_html__('Primary Red', 'safe-cologne'),
+            'slug'  => 'primary',
+            'color' => '#E30613',
+        ),
+        array(
+            'name'  => esc_html__('Primary Dark', 'safe-cologne'),
+            'slug'  => 'primary-dark',
+            'color' => '#C2050F',
+        ),
+        array(
+            'name'  => esc_html__('White', 'safe-cologne'),
+            'slug'  => 'white',
+            'color' => '#FFFFFF',
+        ),
+        array(
+            'name'  => esc_html__('Black', 'safe-cologne'),
+            'slug'  => 'black',
+            'color' => '#1A1A1A',
+        ),
+        array(
+            'name'  => esc_html__('Light Gray', 'safe-cologne'),
+            'slug'  => 'gray-100',
+            'color' => '#F8F9FA',
+        ),
+        array(
+            'name'  => esc_html__('Medium Gray', 'safe-cologne'),
+            'slug'  => 'gray-600',
+            'color' => '#6C757D',
+        ),
+    ));
+    
+    // Block editor gradient presets
+    add_theme_support('editor-gradient-presets', array(
+        array(
+            'name'     => esc_html__('Primary Gradient', 'safe-cologne'),
+            'gradient' => 'linear-gradient(135deg, #E30613 0%, #C2050F 100%)',
+            'slug'     => 'primary-gradient',
+        ),
+    ));
+    
+    // Block editor font sizes
+    add_theme_support('editor-font-sizes', array(
+        array(
+            'name' => esc_html__('Small', 'safe-cologne'),
+            'size' => 14,
+            'slug' => 'small'
+        ),
+        array(
+            'name' => esc_html__('Normal', 'safe-cologne'),
+            'size' => 16,
+            'slug' => 'normal'
+        ),
+        array(
+            'name' => esc_html__('Large', 'safe-cologne'),
+            'size' => 20,
+            'slug' => 'large'
+        ),
+        array(
+            'name' => esc_html__('Extra Large', 'safe-cologne'),
+            'size' => 32,
+            'slug' => 'extra-large'
+        ),
+    ));
     
     // Register navigation menus
     register_nav_menus(array(
@@ -64,6 +133,42 @@ function safe_cologne_setup() {
     add_image_size('service-thumb', 400, 300, true);
     add_image_size('team-member', 300, 300, true);
     add_image_size('hero-banner', 1920, 1080, true);
+}
+
+// Register custom block patterns
+add_action('init', 'safe_cologne_register_block_patterns');
+function safe_cologne_register_block_patterns() {
+    // Register Safe Cologne pattern category
+    if (function_exists('register_block_pattern_category')) {
+        register_block_pattern_category(
+            'safe-cologne',
+            array(
+                'label' => __('Safe Cologne', 'safe-cologne'),
+            )
+        );
+    }
+    
+    // Register patterns
+    if (function_exists('register_block_pattern')) {
+        $patterns = array(
+            'hero-banner',
+            'services-section',
+            'cta-section'
+        );
+        
+        foreach ($patterns as $pattern) {
+            $pattern_file = SAFE_COLOGNE_PATH . '/patterns/' . $pattern . '.php';
+            if (file_exists($pattern_file)) {
+                $pattern_data = include $pattern_file;
+                if (is_array($pattern_data)) {
+                    register_block_pattern(
+                        'safe-cologne/' . $pattern,
+                        $pattern_data
+                    );
+                }
+            }
+        }
+    }
 }
 
 // Enqueue scripts and styles

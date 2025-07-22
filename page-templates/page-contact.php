@@ -34,9 +34,13 @@ get_header(); ?>
                             </div>
                             <div class="method-content">
                                 <h3>Telefonische Beratung</h3>
-                                <a href="tel:022165058801" class="primary-link">
-                                    0221 65058801
+                                <?php 
+                                $phone = get_theme_mod('safe_cologne_phone', '');
+                                if ($phone) : ?>
+                                <a href="tel:<?php echo esc_attr(str_replace(' ', '', $phone)); ?>" class="primary-link">
+                                    <?php echo esc_html($phone); ?>
                                 </a>
+                                <?php endif; ?>
                                 <p>Mo-Fr: 08:00 - 18:00 Uhr<br>Sa: 09:00 - 14:00 Uhr</p>
                             </div>
                         </div>

@@ -7,10 +7,10 @@
  * @version 2.1.0
  */
 
-// Get theme options
-$phone = get_theme_mod('safe_cologne_phone', '0221 6505 8801');
-$email = get_theme_mod('safe_cologne_email', 'info@safecologne.de');
-$address = get_theme_mod('safe_cologne_address', 'Subbelrather Str. 15A, 50823 Köln');
+// Get theme options - editable through customizer
+$phone = get_theme_mod('safe_cologne_phone', '');
+$email = get_theme_mod('safe_cologne_email', '');
+$address = get_theme_mod('safe_cologne_address', '');
 ?>
 
     </main><!-- #main -->
@@ -101,9 +101,6 @@ $address = get_theme_mod('safe_cologne_address', 'Subbelrather Str. 15A, 50823 K
                             <address><?php echo esc_html($address); ?></address>
                         </div>
                     </div>
-                    <a href="<?php echo esc_url(home_url('/kontakt')); ?>" class="sc-footer-cta">
-                        Kontakt aufnehmen →
-                    </a>
                 </div>
                 
             </div>
@@ -118,23 +115,14 @@ $address = get_theme_mod('safe_cologne_address', 'Subbelrather Str. 15A, 50823 K
                     &copy; <?php echo date('Y'); ?> SafeCologne. Alle Rechte vorbehalten.
                 </div>
                 <nav class="sc-footer-legal">
-                    <a href="<?php echo home_url('/impressum'); ?>">Impressum</a>
-                    <a href="<?php echo home_url('/datenschutz'); ?>">Datenschutz</a>
+                    <a href="https://safecologne.de/impressum/">Impressum</a>
+                    <a href="https://safecologne.de/datenschutz/">Datenschutz</a>
                     <a href="<?php echo home_url('/agb'); ?>">AGB</a>
                 </nav>
             </div>
         </div>
     </div>
-    
 </footer>
-
-<!-- 24/7 Emergency Button -->
-<a href="tel:<?php echo esc_attr(str_replace(' ', '', $phone)); ?>" class="sc-emergency-button" aria-label="24/7 Notdienst">
-    <svg width="24" height="24" viewBox="0 0 24 24">
-        <path fill="#fff" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-    </svg>
-    <span>24/7 Notdienst</span>
-</a>
 
 <style>
 /* SafeCologne Footer Styles - Clean & Professional */
@@ -326,35 +314,6 @@ $address = get_theme_mod('safe_cologne_address', 'Subbelrather Str. 15A, 50823 K
     color: #E30613;
 }
 
-/* Emergency Button */
-.sc-emergency-button {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 1.5rem;
-        background: #E30613;
-    color: #fff !important;
-    text-decoration: none;
-    border-radius: 50px;
-    box-shadow: 0 10px 30px rgba(227, 6, 19, 0.3);
-    transition: all 0.3s ease;
-    z-index: 100;
-    font-weight: 600;
-}
-
-.sc-emergency-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 15px 40px rgba(227, 6, 19, 0.4);
-    background: #C2050F;
-}
-
-.sc-emergency-button svg {
-    fill: #fff;
-}
-
 /* Responsive Design */
 @media (max-width: 1024px) {
     .sc-footer-grid {
@@ -391,16 +350,6 @@ $address = get_theme_mod('safe_cologne_address', 'Subbelrather Str. 15A, 50823 K
     
     .sc-footer-legal {
         gap: 1rem;
-    }
-    
-    .sc-emergency-button {
-        bottom: 1rem;
-        right: 1rem;
-        padding: 0.875rem 1.25rem;
-    }
-    
-    .sc-emergency-button span {
-        display: none;
     }
 }
 

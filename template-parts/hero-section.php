@@ -9,7 +9,8 @@ $hero_title = get_theme_mod('safe_cologne_hero_title', 'Safe Cologne');
 $hero_subtitle = get_theme_mod('safe_cologne_hero_subtitle', 'Ihr Sicherheitsdienst mit Herz & System');
 $hero_description = get_theme_mod('safe_cologne_hero_description', 'Sicherheit beginnt mit Vertrauen. Bei Safe Cologne steht Ihre Sicherheit an erster Stelle – zuverlässig, empathisch und professionell.');
 $hero_bg = get_theme_mod('safe_cologne_hero_bg');
-$phone = get_option('safe_cologne_settings')['phone'] ?? '0221 65058801';
+$cta_text = get_theme_mod('safe_cologne_cta_text', 'Kostenlose Beratung');
+$cta_url = get_theme_mod('safe_cologne_cta_url', '/kontakt/');
 ?>
 
 <header class="hero" role="banner">
@@ -33,14 +34,10 @@ $phone = get_option('safe_cologne_settings')['phone'] ?? '0221 65058801';
             <?php echo esc_html($hero_description); ?>
         </p>
         
-                <div class="hero-cta">
-            <a href="#kontakt" class="btn btn-primary btn-lg">
+        <div class="hero-cta">
+            <a href="<?php echo esc_url(home_url($cta_url)); ?>" class="btn btn-primary btn-lg">
                 <i class="fas fa-shield-alt"></i>
-                <?php esc_html_e('Kostenlose Beratung', 'safe-cologne'); ?>
-            </a>
-            <a href="tel:<?php echo esc_attr(str_replace(' ', '', $phone)); ?>" class="btn btn-white btn-lg">
-                <i class="fas fa-phone-alt"></i>
-                <?php echo esc_html($phone); ?>
+                <?php echo esc_html($cta_text); ?>
             </a>
         </div>
         
@@ -48,7 +45,7 @@ $phone = get_option('safe_cologne_settings')['phone'] ?? '0221 65058801';
         <div class="trust-indicators">
             <div class="indicator">
                 <i class="fas fa-clock"></i>
-                <strong>24/7</strong>
+                <strong><?php esc_html_e('Rund um die Uhr', 'safe-cologne'); ?></strong>
                 <span><?php esc_html_e('Verfügbar', 'safe-cologne'); ?></span>
             </div>
             <div class="indicator">

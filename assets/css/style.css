@@ -1,20 +1,19 @@
 /**
- * Safe Cologne Theme Styles
- * Version: 1.0.0
+ * Safe Cologne Theme Styles - Clean Professional Design
+ * Version: 2.0.0
  */
 
-/* CSS Variables */
+/* CSS Variables - Consistent Color Scheme */
 :root {
     --primary-red: #E30613;
-    --dark-red: #B20510;
-    --light-red: #FF2633;
-    --dark-gray: #1a1a1a;
-    --medium-gray: #333333;
-    --light-gray: #666666;
-    --bg-light: #f8f8f8;
-    --bg-section: #ffffff;
-    --white: #ffffff;
-    --black: #000000;
+    --primary-dark: #C2050F;
+    --white: #FFFFFF;
+    --black: #1A1A1A;
+    --gray-100: #F8F9FA;
+    --gray-200: #E9ECEF;
+    --gray-300: #DEE2E6;
+    --gray-600: #6C757D;
+    --gray-900: #212529;
     --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
     --shadow-md: 0 4px 16px rgba(0,0,0,0.15);
     --shadow-lg: 0 8px 32px rgba(0,0,0,0.2);
@@ -40,9 +39,9 @@ html {
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     line-height: 1.6;
-    color: var(--medium-gray);
+    color: var(--gray-600);
     background-color: var(--white);
     overflow-x: hidden;
 }
@@ -52,7 +51,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 0 1rem;
     font-weight: 700;
     line-height: 1.2;
-    color: var(--dark-gray);
+    color: var(--black);
 }
 
 h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
@@ -70,7 +69,7 @@ a {
 }
 
 a:hover {
-    color: var(--dark-red);
+    color: var(--primary-dark);
 }
 
 /* Utility Classes */
@@ -88,13 +87,13 @@ a:hover {
 .section-title {
     text-align: center;
     margin-bottom: 1rem;
-    color: var(--dark-gray);
+    color: var(--black);
 }
 
 .section-subtitle {
     text-align: center;
     font-size: 1.25rem;
-    color: var(--light-gray);
+    color: var(--gray-600);
     max-width: 800px;
     margin: 0 auto 3rem;
 }

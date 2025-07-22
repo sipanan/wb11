@@ -5,46 +5,55 @@
  * @package Safe_Cologne
  */
 
-$phone = get_option('safe_cologne_settings')['phone'] ?? '0221 65058801';
-$email = get_option('safe_cologne_settings')['email'] ?? 'info@safecologne.de';
+$phone = get_theme_mod('safe_cologne_phone', '');
+$email = get_theme_mod('safe_cologne_email', '');
+$address = get_theme_mod('safe_cologne_address', '');
+$whatsapp = get_theme_mod('safe_cologne_whatsapp', '');
 ?>
 
 <section id="kontakt" class="section contact" aria-labelledby="contact-title">
     <div class="container">
         <h2 id="contact-title" class="section-title"><?php esc_html_e('Beratung gewünscht?', 'safe-cologne'); ?></h2>
-        <p class="section-subtitle"><?php esc_html_e('Wir sind für Sie da - 24/7', 'safe-cologne'); ?></p>
+        <p class="section-subtitle"><?php esc_html_e('Wir sind für Sie da', 'safe-cologne'); ?></p>
         
         <div class="contact-wrapper">
             <div class="contact-info">
+                <?php if ($phone) : ?>
                 <div class="contact-card primary-card">
                     <i class="fas fa-phone-alt"></i>
-                    <h3><?php esc_html_e('24/7 Notdienst', 'safe-cologne'); ?></h3>
+                    <h3><?php esc_html_e('Telefon', 'safe-cologne'); ?></h3>
                     <a href="tel:<?php echo esc_attr(str_replace(' ', '', $phone)); ?>" class="contact-link"><?php echo esc_html($phone); ?></a>
-                    <p><?php esc_html_e('Rund um die Uhr erreichbar', 'safe-cologne'); ?></p>
+                    <p><?php esc_html_e('Rufen Sie uns an', 'safe-cologne'); ?></p>
                 </div>
+                <?php endif; ?>
                 
+                <?php if ($email) : ?>
                 <div class="contact-card">
                     <i class="fas fa-envelope"></i>
                     <h3><?php esc_html_e('E-Mail', 'safe-cologne'); ?></h3>
                     <a href="mailto:<?php echo esc_attr($email); ?>" class="contact-link"><?php echo esc_html($email); ?></a>
                     <p><?php esc_html_e('Antwort innerhalb 24h', 'safe-cologne'); ?></p>
                 </div>
+                <?php endif; ?>
                 
+                <?php if ($whatsapp) : ?>
                 <div class="contact-card">
                     <i class="fab fa-whatsapp"></i>
                     <h3><?php esc_html_e('WhatsApp', 'safe-cologne'); ?></h3>
-                    <a href="https://wa.me/491701234567" class="contact-link">+49 170 1234567</a>
+                    <a href="https://wa.me/<?php echo esc_attr(str_replace([' ', '+'], '', $whatsapp)); ?>" class="contact-link"><?php echo esc_html($whatsapp); ?></a>
                     <p><?php esc_html_e('Schnelle Kommunikation', 'safe-cologne'); ?></p>
                 </div>
+                <?php endif; ?>
                 
+                <?php if ($address) : ?>
                 <div class="contact-card">
                     <i class="fas fa-map-marker-alt"></i>
                     <h3><?php esc_html_e('Adresse', 'safe-cologne'); ?></h3>
                     <address>
-                        Subbelrather Str. 15A<br>
-                        50823 Köln
+                        <?php echo wp_kses_post(nl2br($address)); ?>
                     </address>
                 </div>
+                <?php endif; ?>
             </div>
             
             <!-- Contact Form -->
@@ -93,7 +102,7 @@ $email = get_option('safe_cologne_settings')['email'] ?? 'info@safecologne.de';
                         <input type="checkbox" name="privacy" required>
                         <span><?php printf(
                             esc_html__('Ich habe die %s gelesen und stimme zu. *', 'safe-cologne'),
-                            '<a href="' . esc_url(get_privacy_policy_url()) . '" target="_blank">' . esc_html__('Datenschutzerklärung', 'safe-cologne') . '</a>'
+                            '<a href="https://safecologne.de/datenschutz/" target="_blank">' . esc_html__('Datenschutzerklärung', 'safe-cologne') . '</a>'
                         ); ?></span>
                     </label>
                 </div>

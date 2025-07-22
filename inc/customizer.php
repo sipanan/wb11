@@ -23,21 +23,21 @@ function safe_cologne_customize_register($wp_customize) {
         'priority' => 10,
     ));
     
-    // Emergency Phone Number
-    $wp_customize->add_setting('safe_cologne_emergency_phone', array(
-        'default'           => '0221 65058801',
+    // Company Phone Number
+    $wp_customize->add_setting('safe_cologne_phone', array(
+        'default'           => '',
         'sanitize_callback' => 'sanitize_text_field',
     ));
     
-    $wp_customize->add_control('safe_cologne_emergency_phone', array(
-        'label'    => __('24/7 Notfallnummer', 'safe-cologne'),
+    $wp_customize->add_control('safe_cologne_phone', array(
+        'label'    => __('Telefonnummer', 'safe-cologne'),
         'section'  => 'safe_cologne_company_info',
         'type'     => 'text',
     ));
     
     // WhatsApp Number
     $wp_customize->add_setting('safe_cologne_whatsapp', array(
-        'default'           => '+49 170 1234567',
+        'default'           => '',
         'sanitize_callback' => 'sanitize_text_field',
     ));
     
@@ -49,7 +49,7 @@ function safe_cologne_customize_register($wp_customize) {
     
     // Company Email
     $wp_customize->add_setting('safe_cologne_email', array(
-        'default'           => 'info@safecologne.de',
+        'default'           => '',
         'sanitize_callback' => 'sanitize_email',
     ));
     
@@ -61,7 +61,7 @@ function safe_cologne_customize_register($wp_customize) {
     
     // Company Address
     $wp_customize->add_setting('safe_cologne_address', array(
-        'default'           => 'Subbelrather Str. 15A, 50823 Köln',
+        'default'           => '',
         'sanitize_callback' => 'sanitize_textarea_field',
     ));
     

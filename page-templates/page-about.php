@@ -42,7 +42,7 @@ get_header(); ?>
                             <span><?php esc_html_e('Jahre Erfahrung', 'safe-cologne'); ?></span>
                         </div>
                         <div class="stat-item">
-                            <strong>24/7</strong>
+                            <strong><?php esc_html_e('Rund um die Uhr', 'safe-cologne'); ?></strong>
                             <span><?php esc_html_e('Verfügbarkeit', 'safe-cologne'); ?></span>
                         </div>
                     </div>
@@ -170,9 +170,9 @@ get_header(); ?>
                         <i class="fas fa-calendar-check"></i>
                         <?php esc_html_e('Termin vereinbaren', 'safe-cologne'); ?>
                     </a>
-                    <a href="tel:<?php echo esc_attr(str_replace(' ', '', get_option('safe_cologne_settings')['phone'] ?? '022165058801')); ?>" class="btn btn-white btn-lg">
-                        <i class="fas fa-phone-alt"></i>
-                        <?php esc_html_e('Direkt anrufen', 'safe-cologne'); ?>
+                    <a href="<?php echo esc_url(home_url('/kontakt/')); ?>" class="btn btn-white btn-lg">
+                        <i class="fas fa-shield-alt"></i>
+                        <?php esc_html_e('Kostenlose Beratung', 'safe-cologne'); ?>
                     </a>
                 </div>
             </div>

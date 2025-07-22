@@ -871,7 +871,8 @@ section {
     outline: none;
     background: var(--white);
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.1);
+    box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.2);
+    transform: translateY(-1px);
 }
 
 .form-card textarea {

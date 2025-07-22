@@ -1,21 +1,14 @@
 <?php
 /**
- * Elite SafeCologne Header - Production Grade
- * Current Date: 2025-07-14 09:43:54 UTC
- * Current User: sipanan
+ * SafeCologne Header - Clean Professional Design
  * 
- * Built for conversion, performance, and scalability
  * @package Safe_Cologne
- * @version 3.0.0
+ * @version 2.0.0
  */
 
-// Performance: Cache theme options
-$phone_number = get_theme_mod('safe_cologne_phone', '0221 6505 8801');
-$emergency_text = get_theme_mod('safe_cologne_emergency', '24/7 Notdienst');
+// Clean theme options - editable through customizer
 $cta_text = get_theme_mod('safe_cologne_cta_text', 'Kontakt aufnehmen');
 $cta_url = get_theme_mod('safe_cologne_cta_url', '/kontakt/');
-$show_topbar = get_theme_mod('safe_cologne_show_topbar', true);
-$current_datetime = date('Y-m-d H:i:s');
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> itemscope itemtype="https://schema.org/SecurityCompany">
@@ -49,59 +42,7 @@ $current_datetime = date('Y-m-d H:i:s');
 <!-- Accessibility Skip Link -->
 <a href="#main-content" class="skip-link screen-reader-text"><?php esc_html_e('Zum Hauptinhalt springen', 'safe-cologne'); ?></a>
 
-<?php if ($show_topbar) : ?>
-<!-- Elite Top Bar -->
-<div class="sc-topbar" role="banner">
-    <div class="sc-container">
-        <div class="sc-topbar-left">
-            <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $phone_number)); ?>" class="sc-emergency-call">
-                <svg class="sc-icon" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24">
-                    <path fill="currentColor" d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
-                </svg>
-                <span><?php echo esc_html($phone_number); ?></span>
-                <strong><?php echo esc_html($emergency_text); ?></strong>
-            </a>
-            
-            <div class="sc-datetime">
-                <svg class="sc-icon" aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24">
-                    <path fill="currentColor" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
-                    <path fill="currentColor" d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
-                </svg>
-                <span><?php echo esc_html($current_datetime); ?></span>
-            </div>
-        </div>
-        
-        <div class="sc-topbar-right">
-            <!-- Social Proof -->
-            <?php if ($facebook = get_theme_mod('safe_cologne_facebook')) : ?>
-                <a href="<?php echo esc_url($facebook); ?>" class="sc-social-link" aria-label="Facebook" rel="noopener noreferrer" target="_blank">
-                    <svg class="sc-icon" width="16" height="16" viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.738-.9 10.126-5.864 10.126-11.854z"/>
-                    </svg>
-                </a>
-            <?php endif; ?>
-            
-            <?php if ($instagram = get_theme_mod('safe_cologne_instagram')) : ?>
-                <a href="<?php echo esc_url($instagram); ?>" class="sc-social-link" aria-label="Instagram" rel="noopener noreferrer" target="_blank">
-                    <svg class="sc-icon" width="16" height="16" viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                </a>
-            <?php endif; ?>
-            
-            <?php if ($linkedin = get_theme_mod('safe_cologne_linkedin')) : ?>
-                <a href="<?php echo esc_url($linkedin); ?>" class="sc-social-link" aria-label="LinkedIn" rel="noopener noreferrer" target="_blank">
-                    <svg class="sc-icon" width="16" height="16" viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667h-3.554v-11.452h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zm-15.11-13.019c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019h-3.564v-11.452h3.564v11.452zm15.106-20.452h-20.454c-.979 0-1.771.774-1.771 1.729v20.542c0 .956.792 1.729 1.771 1.729h20.451c.978 0 1.778-.773 1.778-1.729v-20.542c0-.955-.8-1.729-1.778-1.729z"/>
-                    </svg>
-                </a>
-            <?php endif; ?>
-        </div>
-    </div>
-</div>
-<?php endif; ?>
-
-<!-- Elite Main Header -->
+<!-- Clean Professional Header -->
 <header class="sc-header" id="masthead" role="banner">
     <div class="sc-container">
         <div class="sc-header-inner">
@@ -194,12 +135,6 @@ $current_datetime = date('Y-m-d H:i:s');
         </div>
         
         <div class="sc-mobile-cta">
-            <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $phone_number)); ?>" class="sc-mobile-phone">
-                <svg class="sc-icon" width="20" height="20" viewBox="0 0 24 24">
-                    <path fill="currentColor" d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
-                </svg>
-                <span><?php echo esc_html($phone_number); ?></span>
-            </a>
             <a href="<?php echo esc_url(home_url($cta_url)); ?>" class="sc-mobile-cta-button">
                 <?php echo esc_html($cta_text); ?>
             </a>
@@ -209,7 +144,7 @@ $current_datetime = date('Y-m-d H:i:s');
 
 <!-- Production-Grade CSS -->
 <style>
-/* === CRITICAL CSS - ABOVE THE FOLD === */
+/* === CRITICAL CSS - CLEAN PROFESSIONAL DESIGN === */
 :root {
     --sc-primary: #E30613;
     --sc-primary-dark: #C2050F;
@@ -220,7 +155,6 @@ $current_datetime = date('Y-m-d H:i:s');
     --sc-gray-300: #DEE2E6;
     --sc-gray-600: #6C757D;
     --sc-gray-900: #212529;
-    --sc-topbar-height: 40px;
     --sc-header-height: 80px;
     --sc-header-mobile-height: 70px;
     --sc-container-width: 1200px;
@@ -269,82 +203,7 @@ body {
     top: 0;
 }
 
-/* === TOP BAR === */
-.sc-topbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: var(--sc-topbar-height);
-    background: var(--sc-primary);
-    color: var(--sc-white);
-    z-index: 10001;
-    font-size: 0.875rem;
-}
-
-.sc-topbar .sc-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-}
-
-.sc-topbar-left {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.sc-emergency-call {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--sc-white);
-    text-decoration: none;
-    font-weight: 500;
-    transition: var(--sc-transition);
-}
-
-.sc-emergency-call:hover {
-    opacity: 0.9;
-    transform: translateY(-1px);
-}
-
-.sc-emergency-call strong {
-    margin-left: 8px;
-    padding: 2px 8px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.sc-datetime {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    opacity: 0.9;
-    font-size: 0.8125rem;
-}
-
-.sc-topbar-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.sc-social-link {
-    color: var(--sc-white);
-    opacity: 0.9;
-    transition: var(--sc-transition);
-    padding: 5px;
-}
-
-.sc-social-link:hover {
-    opacity: 1;
-    transform: translateY(-2px);
-}
+/* === CLEAN PROFESSIONAL DESIGN === */
 
 .sc-icon {
     display: inline-block;
@@ -355,7 +214,7 @@ body {
 /* === MAIN HEADER === */
 .sc-header {
     position: fixed;
-    top: var(--sc-topbar-height);
+    top: 0;
     left: 0;
     right: 0;
     height: var(--sc-header-height);
@@ -645,23 +504,6 @@ body {
     border-top: 1px solid var(--sc-gray-200);
 }
 
-.sc-mobile-phone {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--sc-black);
-    text-decoration: none;
-    font-weight: 500;
-    padding: 12px 16px;
-    background: var(--sc-gray-100);
-    border-radius: var(--sc-border-radius);
-    transition: var(--sc-transition);
-}
-
-.sc-mobile-phone:hover {
-    background: var(--sc-gray-200);
-}
-
 .sc-mobile-cta-button {
     display: block;
     width: 100%;
@@ -685,7 +527,7 @@ body {
 
 /* === BODY OFFSET === */
 body {
-    padding-top: calc(var(--sc-topbar-height) + var(--sc-header-height));
+    padding-top: var(--sc-header-height);
 }
 
 body.mobile-menu-open {
@@ -712,14 +554,6 @@ body.mobile-menu-open {
         --sc-header-height: var(--sc-header-mobile-height);
     }
     
-    .sc-topbar-right {
-        display: none;
-    }
-    
-    .sc-datetime {
-        display: none;
-    }
-    
     .sc-brand-tagline {
         display: none;
     }
@@ -742,14 +576,6 @@ body.mobile-menu-open {
     .sc-container {
         padding: 0 15px;
     }
-    
-    .sc-topbar-left {
-        gap: 15px;
-    }
-    
-    .sc-emergency-call strong {
-        display: none;
-    }
 }
 
 /* === FOCUS STATES === */
@@ -757,11 +583,8 @@ body.mobile-menu-open {
 .sc-nav-menu a:focus,
 .sc-cta-button:focus,
 .sc-mobile-toggle:focus,
-.sc-emergency-call:focus,
-.sc-social-link:focus,
 .sc-mobile-close:focus,
 .sc-mobile-menu-list a:focus,
-.sc-mobile-phone:focus,
 .sc-mobile-cta-button:focus {
     outline: 2px solid var(--sc-primary);
     outline-offset: 2px;
@@ -780,7 +603,6 @@ body.mobile-menu-open {
 
 /* === PRINT === */
 @media print {
-    .sc-topbar,
     .sc-header {
         position: relative;
         top: 0;
@@ -792,8 +614,7 @@ body.mobile-menu-open {
     }
     
     .sc-mobile-toggle,
-    .sc-cta-section,
-    .sc-topbar-right {
+    .sc-cta-section {
         display: none !important;
     }
 }
