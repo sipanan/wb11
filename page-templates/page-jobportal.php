@@ -80,7 +80,7 @@ $header_height = 80; // Adjust based on your actual header
                         'icon' => 'shield-check',
                         'title' => 'Sichere Zukunft',
                         'description' => 'Unbefristete Verträge und langfristige Perspektiven in einer krisensicheren Branche',
-                        'color' => '#E30613'
+                        'color' => '#E2001A'
                     ],
                     [
                         'icon' => 'currency-euro',
@@ -337,7 +337,7 @@ $header_height = 80; // Adjust based on your actual header
 
 /* CSS Variables */
 :root {
-    --primary: #E30613;
+    --primary: #E2001A;
     --primary-dark: #C2050F;
     --primary-light: #FF1A27;
     --secondary: #1A1A1A;

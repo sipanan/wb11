@@ -12,7 +12,6 @@
         initContactForm();
         initCookieBanner();
         initAnimations();
-        initEmergencyButton();
     });
 
     // Navigation
@@ -208,18 +207,7 @@
         });
     }
 
-    // Emergency Button
-    function initEmergencyButton() {
-        $('.emergency-btn').on('click', function(e) {
-            // Optional: Track emergency button clicks
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'click', {
-                    'event_category': 'Emergency',
-                    'event_label': 'Emergency Button Click'
-                });
-            }
-        });
-    }
+
 
     // Analytics
     function initializeAnalytics() {

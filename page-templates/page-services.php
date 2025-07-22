@@ -544,7 +544,7 @@ get_header(); ?>
 
 /* Variables */
 :root {
-    --primary: #E30613;
+    --primary: #E2001A;
     --primary-dark: #C2050F;
     --primary-light: #FF1A27;
     --secondary: #1A1A1A;

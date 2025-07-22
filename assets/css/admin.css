@@ -13,29 +13,29 @@
 
 #wpadminbar .ab-top-menu > li:hover > a,
 #wpadminbar .ab-top-menu > li.hover > a {
-    background: #E30613;
+    background: #E2001A;
     color: #fff;
 }
 
 /* Custom Post Type Icons */
 #adminmenu #menu-posts-security_services .wp-menu-image:before {
     content: "\f132";
-    color: #E30613;
+    color: #E2001A;
 }
 
 #adminmenu #menu-posts-team_members .wp-menu-image:before {
     content: "\f307";
-    color: #E30613;
+    color: #E2001A;
 }
 
 #adminmenu #menu-posts-testimonials .wp-menu-image:before {
     content: "\f473";
-    color: #E30613;
+    color: #E2001A;
 }
 
 #adminmenu #menu-posts-job_openings .wp-menu-image:before {
     content: "\f338";
-    color: #E30613;
+    color: #E2001A;
 }
 
 /* Meta Box Styling */
@@ -50,7 +50,7 @@
 .safe-cologne-meta-box h4 {
     margin-top: 0;
     margin-bottom: 10px;
-    color: #E30613;
+    color: #E2001A;
 }
 
 .safe-cologne-meta-box .form-table th {
@@ -73,7 +73,7 @@
 }
 
 .safe-cologne-dashboard-widget h3 {
-    background: #E30613;
+    background: #E2001A;
     color: #fff;
     margin: 0;
     padding: 12px;
@@ -103,7 +103,7 @@
 .safe-cologne-stat-number {
     font-size: 24px;
     font-weight: 700;
-    color: #E30613;
+    color: #E2001A;
     display: block;
 }
 
@@ -118,8 +118,8 @@
 }
 
 .safe-cologne-options-page h1 {
-    color: #E30613;
-    border-bottom: 2px solid #E30613;
+    color: #E2001A;
+    border-bottom: 2px solid #E2001A;
     padding-bottom: 10px;
     margin-bottom: 30px;
 }
@@ -161,7 +161,7 @@
 .post-type-testimonials .postbox-header,
 .post-type-job_openings .postbox-header {
     background: #f8f8f8;
-    border-color: #E30613;
+    border-color: #E2001A;
 }
 
 /* Quick Edit Styles */
@@ -176,11 +176,11 @@
 
 /* Admin Notices */
 .notice-safe-cologne {
-    border-left-color: #E30613;
+    border-left-color: #E2001A;
 }
 
 .notice-safe-cologne h3 {
-    color: #E30613;
+    color: #E2001A;
 }
 
 /* Responsive Admin */
@@ -197,7 +197,7 @@
 /* Theme Info Box */
 .safe-cologne-info-box {
     background: #fff;
-    border-left: 4px solid #E30613;
+    border-left: 4px solid #E2001A;
     box-shadow: 0 1px 1px rgba(0,0,0,.04);
     padding: 12px;
     margin: 20px 0;
@@ -205,7 +205,7 @@
 
 .safe-cologne-info-box h4 {
     margin: 0 0 5px;
-    color: #E30613;
+    color: #E2001A;
 }
 
 .safe-cologne-info-box p {
@@ -215,8 +215,8 @@
 
 /* Custom Buttons */
 .button-safe-cologne {
-    background: #E30613;
-    border-color: #E30613;
+    background: #E2001A;
+    border-color: #E2001A;
     color: #fff;
     text-shadow: none;
 }
@@ -239,7 +239,7 @@
 
 .safe-cologne-help h4 {
     margin-top: 0;
-    color: #E30613;
+    color: #E2001A;
 }
 
 .safe-cologne-help code {

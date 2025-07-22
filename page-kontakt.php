@@ -163,7 +163,7 @@ get_header(); ?>
 <style>
 /* SafeCologne Kontakt Page Styles */
 :root {
-    --primary-color: #E30613; /* SafeCologne Red */
+    --primary-color: #E2001A; /* SafeCologne Red */
     --secondary-color: #1A1A1A; /* Dark Gray */
     --accent-color: #0055A5; /* Professional Blue */
     --text-dark: #2D2D2D;
