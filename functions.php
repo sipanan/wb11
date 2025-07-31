@@ -48,6 +48,16 @@ function safe_cologne_setup() {
     add_theme_support('customize-selective-refresh-widgets');
     add_theme_support('wp-block-styles');
     add_theme_support('align-wide');
+    
+    // Full Site Editing support
+    add_theme_support('block-templates');
+    add_theme_support('block-template-parts');
+    add_theme_support('appearance-tools');
+    add_theme_support('border');
+    add_theme_support('custom-spacing');
+    add_theme_support('link-color');
+    add_theme_support('custom-units');
+    add_theme_support('responsive-embeds');
     add_theme_support('responsive-embeds');
     
     // Register navigation menus

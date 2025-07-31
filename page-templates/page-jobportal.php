@@ -148,32 +148,34 @@ $header_height = 80; // Adjust based on your actual header
                 <?php
                 $positions = [
                     [
-                        'title' => 'Sicherheitsmitarbeiter (m/w/d)',
+                        'title' => 'Sicherheitsmitarbeiter (m/w/d) MIT §34a Zertifikat',
                         'category' => 'security',
                         'type' => 'Vollzeit',
                         'location' => 'Köln',
-                        'highlight' => true
+                        'highlight' => true,
+                        'description' => 'Für unsere anspruchsvollen Sicherheitsdienstleistungen suchen wir qualifizierte Mitarbeiter mit gültiger §34a GewO Bescheinigung.',
+                        'requirements' => [
+                            'Gültige §34a GewO Bescheinigung (Sachkundeprüfung)',
+                            'Zuverlässigkeit und Belastbarkeit',
+                            'Deutschkenntnisse in Wort und Schrift',
+                            'Gepflegtes Erscheinungsbild',
+                            'Teamfähigkeit und Kommunikationsstärke'
+                        ]
                     ],
                     [
-                        'title' => 'Objektleiter Sicherheit (m/w/d)',
+                        'title' => 'Sicherheitsmitarbeiter (m/w/d) OHNE §34a Zertifikat',
                         'category' => 'security',
                         'type' => 'Vollzeit',
                         'location' => 'Köln',
-                        'highlight' => false
-                    ],
-                    [
-                        'title' => 'Personaldisponent (m/w/d)',
-                        'category' => 'admin',
-                        'type' => 'Vollzeit',
-                        'location' => 'Köln',
-                        'highlight' => false
-                    ],
-                    [
-                        'title' => 'Bereichsleiter Security (m/w/d)',
-                        'category' => 'management',
-                        'type' => 'Vollzeit',
-                        'location' => 'Köln',
-                        'highlight' => true
+                        'highlight' => false,
+                        'description' => 'Quereinsteiger willkommen! Wir bieten eine umfassende Einarbeitung und unterstützen Sie beim Erwerb der §34a Bescheinigung.',
+                        'requirements' => [
+                            'Interesse an Sicherheitsdienstleistungen',
+                            'Zuverlässigkeit und Verantwortungsbewusstsein',
+                            'Deutschkenntnisse in Wort und Schrift',
+                            'Bereitschaft zur Weiterbildung (§34a)',
+                            'Flexibilität bei den Arbeitszeiten'
+                        ]
                     ]
                 ];
                 
@@ -181,7 +183,7 @@ $header_height = 80; // Adjust based on your actual header
                     <div class="position-card <?php echo $position['highlight'] ? 'highlighted' : ''; ?>" 
                          data-category="<?php echo $position['category']; ?>">
                         <?php if ($position['highlight']) : ?>
-                            <span class="position-badge">Top Position</span>
+                            <span class="position-badge">Bevorzugt</span>
                         <?php endif; ?>
                         <h3 class="position-title"><?php echo $position['title']; ?></h3>
                         <div class="position-meta">
@@ -194,6 +196,17 @@ $header_height = 80; // Adjust based on your actual header
                                 <?php echo $position['location']; ?>
                             </span>
                         </div>
+                        <p class="position-description"><?php echo $position['description']; ?></p>
+                        
+                        <div class="position-requirements">
+                            <h4>Anforderungen:</h4>
+                            <ul>
+                                <?php foreach ($position['requirements'] as $requirement) : ?>
+                                    <li><?php echo $requirement; ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                        
                         <a href="#bewerbung" class="position-apply smooth-scroll">
                             Jetzt bewerben →
                         </a>
@@ -265,50 +278,7 @@ $header_height = 80; // Adjust based on your actual header
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Das sagen unsere Mitarbeiter</h2>
-            </div>
-            
-            <div class="testimonials-slider">
-                <div class="testimonial-item">
-                    <div class="testimonial-content">
-                        <p>"Bei SafeCologne habe ich nicht nur einen Job gefunden, sondern eine berufliche Heimat. Die Aufstiegschancen sind real und die Kollegen wie eine zweite Familie."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonial-1.jpg" alt="Michael S.">
-                        <div>
-                            <strong>Michael S.</strong>
-                            <span>Objektleiter, seit 2019</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Add more testimonials -->
-            </div>
-        </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Bereit für den nächsten Karriereschritt?</h2>
-                <p>Unser HR-Team freut sich auf Ihre Bewerbung</p>
-                <div class="cta-buttons">
-                    <a href="tel:+4922112345678" class="cta-button cta-primary">
-                        <svg width="20" height="20"><use href="#icon-phone"/></svg>
-                        0221 123 456 78
-                    </a>
-                    <a href="mailto:karriere@safecologne.de" class="cta-button cta-secondary">
-                        <svg width="20" height="20"><use href="#icon-email"/></svg>
-                        E-Mail schreiben
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
 </main>
 
@@ -712,10 +682,51 @@ section {
     font-weight: 600;
     text-decoration: none;
     transition: var(--transition);
+    margin-top: auto;
 }
 
 .position-apply:hover {
     gap: 0.5rem;
+}
+
+.position-description {
+    color: var(--gray-600);
+    margin: 1rem 0;
+    line-height: 1.6;
+}
+
+.position-requirements {
+    margin: 1.5rem 0;
+}
+
+.position-requirements h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin: 0 0 0.75rem;
+}
+
+.position-requirements ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.position-requirements li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--gray-700);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.position-requirements li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
 }
 
 /* Application Section */
