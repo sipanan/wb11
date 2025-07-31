@@ -282,3 +282,26 @@ function safe_cologne_field_email_cb() {
     <input type="email" name="safe_cologne_settings[email]" value="<?php echo isset($options['email']) ? esc_attr($options['email']) : ''; ?>" />
     <?php
 }
+
+// Register block patterns
+add_action('init', 'safe_cologne_register_patterns');
+function safe_cologne_register_patterns() {
+    register_block_pattern(
+        'safe-cologne/hero-section',
+        array(
+            'title'       => __('Safe Cologne Hero Section', 'safe-cologne'),
+            'description' => _x('A hero section with title, subtitle, and feature icons', 'Pattern description', 'safe-cologne'),
+            'content'     => file_get_contents(get_template_directory() . '/patterns/hero-section.php'),
+            'categories'  => array('safe-cologne'),
+        )
+    );
+}
+
+// Register pattern category
+add_action('init', 'safe_cologne_register_pattern_category');
+function safe_cologne_register_pattern_category() {
+    register_block_pattern_category(
+        'safe-cologne',
+        array('label' => __('Safe Cologne', 'safe-cologne'))
+    );
+}

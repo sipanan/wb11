@@ -378,8 +378,27 @@
 				"color": {
 					"text": "var(--wp--preset--color--gray-600)"
 				}
+			},
+			"core/columns": {
+				"spacing": {
+					"blockGap": "var(--wp--preset--spacing--lg)"
+				}
+			},
+			"core/group": {
+				"spacing": {
+					"blockGap": "var(--wp--preset--spacing--md)"
+				}
 			}
 		}
+	},
+	"customSettings": {
+		"mobile": {
+			"breakpoint": "768px"
+		},
+		"desktop": {
+			"breakpoint": "1024px"
+		}
+	}
 	},
 	"templateParts": [
 		{
