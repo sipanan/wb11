@@ -139,7 +139,7 @@ get_header(); ?>
                                 </tr>
                                 <tr>
                                     <td><strong>Verantwortlich für Datenerfassung</strong></td>
-                                    <td>Safe Cologne SecUG (siehe Abschnitt "Verantwortlicher")</td>
+                                    <td>Safe Cologne Sec UG (haftungsbeschränkt) (siehe Abschnitt "Verantwortlicher")</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Wie erfassen wir Ihre Daten?</strong></td>
@@ -170,14 +170,56 @@ get_header(); ?>
                                  height="60">
                         </div>
                         <div class="company-details">
-                            <h3>Safe Cologne SecUG (haftungsbeschränkt)</h3>
+                            <h3>Safe Cologne Sec UG (haftungsbeschränkt)</h3>
                             <address>
                                 <p>
-                                    Subbelrather Str. 15A<br>
+                                    Subbelrather Straße 15a<br>
                                     50823 Köln<br>
                                     Deutschland
                                 </p>
                             </address>
+                            
+                            <div class="contact-grid">
+                                <div class="contact-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                    </svg>
+                                    <div>
+                                        <strong>Telefon:</strong>
+                                        <a href="tel:+4922165058801">+49 221 65058801</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                    </svg>
+                                    <div>
+                                        <strong>E-Mail:</strong>
+                                        <a href="mailto:info@safecologne.de">info@safecologne.de</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08C6.03 6.34 7.57 5.06 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56C7.57 18.94 6.03 17.66 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2z"/>
+                                    </svg>
+                                    <div>
+                                        <strong>Website:</strong>
+                                        <a href="https://safecologne.de">https://safecologne.de</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/>
+                                    </svg>
+                                    <div>
+                                        <strong>Geschäftsführer:</strong>
+                                        <span>Christian Wolff</span>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="contact-details">
                                 <p><strong>Telefon:</strong> <a href="tel:+4922165058801">0221 65058801</a></p>
                                 <p><strong>E-Mail:</strong> <a href="mailto:datenschutz@safecologne.de">datenschutz@safecologne.de</a></p>

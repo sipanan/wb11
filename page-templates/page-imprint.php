@@ -48,6 +48,187 @@ get_header(); ?>
     <!-- Main Content -->
     <section class="legal-content">
         <div class="container">
+            <div class="legal-wrapper">
+                <div class="legal-main">
+                    
+                    <!-- Company Information -->
+                    <div id="unternehmen" class="legal-section">
+                        <h2>Unternehmensinformationen</h2>
+                        <div class="legal-card">
+                            <div class="company-info">
+                                <h3>Safe Cologne Sec UG (haftungsbeschränkt)</h3>
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <strong>Geschäftsführer:</strong>
+                                        <span>Christian Wolff</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <strong>Adresse:</strong>
+                                        <span>Subbelrather Straße 15a, 50823 Köln</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div id="kontakt" class="legal-section">
+                        <h2>Kontaktdaten</h2>
+                        <div class="legal-card">
+                            <div class="contact-grid">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="contact-content">
+                                        <strong>Telefon:</strong>
+                                        <a href="tel:+4922165058801">+49 221 65058801</a>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="contact-content">
+                                        <strong>E-Mail:</strong>
+                                        <a href="mailto:info@safecologne.de">info@safecologne.de</a>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="contact-content">
+                                        <strong>Website:</strong>
+                                        <a href="https://safecologne.de">https://safecologne.de</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Register Information -->
+                    <div id="register" class="legal-section">
+                        <h2>Registerdaten</h2>
+                        <div class="legal-card">
+                            <div class="register-info">
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <strong>Handelsregister:</strong>
+                                        <span>Amtsgericht Köln, HRB 115489</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <strong>USt-IdNr:</strong>
+                                        <span>DE362696426</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <strong>Steuernummer:</strong>
+                                        <span>217/5781/1663</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Permits and Licenses -->
+                    <div id="erlaubnisse" class="legal-section">
+                        <h2>Erlaubnisse & Zulassungen</h2>
+                        <div class="legal-card">
+                            <div class="permit-info">
+                                <p>Als gewerbsmäßiger Anbieter von Bewachungsdienstleistungen verfügen wir über alle erforderlichen Genehmigungen nach der Gewerbeordnung (GewO) § 34a.</p>
+                                <div class="permit-details">
+                                    <h4>Tätigkeitsbereiche:</h4>
+                                    <ul>
+                                        <li>Bewachung von Leben und Eigentum fremder Personen</li>
+                                        <li>Objektschutz und Werksschutz</li>
+                                        <li>Personenschutz</li>
+                                        <li>Veranstaltungsschutz</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Liability -->
+                    <div id="haftung" class="legal-section">
+                        <h2>Haftungsausschluss</h2>
+                        <div class="legal-card">
+                            <div class="liability-info">
+                                <h4>Haftung für Inhalte</h4>
+                                <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht unter der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+                                
+                                <h4>Haftung für Links</h4>
+                                <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+                                
+                                <h4>Urheberrecht</h4>
+                                <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="legal-sidebar">
+                    
+                    <!-- Quick Contact -->
+                    <div class="sidebar-card">
+                        <h3>Schneller Kontakt</h3>
+                        <div class="quick-contact">
+                            <a href="tel:+4922165058801" class="contact-button">
+                                <svg width="20" height="20" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                </svg>
+                                <span>Anrufen</span>
+                            </a>
+                            <a href="mailto:info@safecologne.de" class="contact-button">
+                                <svg width="20" height="20" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                                <span>E-Mail senden</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Legal Links -->
+                    <div class="sidebar-card">
+                        <h3>Weitere rechtliche Informationen</h3>
+                        <ul class="legal-links">
+                            <li><a href="<?php echo home_url('/datenschutz'); ?>">Datenschutzerklärung</a></li>
+                            <li><a href="<?php echo home_url('/agb'); ?>">Allgemeine Geschäftsbedingungen</a></li>
+                            <li><a href="<?php echo home_url('/kontakt'); ?>">Kontakt</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Trust Elements -->
+                    <div class="sidebar-card">
+                        <h3>Vertrauen & Sicherheit</h3>
+                        <div class="trust-badges">
+                            <div class="trust-badge">
+                                <svg width="32" height="32" viewBox="0 0 24 24">
+                                    <path fill="#E30613" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                                </svg>
+                                <span>§34a GewO<br>zertifiziert</span>
+                            </div>
+                            <div class="trust-badge">
+                                <svg width="32" height="32" viewBox="0 0 24 24">
+                                    <path fill="#E30613" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                                <span>Geprüfte<br>Qualität</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </aside>
+            </div>
+        </div>
+    </section>
             <div class="content-grid">
                 <!-- Main Column -->
                 <div class="main-content">

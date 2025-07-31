@@ -709,7 +709,14 @@ address {
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     text-align: left;
     max-width: 280px;
-    z-index: 10;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.location-card h3,
+.location-card p,
+.location-card .facility-list {
+    pointer-events: auto;
 }
 
 .location-card h3 {
